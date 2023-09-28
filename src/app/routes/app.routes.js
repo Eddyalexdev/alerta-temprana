@@ -19,4 +19,8 @@ router.get('/login', (req, res) => {
 
 router.post('/login', login)
 
+router.get('/probando2', (req, res) => {
+    res.render('probando2')
+})
+
 module.exports = router
