@@ -1,0 +1,51 @@
+.acordeon{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  height: 100%;
+  
+  --title-size: 20px;
+  --title-padding: 10px;
+}
+
+.acordeon > li{
+  --item-height: calc( var(--title-size) + (var(--title-padding) * 2) );
+  border: 1px solid rgb(57, 160, 74);
+  height: var(--item-height);
+  overflow: hidden;
+  transition: height .25s;
+  display: flex;
+  flex-direction: column;
+}
+
+.acordeon > li div{
+  flex: 1;
+  overflow-y: auto;
+}
+
+.acordeon > li.open{
+  height: calc( 90% - ( (var(--item-height) + 2px) * var(--items-qtty, 1) ) );
+}
+
+.acordeon > li:not(:last-child){
+  border-bottom-color: rgb(57, 160, 74);
+}
+
+.acordeon > li > h2{
+  margin: 0;
+  background: #121f3d url(./flecha.svg) calc(100% - 20px) center/auto var(--title-size) no-repeat;
+  color: white;
+  font-size: var(--title-size);
+  line-height: var(--title-size);
+  padding: var(--title-padding);
+}
+
+.acordeon > li.open > h2{
+  background-color: rgb(57, 160, 74);
+  background-image: url(./flecha-2.svg);
+}
+
+.acordeon > li > div{
+  padding: 2em;
+}

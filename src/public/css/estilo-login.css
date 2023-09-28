@@ -1,0 +1,132 @@
+:root{
+    --azul:#001a3a;
+    --azulOscuro:#001a3a;
+    --azulGris:#23A455;
+    --blanco:#fff;
+    --fuente:'Quicksand', sans-serif;
+}
+html{
+    box-sizing: border-box;
+}
+
+*,*::after, *::before{
+    box-sizing: inherit;
+}
+
+body{
+    font-family: var(--fuente);
+    background-color: var(--azulOscuro);
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor{
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.imagen-formulario{
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg/1200px-Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 500px;
+    flex: 0 0 calc(60%);
+    position: relative;
+    
+}
+.imagen-formulario::before{
+   content: '';
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background: linear-gradient(to right,rgba(64,84,178,.5), rgba(13,48,76, .5) );
+   
+}
+
+@media(min-width:768px){
+    .imagen-formulario{
+        height: auto;
+        background-position: right;
+    }
+
+}
+@media(min-width:1200px){
+    .imagen-formulario{
+        background-position: center;
+    }
+}
+
+@media(min-width:768px){
+    .contenedor-formulario{
+        display: flex;
+    }
+}
+
+.formulario{
+    padding: 50px;
+    background-color: var(--azul);
+}
+.texto-formulario h2, .input label, .password-olvidada a, .texto-formulario p{
+    color: var(--blanco);
+}
+.texto-formulario h2{
+    font-size: 40px;
+    text-align: center;
+}
+.texto-formulario p{
+    font-size: 22px;
+    text-align: center;
+}
+.input label{
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+.password-olvidada a{
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 22px;
+}
+.input input{
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 5px;
+    outline: none;
+}
+.input input[type="submit"]{
+    background-color: var(--azulGris);
+    color: var(--blanco);
+    font-size: 22px;
+    font-weight: bold;
+    border: none;
+    margin-top: 20px;
+    transition: background-color .3s ease-in-out;
+}
+.input input[type="submit"]:hover{
+  
+    cursor: pointer;
+    background-color: var(--azulOscuro);
+}
+
+.flex-container{
+    display: flex;
+    
+    padding: 20px;
+  
+}
+
+.flex-container div{
+   
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+    border-radius: 30%;
+    border: 2px solid rgb(255, 255, 255);    
+}

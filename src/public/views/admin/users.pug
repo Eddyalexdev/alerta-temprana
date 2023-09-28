@@ -1,0 +1,193 @@
+extends ../layout/admin.pug
+
+block content
+    // BEGIN MAIN CONTAINER
+    #container.main-container.sidebar-closed.sbar-open
+        .overlay
+        .cs-overlay
+        .search-overlay
+        // BEGIN SIDEBAR
+        .sidebar-wrapper.sidebar-theme
+            nav#sidebar
+                ul.navbar-nav.theme-brand.flex-row.text-center
+                    li.nav-item.theme-logo
+                        a(href='#')
+                            img.navbar-logo(src='/assets/images/logo2.png' alt='logo')
+                    li.nav-item.theme-text
+                        a.nav-link(href='#') INGECOP
+                ul#accordionExample.list-unstyled.menu-categories
+                    li.menu.active
+                        a.dropdown-toggle(href='add-school-admin.html' aria-expanded='true')
+                            div
+                                svg.feather.feather-home(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                    path(d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z')
+                                    polyline(points='9 22 9 12 15 12 15 22')
+                                span(style='z-index: 100;') Panel Administrativo
+                    li.menu.menu-heading
+                        .heading
+                            svg.feather.feather-circle(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                circle(cx='12' cy='12' r='10')
+                            span - Administracion de la pagina -
+                    li.menu
+                        a.dropdown-toggle(href='#managecollege' data-toggle='collapse' aria-expanded='false')
+                            div
+                                svg.feather.feather-layers(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                    polygon(points='12 2 2 7 12 12 22 7 12 2')
+                                    polyline(points='2 17 12 22 22 17')
+                                    polyline(points='2 12 12 17 22 12')
+                                span ENLACES
+                            div
+                                svg.feather.feather-chevron-right(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                    polyline(points='9 18 15 12 9 6')
+                        ul#managecollege.collapse.submenu.list-unstyled(data-parent='#accordionExample')
+                            li
+                                a(href='school/add-school.html')  Administrar Enlaces 
+                    li.menu
+                        a.dropdown-toggle(href='#manageteacher' data-toggle='collapse' aria-expanded='false')
+                            div
+                                svg.feather.feather-user-check(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                    path(d='M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2')
+                                    circle(cx='8.5' cy='7' r='4')
+                                span USUARIOS
+                            div
+                                svg.feather.feather-chevron-right(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                    polyline(points='9 18 15 12 9 6')
+                        ul#manageteacher.collapse.submenu.list-unstyled(data-parent='#accordionExample')
+                            li
+                                a(href='#')  Administrar usuarios
+                    li.menu
+                        a.dropdown-toggle(href='#managerdistrict' data-toggle='collapse' aria-expanded='false')
+                            div
+                                svg.feather.feather-layers(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                    polygon(points='12 2 2 7 12 12 22 7 12 2')
+                                    polyline(points='2 17 12 22 22 17')
+                                    polyline(points='2 12 12 17 22 12')
+                                span PAGINAS
+                            div
+                                svg.feather.feather-chevron-right(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                    polyline(points='9 18 15 12 9 6')
+                        ul#managerdistrict.collapse.submenu.list-unstyled(data-parent='#accordionExample')
+                            li
+                                a(href='#')  Cambiar Publicidad
+                            li
+                                a(href='teacher/view-teacher.html')  Cambiar Enlaces 
+        // END SIDEBAR
+        // BEGIN CONTENT AREA
+        #content.main-content
+            .layout-px-spacing
+                .page-header
+                    .page-title
+                        h3 Panel Administrativo
+                        a.btn.btn-info(href='#addadminModal' style='width: 400px; margin-top: 50px;' data-toggle='modal')
+                            i.material-icons &#xE147;
+                            span(style='font-size: 25px; color: #fff;') Agregar usuario nuevo
+                .table-title.text-center
+                    .row.text-center
+                        .text-center(style='margin-top: 40px;')
+                .widget-content.widget-content-area.br-6
+                    .table-responsive.mb-4.mt-4
+                        table#table1.table.table-hover.text-center(style='width:100%')
+                            thead
+                                tr
+                                    th Nombre
+                                    th Apellido
+                                    th USUARIO
+                                    th CORREO
+                                    th Acciones
+                            tbody#tch-table
+        // END CONTENT AREA
+        // Add admin
+        #addadminModal.modal.fade
+            .modal-dialog
+                .modal-content
+                    form
+                        .modal-header
+                            h4.modal-title Agrega Usuario
+                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                            | &times;
+                        #add-form.modal-body
+                            .col-sm-12
+                                label Nombre 
+                                input#admin-name.form-control.mb-4(type='text' placeholder='' required='')
+                            .col-sm-12
+                                .form-group
+                                    label Apellido
+                                    input#school-id.form-control.mb-4(type='text' placeholder='' required='')
+                            .col-sm-12
+                                .form-group
+                                    label ID de Usuario
+                                    input#school-name.form-control.mb-4(type='text' placeholder='' required='')
+                            .col-md-12
+                                .form-group
+                                    label Email
+                                    input#signup-email.form-control.mb-4(type='email' placeholder='' required='')
+                            .col-md-12
+                                .form-group
+                                    label Contrase&ntilde;a
+                                    input#signup-password.form-control.mb-4(type='password' placeholder='' required='')
+                            .col-md-12
+                                .form-group
+                                    label Admin Designation
+                                    .form-group.mr-1
+                                        select#designation.form-control(required='')
+                                            option Super Admin
+                                            option Admin
+                                            option Editor
+                        .modal-footer
+                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                            input#add_admin.btn.btn-success(type='button' data-dismiss='modal' value='Add')
+        #editadminModal.modal.fade
+            .modal-dialog
+                .modal-content
+                    form
+                        .modal-header
+                            h4.modal-title Edit Admin
+                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                            | &times;
+                        .modal-body
+                            .col-sm-12
+                                label Nombre
+                                input#admin-name.form-control.mb-4(type='text' placeholder='Admin Name' required='')
+                            .col-sm-12
+                                .form-group
+                                    label Apellido
+                                    input#school-id.form-control.mb-4(type='text' placeholder='School ID' required='')
+                            .col-sm-12
+                                .form-group
+                                    label Usuario
+                                    input#school-name.form-control.mb-4(type='text' placeholder='School Name' required='')
+                            .col-md-12
+                                .form-group
+                                    label Correo
+                                    input#signup-email.form-control.mb-4(type='email' placeholder="Admin's Email" required='')
+                            .col-md-12
+                                .form-group
+                                    label Default Password
+                                    input#signup-password.form-control.mb-4(type='password' placeholder='Default Password' required='')
+                            .col-md-12
+                                .form-group
+                                    label Admin Designation
+                                    .form-group.mr-1
+                                        select#designation.form-control(required='')
+                                            option Super Admin
+                                            option Admin
+                                            option Editor
+                        .modal-footer
+                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                            input.btn.btn-info(type='submit' value='Save')
+        #deleteadminModal.modal.fade
+            .modal-dialog
+                .modal-content
+                    form
+                        .modal-header
+                            h4.modal-title Delete Admin
+                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                            | &times;
+                        .modal-body
+                            p &iquest;Seguro que quiere eliminar los siguientes campos?
+                            p.text-warning
+                            small Esta acci&oacute;n no se puede revertir.
+                        .modal-footer
+                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                            input.btn.btn-danger(type='submit' value='Delete')
+    // END MAIN CONTAINER

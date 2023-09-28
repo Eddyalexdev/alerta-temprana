@@ -1,0 +1,53 @@
+.btn {
+    flex-direction: column;
+    display: flexbox;
+    background-color: #fcb900;
+    display: inline-block;
+    width: 350px;
+    border: 10px;
+    padding: 20px 2px;
+    text-align: center;
+    margin: 5px 2px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.btn2 {
+    flex-direction: column;
+    display: flexbox;
+    background-color: #0082fc;
+    display: inline-block;
+    width: 300px;
+    border: 10px;
+    padding: 20px 2px;
+   
+    margin: 5px 2px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+
+.btn2 {
+    
+   text-align: center;
+   
+}
+
+.btn3 {
+    flex-direction: column;
+    background-color: #fcb900;
+    display: inline-block;
+    width: 150px;
+    border: 10px;
+    padding: 5px 2px;
+     
+    margin: 5px 2px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size:small;
+    font-weight: bold;
+}

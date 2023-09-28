@@ -1,0 +1,92 @@
+doctype html
+html(lang="es")
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no')
+        link(rel='icon' href='../assets/images/logo.png')
+        title Add School Admin 
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito:400,600,700')
+        link(rel='stylesheet' href='/css/bootstrap/bootstrap.min.css')
+        link(rel='stylesheet' href='/css/admin/plugins.css')
+        link(rel='stylesheet' href='/css/admin/add-school.css')
+        link(rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons')
+        script(src='https://smtpjs.com/v3/smtp.js')
+    body
+        //Start Header
+        .header-container.fixed-top
+            header.header.navbar.navbar-expand-sm.expand-header
+                a.sidebarCollapse(href='javascript:void(0);' data-placement='bottom')
+                    svg.feather.feather-menu(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                        line(x1='3' y1='12' x2='21' y2='12')
+                        line(x1='3' y1='6' x2='21' y2='6')
+                        line(x1='3' y1='18' x2='21' y2='18')
+                ul.navbar-item.flex-row.ml-auto
+                    li.nav-item.align-self-center.search-animated
+                        a(href='#')
+                            svg.feather.feather-home(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                path(d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z')
+                                polyline(points='9 22 9 12 15 12 15 22')
+                    li.nav-item.dropdown.user-profile-dropdown.order-lg-0.order-1
+                        a#userProfileDropdown.nav-link.dropdown-toggle.user(href='javascript:void(0);' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                            svg.feather.feather-user-check(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                path(d='M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2')
+                                circle(cx='8.5' cy='7' r='4')
+                                polyline(points='17 11 19 13 23 9')
+                        .dropdown-menu.position-absolute.e-animated.e-fadeInUp(aria-labelledby='userProfileDropdown')
+                            .user-profile-section
+                                .media.mx-auto
+                                    img.img-fluid.mr-2(src='../assets/images/avatar6.png' alt='avatar')
+                            assets/        .media-body
+                                        h5 Rodrigo Garcia
+                                        p Super Admin
+                            .dropdown-item
+                                a(href='../password-recovery.html')
+                                    svg.feather.feather-user(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                        path(d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2')
+                                        circle(cx='12' cy='7' r='4')
+                                    span Reset Password
+                            .dropdown-item
+                                a#logout(href='#')
+                                    svg.feather.feather-log-out(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                                        path(d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4')
+                                        polyline(points='16 17 21 12 16 7')
+                                        line(x1='21' y1='12' x2='9' y2='12')
+                                    span Log Out
+        // END Header
+
+        //Start Content
+        block content
+        //End Content
+
+        //Start Scripts
+        script(src='/js/admin/libs/jquery-3.1.1.min.js')
+        script(src='/js/bootstrap/popper.min.js')
+        script(src='/js/bootstrap/bootstrap.min.js')
+        script(src='/js/admin/app.js')
+        script.
+            $(document).ready(function () {
+            App.init();
+            });
+        script(src='https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js')
+        script(src='https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js')
+        script(src='https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js')
+        script(src='https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js')
+        script(src='https://www.gstatic.com/firebasejs/7.16.0/firebase-functions.js')
+        script.
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+            apiKey: "AIzaSyCGnS-YLBl5eqdbepF9n0xfP1w2RcqZ9qk",
+            authDomain: "ssmp-a8fac.firebaseapp.com",
+            databaseURL: "https://ssmp-a8fac.firebaseio.com",
+            projectId: "ssmp-a8fac",
+            storageBucket: "ssmp-a8fac.appspot.com",
+            messagingSenderId: "834563105579",
+            appId: "1:834563105579:web:2f3446537ac21a95e4db6e"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            const auth = firebase.auth();
+            const db = firebase.database();
+            const functions = firebase.functions();
+        script(src='/js/admin/authentication/school-admin.js')
