@@ -1,0 +1,105 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title table2excel | rusty1s
+        link(rel='stylesheet', type='text/css', href='estiloindex.css')
+        script(src='../dist/table2excel.js')
+    body
+        center
+            hr
+            h asdasdadsads
+            table(data-excel-name='A very important table')
+                thead
+                    tr
+                        th
+                            span 1
+                        th 2
+                        th 3
+                        th 4
+                tbody
+                    tr
+                        th a
+                        td(data-timestamp='1468834644032') 18.07.2016 11:37:24
+                        td a2
+                        td(style='display: none') hidden
+                        td a3
+                    tr
+                        th b
+                        td(colspan='2') b1+b2
+                        td b3
+                    tr
+                        th c
+                        td(rowspan='2') c1+d1
+                        td c2
+                        td(rowspan='2') c3+d3
+                    tr
+                        th d
+                        td d2
+                tfoot
+                    tr
+                        td(colspan='4') 4 entries
+        hr
+        h1 asdasd
+        table(data-excel-name='Another table')
+            thead
+                tr
+                    th 1
+                    th 2
+                    th 3
+                    th 4
+            tbody
+                tr
+                    th e
+                    td e1
+                    td e2
+                    td e3
+                tr
+                    th f
+                    td
+                        input(type='text', value='f1')
+                    td
+                        select
+                            option f2.1
+                            option f2.2
+                            option f2.3
+                    td
+                        textarea f3
+            tfoot
+                tr
+                    td(colspan='4') =suma(b3+d3)
+        hr
+        h1 sadadad
+        table(data-excel-name='Anov table')
+            thead
+                tr
+                    th 1
+                    th 2
+                    th 3
+                    th 4
+            tbody
+                tr
+                    th e
+                    td e1
+                    td e2
+                    td e3
+                tr
+                    th f
+                    td
+                        input(type='text', value='f1')
+                    td
+                        select
+                            option f2.1
+                            option f2.2
+                            option f2.3
+                    td
+                        textarea f3
+            tfoot
+                tr
+                    td(colspan='4') 2 entries
+        button#export Export to excel
+        script.
+            var table2excel = new Table2Excel();
+            document.getElementById('export').addEventListener('click', function() {
+            table2excel.export(document.querySelectorAll('table'));
+            });
