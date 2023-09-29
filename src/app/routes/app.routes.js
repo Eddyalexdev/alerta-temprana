@@ -111,4 +111,28 @@ router.get('/lista', (req, res) => {
     res.render('lista')
 })
 
+router.get('/5001', (req, res) => {
+    res.render('5001')
+})
+
+router.get('/5002', (req, res) => {
+    res.render('5002')
+})
+
+router.get('/5003', (req, res) => {
+    res.render('5003')
+})
+
+router.get('/5004', (req, res) => {
+    res.render('5004')
+})
+
+router.get('/5005', (req, res) => {
+    res.render('5005')
+})
+
+router.get('/2do', (req, res) => {
+    res.render('2do')
+})
+
 module.exports = router

@@ -1,0 +1,375 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title Document
+        link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl', crossorigin='anonymous')
+        script(src='js/jspdf.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js')
+        script(src='js/app5.js')
+        link(rel='stylesheet', href='css/estilo_formularios.css')
+    body
+        nav.nav
+            input#nav__checkbox.nav__checkbox(type='checkbox', name='')
+            label.nav__toggle(for='nav__checkbox')
+                // Menu
+                svg.menu(viewBox='0 0 448 512', width='100', title='bars')
+                    path(d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z')
+                // Close
+                svg.close(viewBox='0 0 384 512', width='100', title='times')
+                    path(d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z')
+            ul.nav__menu
+                li.menu__logo
+                    a(href='kiosko.html')
+                        img(src='images/logo1.png', alt='')
+                li
+                    a(href='contacto.html') Solicitar Asistencia
+                li
+                    a(href='formularios.html') Regresar a formularios
+        .container.mt-4
+            .row
+                .col-md-8.offset-md-2
+                    h3
+                        | SOLICITUD DE AUTORIZACI&Oacute;N DE
+                        | LIBROS MANUALES, HOJAS MOVIBLES
+                        | O FORMAS CONTABLES.
+                    h5
+                        | FORMULARIO NO. INGECOP-SALF-5005
+                    hr
+                    form#form
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='lugar') Lugar
+                                select#lugar.form-control(name='proceso')
+                                    option(value='-1', selected='', disabled='') Seleccione...
+                                    option(value='Guatemala') Guatemala
+                                    option(value='Quetzaltenango') Quetzaltenango
+                                    option(value='Huehuetenango') Huehuetenango
+                                    option(value='Coban, Altaverapaz') Coban, Altaverapaz
+                                    option(value='Flores, Petén') Flores, Pet&eacute;n
+                            .col-md-6
+                                label.form-label(for='fecha') Fecha
+                                input#fecha.form-control(type='date')
+                        .mb-3
+                            label.form-label(for='cop')
+                                | Cooperativa o Federacion
+                            input#cop.form-control(type='text')
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='dom') Domicilio
+                                input#dom.form-control(type='text')
+                            .col-md-6
+                                label.form-label(for='nit') NIT
+                                input#nit.form-control(type='text')
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='tel') Telefono
+                                input#tel.form-control(type='text')
+                        hr
+                        h6 Inspeccion General de Cooperativas INGECOP, Ciudad 
+                        h6  De la manera m&aacute;s atenta se solicita la autorizaci&oacute;n para impresi&oacute;n de:
+                        hr
+                        h3 LIBROS
+                        h5 Fila 1
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='p1') TIPO DE LIBRO
+                                input#rl.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#p1.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#p2.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#p3.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#p4.form-control(type='text')
+                        hr
+                        h5 Fila 2
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE LIBRO
+                                input#p5.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#p6.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#p7.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#p8.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#p9.form-control(type='text')
+                        hr
+                        h5 Fila 3
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE LIBRO
+                                input#p10.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#p11.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#p12.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#p13.form-control(type='datetime-local')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#p14.form-control(type='text')
+                        hr
+                        h5 Fila 4
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE LIBRO
+                                input#p15.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#p16.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#p17.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#p18.form-control(type='datetime-local')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#p19.form-control(type='text')
+                        hr
+                        h5 Fila 5
+                        |  
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE LIBRO
+                                input#p20.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#p21.form-control(type='text')
+                                | &quot;
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#p22.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#p23.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#p24.form-control(type='text')
+                        hr
+                        h5 Fila 6
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE LIBRO
+                                input#p25.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#p26.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#p27.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#p28.form-control(type='datetime-local')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#p29.form-control(type='text')
+                        hr
+                        h5 Fila 7
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE LIBRO
+                                input#p30.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#p31.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#p32.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#p33.form-control(type='datetime-local')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#p34.form-control(type='text')
+                        hr
+                        h5 Marque con una x el tipo:
+                        .row.d-md-5
+                            .col-md-2
+                                label.form-label(for='nompres') MANUAL
+                                input#p35.form-control(type='text', style='border: 1px dashed red; width: 80%; height: 30px;')
+                            .col-md-3
+                                label.form-label(for='telpres') HOJA MOVIL
+                                input#p36.form-control(type='text', style='border: 1px dashed red; width: 40%; height: 30px;')
+                            .col-md-7
+                                label.form-label(for='telpres') COMENTARIO
+                                input#p37.form-control(type='text')
+                        hr
+                        h3 FORMAS
+                        h5 Fila 1
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE FORMA
+                                input#p38.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#p39.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#p40.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#p41.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') SERIE
+                                input#p42.form-control(type='text')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#p43.form-control(type='text')
+                        hr
+                        h5 Fila 2
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE FORMA
+                                input#p44.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#p45.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#p46.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#p47.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') SERIE
+                                input#p48.form-control(type='text')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#p49.form-control(type='text')
+                        hr
+                        h5 Fila 3
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE FORMA
+                                input#p50.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#pp1.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#pp2.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#pp3.form-control(type='datetime-local')
+                            .col-md-4
+                                label.form-label(for='telpres') SERIE
+                                input#pp4.form-control(type='text')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#pp5.form-control(type='text')
+                        hr
+                        h5 Fila 4
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE FORMA
+                                input#pp6.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#pp7.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#pp8.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#pp9.form-control(type='datetime-local')
+                            .col-md-4
+                                label.form-label(for='telpres') SERIE
+                                input#pp10.form-control(type='text')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#pp11.form-control(type='text')
+                        hr
+                        h5 Fila 5
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE FORMA
+                                input#pp12.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#pp13.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#pp14.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#pp15.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') SERIE
+                                input#pp16.form-control(type='text')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#pp17.form-control(type='text')
+                        hr
+                        h5 Fila 6
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') TIPO DE FORMA
+                                input#pp18.form-control(type='text')
+                            .col-md-7
+                                label.form-label(for='telpres') AGENCIA (SI APLICA)
+                                input#pp19.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='nompres') DEL
+                                input#pp20.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') AL
+                                input#pp21.form-control(type='date')
+                            .col-md-4
+                                label.form-label(for='telpres') SERIE
+                                input#pp22.form-control(type='text')
+                            .col-md-4
+                                label.form-label(for='telpres') TOTAL
+                                input#pp23.form-control(type='text')
+                        hr
+                        hr
+                        h5 Marque con una x el tipo:
+                        .row.d-md-5
+                            .col-md-2
+                                label.form-label(for='nompres') MANUAL
+                                input#pp24.form-control(type='text', style='border: 1px dashed red; width: 80%; height: 30px;')
+                            .col-md-3
+                                label.form-label(for='telpres') ELECTRONICO
+                                input#pp25.form-control(type='text', style='border: 1px dashed red; width: 40%; height: 30px;')
+                            .col-md-2
+                                label.form-label(for='telpres') COMPUTARIZADO
+                                input#pp26.form-control(type='text', style='border: 1px dashed red; width: 70%; height: 30px;')
+                        hr
+                        .mb-3
+                            label.form-label(for='copcor') Nombre del Representate Legal:    
+                            input#pp27.form-control(type='text')
+                        hr
+                        span.d-block.pb-2 Firma digital aqui
+                        .signature.mb-2(style='width: 100%; height: 200px;')
+                            canvas#signature-canvas(style='border: 1px dashed rgb(255, 230, 0); width: 100%; height: 200px; background-color: white;')
+                        button.btn.btn-primary.mb-4(type='submit') Generar PDF

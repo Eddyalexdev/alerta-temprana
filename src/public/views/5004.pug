@@ -1,0 +1,164 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title Document
+        link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl', crossorigin='anonymous')
+        script(src='js/jspdf.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js')
+        script(src='js/app4.js')
+        link(rel='stylesheet', href='css/estilo_formularios.css')
+    body
+        nav.nav
+            input#nav__checkbox.nav__checkbox(type='checkbox', name='')
+            label.nav__toggle(for='nav__checkbox')
+                // Menu
+                svg.menu(viewBox='0 0 448 512', width='100', title='bars')
+                    path(d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z')
+                // Close
+                svg.close(viewBox='0 0 384 512', width='100', title='times')
+                    path(d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z')
+            ul.nav__menu
+                li.menu__logo
+                    a(href='kiosko.html')
+                        img(src='images/logo1.png', alt='')
+                li
+                    a(href='contacto.html') Solicitar Asistencia
+                li
+                    a(href='formularios.html') Regresar a formularios
+        .container.mt-4
+            .row
+                .col-md-8.offset-md-2
+                    h3
+                        | FORMULARIO DE
+                        | ACTUALIZACI&Oacute;N DE DATOS
+                    h5
+                        | FORMULARIO NO. INGECOP-SALF-5004
+                    hr
+                    h5
+                        | SECCI&Oacute;N DE AUTORIZACI&Oacute;N DE LIBROS Y FORMAS
+                    form#form
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='lugar') Lugar
+                                select#lugar.form-control(name='proceso')
+                                    option(value='-1', selected='', disabled='') Seleccione...
+                                    option(value='Guatemala') Guatemala
+                                    option(value='Quetzaltenango') Quetzaltenango
+                                    option(value='Huehuetenango') Huehuetenango
+                                    option(value='Coban, Altaverapaz') Coban, Altaverapaz
+                                    option(value='Flores, Petén') Flores, Pet&eacute;n
+                            .col-md-6
+                                label.form-label(for='fecha') Fecha
+                                input#fecha.form-control(type='date')
+                        .mb-3
+                            label.form-label(for='cop') Nombre de la Cooperativa o federaci&oacute;n
+                            input#cop.form-control(type='text')
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='dom') Direcci&oacute;n
+                                input#dom.form-control(type='text')
+                            .col-md-6
+                                label.form-label(for='nit') Federaci&oacute;n (Si Aplica) 
+                                input#nit.form-control(type='text')
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='rl') Abreviatura
+                                input#rl.form-control(type='text')
+                            .col-md-6
+                                label.form-label(for='tel') Telefono / Linea Fija / Celular
+                                input#tel.form-control(type='text')
+                        .col-md-6
+                            label.form-label(for='cor') Tel&eacute;fono Celular
+                            input#cor.form-control(type='text')
+                        hr
+                        hr
+                        h5
+                            | La Cooperativa se dedica a la actividad econ&oacute;mica con la que fue inscrita:
+                        .row.d-md-3
+                            .col-md-2
+                                label.form-label(for='veinte') SI
+                                input#fi.form-control(type='')
+                            .col-md-2
+                                label.form-label(for='veinte') NO 
+                                input#cd.form-control(type='')
+                        hr
+                        .mb-3
+                            label.form-label(for='copcor')
+                                | En caso contrario,
+                                | describa a qu&eacute; se dedica:
+                            input#p1.form-control(type='text')
+                            input#p2.form-control(type='text')
+                            input#p3.form-control(type='text')
+                        hr
+                        .mb-3
+                            label.form-label(for='copcor')
+                                | Registro de correo electronico
+                            input#p4.form-control(type='text')
+                            input#p5.form-control(type='text')
+                        hr
+                        hr
+                        h3
+                            | INFORMACI&Oacute;N DEL PERITO CONTADOR
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='p6') Nombre
+                                input#p6.form-control(type='text')
+                            .col-md-6
+                                label.form-label(for='p7') Numero de DPI
+                                input#p7.form-control(type='text')
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='p8') Direcci&oacute;n
+                                input#p8.form-control(type='text')
+                            .col-md-6
+                                label.form-label(for='p9') Numero de Registro
+                                input#p9.form-control(type='text')
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='p10')
+                                    | N&uacute;mero de Tel&eacute;fono Fijo
+                                input#p10.form-control(type='text')
+                            .col-md-6
+                                label.form-label(for='p11') Telefono / Linea Fija / Celular
+                                input#p11.form-control(type='text')
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='p12')
+                                    | Tipo de Servicio que provee
+                                input#p12.form-control(type='text')
+                            .col-md-6
+                                label.form-label(for='p13') Sistema de Operaci&oacute;n: 
+                                input#p13.form-control(type='text')
+                        .row.d-md-3
+                            .col-md-3
+                                label.form-label(for='p14')
+                                    | Cont. de Planta
+                                input#p14.form-control(type='')
+                            .col-md-3
+                                label.form-label(for='p15')
+                                    | Por servicios
+                                input#p15.form-control(type='')
+                            .col-md-3
+                                label.form-label(for='p16') Hojas Moviles
+                                input#p16.form-control(type='')
+                            .col-md-3
+                                label.form-label(for='p17') Manual   
+                                input#p17.form-control(type='')
+                            hr
+                            .col-md-2
+                                label.form-label(for='p18') IVA
+                                input#p18.form-control(type='text')
+                            .col-md-2
+                                label.form-label(for='p19') ISR
+                                input#p19.form-control(type='text')
+                            .col-md-8
+                                label.form-label(for='p20') Otros  
+                                input#p20.form-control(type='')
+                        hr
+                        span.d-block.pb-2 Firma digital aqui
+                        .signature.mb-2(style='width: 100%; height: 200px;')
+                            canvas#signature-canvas(style='border: 1px dashed rgb(251, 255, 0); width: 100%; height: 200px; background-color: white;')
+                        button.btn.btn-primary.mb-4(type='submit') Generar PDF
