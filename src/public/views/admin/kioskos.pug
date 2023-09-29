@@ -1,0 +1,74 @@
+extends ../layout/admin.pug
+
+block content
+    #container.main-container.sidebar-closed.sbar-open
+        include ../components/navbar
+
+        unless message
+            p=message
+        // Content
+        #content.main-content
+            .layout-px-spacing
+                .page-header
+                    .page-title
+                        h3 Administrar Kioskos
+                        a.btn.btn-info(href='#addadminModal' style='width: 400px; margin-top: 50px;' data-toggle='modal')
+                            i.material-icons &#xE147;
+                            span(style='font-size: 25px; color: #fff;') Agregar Kiosko nuevo
+                .table-title.text-center
+                    .row.text-center
+                        .text-center(style='margin-top: 40px;')
+                .widget-content.widget-content-area.br-6
+                    .table-responsive.mb-4.mt-4
+                        include ../components/table
+                        +table(["Icono", "Titulo", "URL", "Descripcion"], kioskos)
+        
+        // Modal
+        #addadminModal.modal.fade
+            .modal-dialog
+                .modal-content
+                    form(method="POST")
+                        .modal-header
+                            h4.modal-title Agrega Kiosko
+                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                            | &times;
+                        #add-form.modal-body
+                            .col-md-12
+                                .form-group
+                                    label Icono
+                                    .form-group.mr-1
+                                        select#designation.form-control(required='', name="icon")
+                                            option(value="fa-phone") 
+                                                span.fa.fa-phone Telefono
+                                            option(value="fa-book") 
+                                                span.fa.fa-phone Libro
+                                            option(value="fa-pencil") 
+                                                span.fa.fa-phone Lapiz
+                                            option(value="fa-laptop") 
+                                                span.fa.fa-phone Laptop
+                                            option(value="fa-line-chart") 
+                                                span.fa.fa-phone Grafico
+                                            option(value="fa-envelope") 
+                                                span.fa.fa-phone Correo
+                                            option(value="fa-external-link") 
+                                                span.fa.fa-phone Link Externo
+                                            option(value="fa-undo") 
+                                                span.fa.fa-phone Flecha
+                            .col-sm-12
+                                label Titulo
+                                input#admin-name.form-control.mb-4(type='text' placeholder='' required='', name="title")
+                            .col-sm-12
+                                .row
+                                    .col-sm-8
+                                        label URL
+                                        input#admin-name.form-control.mb-4(type='text' placeholder='' required='', name="url")
+                                    .col-sm-4.d-flex.align-items-center.justify-content-center
+                                        input.mr-2(type="checkbox", name="external")
+                                        span link externo?
+                            .col-sm-12
+                                .form-group
+                                    label Descripcion
+                                    textarea(name="description", cols="30", rows="10").form-control.mb-4
+                        .modal-footer
+                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                            button.btn.btn-success(type='submit') Agregar

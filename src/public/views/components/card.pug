@@ -1,0 +1,8 @@
+mixin card(icon, title, description, url, external)
+    a#link(href=url, target=`${external === 'on' ? '_blank':''}`)
+        .card
+            .content
+                .icon
+                    i(class=icon).fa
+                .title=title
+                p= description 

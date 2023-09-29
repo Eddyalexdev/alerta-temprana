@@ -1,0 +1,13 @@
+mixin table(labels, datas)
+    table#table1.table.table-hover.text-center(style='width:100%')
+        thead
+            tr
+                each label in labels
+                    th= label
+        tbody#tch-table
+            each data in datas
+                tr
+                    td.fa(class=data.icon)=data.icon
+                    td=data.title
+                    td=data.url
+                    td=data.description

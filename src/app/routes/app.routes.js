@@ -1,12 +1,14 @@
 const router = require('express').Router()
 const {login} = require('../controller/auth.controller')
+const Kiosko = require('../models/kiosko.model')
 
 router.get('/', (req, res) => {
     res.render("init")
 })
 
-router.get('/kiosko', (req, res) => {
-    res.render("kiosko")
+router.get('/kiosko', async (req, res) => {
+    const kioskos = await Kiosko.findAll()
+    res.render("kiosko", { 'kioskos': kioskos })
 })
 
 router.get('/contacto', (req, res) => {

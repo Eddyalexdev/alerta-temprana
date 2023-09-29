@@ -3,75 +3,9 @@ extends ../layout/admin.pug
 block content
     // BEGIN MAIN CONTAINER
     #container.main-container.sidebar-closed.sbar-open
-        .overlay
-        .cs-overlay
-        .search-overlay
-        // BEGIN SIDEBAR
-        .sidebar-wrapper.sidebar-theme
-            nav#sidebar
-                ul.navbar-nav.theme-brand.flex-row.text-center
-                    li.nav-item.theme-logo
-                        a(href='#')
-                            img.navbar-logo(src='/assets/images/logo2.png' alt='logo')
-                    li.nav-item.theme-text
-                        a.nav-link(href='#') INGECOP
-                ul#accordionExample.list-unstyled.menu-categories
-                    li.menu.active
-                        a.dropdown-toggle(href='add-school-admin.html' aria-expanded='true')
-                            div
-                                svg.feather.feather-home(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
-                                    path(d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z')
-                                    polyline(points='9 22 9 12 15 12 15 22')
-                                span(style='z-index: 100;') Panel Administrativo
-                    li.menu.menu-heading
-                        .heading
-                            svg.feather.feather-circle(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
-                                circle(cx='12' cy='12' r='10')
-                            span - Administracion de la pagina -
-                    li.menu
-                        a.dropdown-toggle(href='#managecollege' data-toggle='collapse' aria-expanded='false')
-                            div
-                                svg.feather.feather-layers(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
-                                    polygon(points='12 2 2 7 12 12 22 7 12 2')
-                                    polyline(points='2 17 12 22 22 17')
-                                    polyline(points='2 12 12 17 22 12')
-                                span ENLACES
-                            div
-                                svg.feather.feather-chevron-right(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
-                                    polyline(points='9 18 15 12 9 6')
-                        ul#managecollege.collapse.submenu.list-unstyled(data-parent='#accordionExample')
-                            li
-                                a(href='school/add-school.html')  Administrar Enlaces 
-                    li.menu
-                        a.dropdown-toggle(href='#manageteacher' data-toggle='collapse' aria-expanded='false')
-                            div
-                                svg.feather.feather-user-check(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
-                                    path(d='M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2')
-                                    circle(cx='8.5' cy='7' r='4')
-                                span USUARIOS
-                            div
-                                svg.feather.feather-chevron-right(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
-                                    polyline(points='9 18 15 12 9 6')
-                        ul#manageteacher.collapse.submenu.list-unstyled(data-parent='#accordionExample')
-                            li
-                                a(href='#')  Administrar usuarios
-                    li.menu
-                        a.dropdown-toggle(href='#managerdistrict' data-toggle='collapse' aria-expanded='false')
-                            div
-                                svg.feather.feather-layers(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
-                                    polygon(points='12 2 2 7 12 12 22 7 12 2')
-                                    polyline(points='2 17 12 22 22 17')
-                                    polyline(points='2 12 12 17 22 12')
-                                span PAGINAS
-                            div
-                                svg.feather.feather-chevron-right(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
-                                    polyline(points='9 18 15 12 9 6')
-                        ul#managerdistrict.collapse.submenu.list-unstyled(data-parent='#accordionExample')
-                            li
-                                a(href='#')  Cambiar Publicidad
-                            li
-                                a(href='teacher/view-teacher.html')  Cambiar Enlaces 
-        // END SIDEBAR
+        // NAVBAR
+        include ../components/navbar
+
         // BEGIN CONTENT AREA
         #content.main-content
             .layout-px-spacing
@@ -93,14 +27,21 @@ block content
                                     th Apellido
                                     th USUARIO
                                     th CORREO
-                                    th Acciones
-                            tbody#tch-table
+                                    //th Acciones
+                            tbody
+                                each user in users
+                                    tr 
+                                        td=user.name
+                                        td=user.surname
+                                        td=user.user_id
+                                        td=user.email
         // END CONTENT AREA
+
         // Add admin
         #addadminModal.modal.fade
             .modal-dialog
                 .modal-content
-                    form
+                    form(method="POST")
                         .modal-header
                             h4.modal-title Agrega Usuario
                             button.close(type='button' data-dismiss='modal' aria-hidden='true')
@@ -108,34 +49,35 @@ block content
                         #add-form.modal-body
                             .col-sm-12
                                 label Nombre 
-                                input#admin-name.form-control.mb-4(type='text' placeholder='' required='')
+                                input#admin-name.form-control.mb-4(type='text' placeholder='' required='', name="name")
                             .col-sm-12
                                 .form-group
                                     label Apellido
-                                    input#school-id.form-control.mb-4(type='text' placeholder='' required='')
+                                    input#school-id.form-control.mb-4(type='text' placeholder='' required='', name="surname")
                             .col-sm-12
                                 .form-group
                                     label ID de Usuario
-                                    input#school-name.form-control.mb-4(type='text' placeholder='' required='')
+                                    input#school-name.form-control.mb-4(type='text' placeholder='' required='', name="user_id")
                             .col-md-12
                                 .form-group
                                     label Email
-                                    input#signup-email.form-control.mb-4(type='email' placeholder='' required='')
+                                    input#signup-email.form-control.mb-4(type='email' placeholder='' required='', name="email")
                             .col-md-12
                                 .form-group
                                     label Contrase&ntilde;a
-                                    input#signup-password.form-control.mb-4(type='password' placeholder='' required='')
+                                    input#signup-password.form-control.mb-4(type='password' placeholder='' required='', name="password")
                             .col-md-12
                                 .form-group
                                     label Admin Designation
                                     .form-group.mr-1
-                                        select#designation.form-control(required='')
-                                            option Super Admin
-                                            option Admin
-                                            option Editor
+                                        select#designation.form-control(required='', name="role")
+                                            option(value="sa") Super Admin
+                                            option(value="a") Admin
+                                            option(value="e") Editor
                         .modal-footer
                             input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
-                            input#add_admin.btn.btn-success(type='button' data-dismiss='modal' value='Add')
+                            button.btn.btn-success(type='submit') Agregar
+
         #editadminModal.modal.fade
             .modal-dialog
                 .modal-content
@@ -175,6 +117,7 @@ block content
                         .modal-footer
                             input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
                             input.btn.btn-info(type='submit' value='Save')
+
         #deleteadminModal.modal.fade
             .modal-dialog
                 .modal-content

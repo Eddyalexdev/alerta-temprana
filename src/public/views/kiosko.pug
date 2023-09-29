@@ -12,6 +12,9 @@ html(lang="es")
         .container
             h2
             section.services
+                include ./components/card
+                each kiosko in kioskos
+                    +card(kiosko.icon, kiosko.title, kiosko.description, kiosko.url, kiosko.external)
                 a#link(href='/contacto')
                     .card
                         .content

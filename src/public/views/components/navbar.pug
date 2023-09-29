@@ -1,0 +1,71 @@
+.overlay
+.cs-overlay
+.search-overlay
+// BEGIN SIDEBAR
+.sidebar-wrapper.sidebar-theme
+    nav#sidebar
+        ul.navbar-nav.theme-brand.flex-row.text-center
+            li.nav-item.theme-logo
+                a(href='/')
+                    img.navbar-logo(src='/assets/images/logo2.png' alt='logo')
+            li.nav-item.theme-text
+                a.nav-link(href='/') INGECOP
+        ul#accordionExample.list-unstyled.menu-categories
+            li.menu.active
+                a.dropdown-toggle(href='add-school-admin.html' aria-expanded='true')
+                    div
+                        svg.feather.feather-home(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                            path(d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z')
+                            polyline(points='9 22 9 12 15 12 15 22')
+                        span(style='z-index: 100;') Panel Administrativo
+            li.menu.menu-heading
+                .heading
+                    svg.feather.feather-circle(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                        circle(cx='12' cy='12' r='10')
+                    span - Administracion de la pagina -
+            li.menu
+                a.dropdown-toggle(href='#managecollege' data-toggle='collapse' aria-expanded='false')
+                    div
+                        svg.feather.feather-layers(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                            polygon(points='12 2 2 7 12 12 22 7 12 2')
+                            polyline(points='2 17 12 22 22 17')
+                            polyline(points='2 12 12 17 22 12')
+                        span ENLACES
+                    div
+                        svg.feather.feather-chevron-right(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                            polyline(points='9 18 15 12 9 6')
+                ul#managecollege.collapse.submenu.list-unstyled(data-parent='#accordionExample')
+                    li
+                        a(href='school/add-school.html')  Administrar Enlaces 
+            li.menu
+                a.dropdown-toggle(href='#manageteacher' data-toggle='collapse' aria-expanded='false')
+                    div
+                        svg.feather.feather-user-check(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                            path(d='M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2')
+                            circle(cx='8.5' cy='7' r='4')
+                        span USUARIOS
+                    div
+                        svg.feather.feather-chevron-right(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                            polyline(points='9 18 15 12 9 6')
+                ul#manageteacher.collapse.submenu.list-unstyled(data-parent='#accordionExample')
+                    li
+                        a(href='/admin/users')  Administrar usuarios
+            li.menu
+                a.dropdown-toggle(href='#managerdistrict' data-toggle='collapse' aria-expanded='false')
+                    div
+                        svg.feather.feather-layers(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                            polygon(points='12 2 2 7 12 12 22 7 12 2')
+                            polyline(points='2 17 12 22 22 17')
+                            polyline(points='2 12 12 17 22 12')
+                        span PAGINAS
+                    div
+                        svg.feather.feather-chevron-right(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
+                            polyline(points='9 18 15 12 9 6')
+                ul#managerdistrict.collapse.submenu.list-unstyled(data-parent='#accordionExample')
+                    li
+                        a(href='#')  Cambiar Publicidad
+                    li
+                        a(href='/admin/kioskos')  Cambiar Enlaces 
+                    li
+                        a(href='/admin/kioskos')  Kioskos
+// END SIDEBAR
