@@ -1,0 +1,60 @@
+html
+    head
+        meta(charset='utf-8')
+        title
+        link(rel='stylesheet', href='/css/base.css')
+        link(rel='stylesheet', href='/css/acordeon.css')
+        link(rel='stylesheet', href='/botones2.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+        script(src='/js/js/table2excel.js')
+        script(src='/js/js/exceljs.min.js')
+        script(src='/js/js/table2excel.core.js')
+        script.
+            function exportTables () {
+            new Table2Excel('table').export()
+            }
+    body
+        button(onclick='exportTables()') export
+        table(data-excel-name='MOROSIDAD')
+            thead
+                tr
+                    th(colspan='2', ;='', style='background-color: #000000; text-align: center; color: rgb(255, 255, 255);')
+                        h3
+                            | DIEZ MAYORES CUENTAS EN APORTACIONES EXTRAORDINARIAS
+                tr
+                    th(colspan='2', ;='', style='background-color: rgb(255, 255, 255); text-align: center; color:   rgb(255, 255, 255)')
+            tbody
+                tr
+                    th(style='text-align: center; background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);') No. 
+                    th(style='text-align: center; background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);') SALDO
+            tfoot
+                tr
+                    th(style='color: black;') 1
+                    td
+                        input(type='text', value='')
+                tr
+                    th(style='background-color: rgb(221, 221, 220); color: black;') 2
+                    td(style='background-color: rgb(221, 221, 220); color: black;')
+                        input#txt_campo_1.monto(type='text', onkeyup='sumar();')
+                tr
+                    th(style='color: black;') 3
+                    td(style='color: black;')
+                        input#txt_campo_2.monto(type='text', onkeyup='sumar();')
+                tr
+                    th(style='background-color: rgb(221, 221, 220); color: black;') 4
+                    td(style='background-color: rgb(221, 221, 220); color: black;')
+                        input(type='text', value='')
+                tr
+                    th(style='color: black;') 5
+                    td(style='color: black;')
+                        input(type='text', value='')
+                tr
+                    th(style='background-color: rgb(221, 221, 220); color: black;') 6
+                    td(style='background-color: rgb(221, 221, 220); color: black;')
+                        input(type='text', value='')
+                tr
+                    th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') TOTAL  
+                    td(style='background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);')
+                        span
+                        |  
+                        span#spTotal Q
