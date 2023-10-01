@@ -10,17 +10,26 @@ html(lang='es')
         link(rel='stylesheet', href='css/normalize.css')
         link(rel='stylesheet', href='css/estilo-login.css')
     body
+        if message 
+            .toast
+                span=message
+
         .contenedor-formulario.contenedor
-            .imagen-formulario
-            form.formulario(method="POST")
+            if type && type === 'video'
+                .imagen-formulario
+                    video(controls loop muted autoplay).video-formulario
+                        source(src=`/public/${page.media}`)
+            else 
+                .imagen-formulario(style=`background-image: url('${page.media ? '/public/' + page.media : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg/1200px-Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg'}')`)
+            form.formulario(method="POST")#login-form
                 .texto-formulario
                     h2 Bienvenido
                     p Inicia sesi&oacute;n para continuar
                 .input
                     label(for='usuario') Usuario
-                    input#usuario(placeholder='Ingresa tu nombre', type='text', name="user")
+                    input#username(placeholder='Ingresa tu nombre', type='text', name="username")
                 .input
                     label(for='contraseña') Contrase&ntilde;a
-                    input(placeholder='Ingresa tu contraseña', type='password', id='contraseña', name="password")
+                    input#password(placeholder='Ingresa tu contraseña', type='password', name="password")
                 .input
                     input(type='submit', value='Entrar')

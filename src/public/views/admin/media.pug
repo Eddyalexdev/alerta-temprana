@@ -1,0 +1,41 @@
+extends ../layout/admin.pug
+
+block content
+    #container.main-container.sidebar-closed.sbar-open
+        include ../components/navbar
+
+        #content.main-content
+            .layout-px-spacing
+                .py-3
+                    .bg-white.p-4
+                        .d-flex.align-items-center.justify-content-between
+                            h2 Administrar Imagenes o Videos
+                            a.btn.btn-info(href="#modal-media", data-toggle="modal") Agregar Nueva +
+                        hr
+                        .row 
+                            include ../components/page-image
+                            each page in pages
+                                +page-image(page.title, page.media, page.slug, page.id)
+
+        #modal-media.modal.fade
+            .modal-dialog
+                .modal-content
+                    form(method="POST", enctype="multipart/form-data")
+                        .modal-header
+                            h4.modal-title Agrega Imagen o Video
+                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                            | &times;
+                        #add-form.modal-body
+                            .col-sm-12
+                                label Titulo
+                                input.form-control.mb-4(type='text' placeholder='' required='', name="title")
+                            .col-sm-12
+                                label Slug
+                                input.form-control.mb-4(type='text' placeholder='' required='', name="slug")
+                            .col-sm-12
+                                label Imagen/Video
+                                input.form-control(type='file' placeholder='' required='', name="file")
+                                small El archivo debe ser solamente de extension: jpeg, jpg, png, mp4 u otra extension de video
+                        .modal-footer
+                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                            button.btn.btn-success(type='submit') Agregar

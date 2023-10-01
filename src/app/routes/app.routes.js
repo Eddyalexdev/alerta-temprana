@@ -1,25 +1,39 @@
 const router = require('express').Router()
-const {login} = require('../controller/auth.controller')
+const {login, logout} = require('../controller/auth.controller')
 const Kiosko = require('../models/kiosko.model')
+const Page = require('../models/page.model')
 
-router.get('/', (req, res) => {
-    res.render("init")
+router.get('/', async (req, res) => {
+    const page = await Page.findOne({ where: { slug: 'home' }})
+    const ext = page.media.split('.').pop()
+    res.render("init", { 'page': page, 'type': ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp' ? 'image' : 'video' })
 })
 
 router.get('/kiosko', async (req, res) => {
     const kioskos = await Kiosko.findAll()
-    res.render("kiosko", { 'kioskos': kioskos })
+    const page = await Page.findOne({ where: { slug: 'kiosko' }}) 
+    const ext = page.media.split('.').pop()
+    res.render("kiosko", { 'kioskos': kioskos, 'page': page, 'type': ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp' ? 'image' : 'video' })
 })
 
-router.get('/contacto', (req, res) => {
-    res.render("contacto")
+router.get('/contacto', async (req, res) => {
+    const page = await Page.findOne({ where: { slug: 'contacto' } })
+    res.render("contacto", { 'page': page })
 })
 
-router.get('/login', (req, res) => {
-    res.render('login')
+router.get('/login', async (req, res) => {
+    const token = req.cookies.token
+    if(token) {
+        res.redirect('/admin/users')
+        return
+    }
+    const page = await Page.findOne({ where: { slug: 'login' }})
+    res.render('login', { 'page': page })
 })
 
 router.post('/login', login)
+
+router.get('/logout', logout)
 
 router.get('/probando2', (req, res) => {
     res.render('probando2')

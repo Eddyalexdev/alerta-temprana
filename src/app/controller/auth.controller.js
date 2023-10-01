@@ -1,15 +1,36 @@
-const login = (req, res, next) => {
-    const {user, password} = req.body
+const jwt = require('jsonwebtoken') 
+const { compare } = require("bcrypt")
+const User = require("../models/user.model")
 
-    if(user === "" || password === "") {
-        res.redirect(301, '/login')
+const login = async (req, res) => {
+    const {username, password} = req.body
+    const user = await User.findOne({ where: { user_id: username }})
+
+    if(user === null || user === undefined) {
+        res.render('login', { 'message': "usuarion no encontrado" })
+        return
     }
 
-    if(user !== "usuario" || password !== "1234") { 
-        res.redirect(301, '/login')
+    const isEquals = await compare(password, user.password)
+
+    if (!isEquals) {
+        res.render('login', { 'message': "password incorrecto"})
+        return
     }
+
+    const token = jwt.sign({user_id: user.user_id}, "asfsafasd")
+
+    res.cookie('token', token, {
+        maxAge: 1000 * 60 * 60 * 24 * 7,
+        httpOnly: true
+    })
 
     res.redirect('/admin/users')
 }
 
-module.exports = {login}
+const logout = (req, res) => {
+    res.clearCookie('token')
+    res.redirect('/login')
+}
+
+module.exports = {login, logout}

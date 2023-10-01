@@ -27,6 +27,7 @@ block content
                                     th Apellido
                                     th USUARIO
                                     th CORREO
+                                    th Tipo
                                     //th Acciones
                             tbody
                                 each user in users
@@ -35,6 +36,12 @@ block content
                                         td=user.surname
                                         td=user.user_id
                                         td=user.email
+                                        if user.role === 'sub-admin'
+                                            td Super Admin
+                                        else if user.role === 'admin'
+                                            td Admin
+                                        else
+                                            td Editor
         // END CONTENT AREA
 
         // Add admin
@@ -71,9 +78,9 @@ block content
                                     label Admin Designation
                                     .form-group.mr-1
                                         select#designation.form-control(required='', name="role")
-                                            option(value="sa") Super Admin
-                                            option(value="a") Admin
-                                            option(value="e") Editor
+                                            option(value="sub-admin") Super Admin
+                                            option(value="admin") Admin
+                                            option(value="editor") Editor
                         .modal-footer
                             input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
                             button.btn.btn-success(type='submit') Agregar

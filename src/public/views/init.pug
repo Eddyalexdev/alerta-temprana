@@ -12,7 +12,13 @@ html(lang="es")
         link(rel='stylesheet' href='/css/botones2.css')
     body
         .contenedor-formulario.contenedor
-            .imagen-formulario
+            if type && type === 'video'
+                .imagen-formulario
+                    video(controls loop muted autoplay).video-formulario
+                        source(src=`/public/${page.media}`)
+            else 
+                .imagen-formulario(style=`background-image: url('${page.media ? '/public/' + page.media : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg/1200px-Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg'}')`)
+
             form.formulario
                 .texto-formulario
                     h2 Bienvenido

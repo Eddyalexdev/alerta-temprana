@@ -1,0 +1,61 @@
+extends ../layout/admin.pug
+
+block content
+    #container.main-container.sidebar-closed.sbar-open
+        include ../components/navbar
+
+        #content.main-content
+            .layout-px-spacing
+                .page-header
+                    .page-title
+                        h3 Administrar Contacto
+                        a.btn.btn-info(href='#createContacto' style='width: 400px; margin-top: 50px;' data-toggle='modal')
+                            i.material-icons &#xE147;
+                            span(style='font-size: 25px; color: #fff;') Agregar Panel Nuevo
+                .table-title.text-center
+                    .row.text-center
+                        .text-center(style='margin-top: 40px;')
+                .widget-content.widget-content-area.br-6
+                    .table-responsive.mb-4.mt-4
+                        include ../components/table
+                        +table(["Icono", "Titulo", "URL", "Descripcion"], kioskos)
+
+        #createContacto.modal.fade
+            .modal-dialog
+                .modal-content
+                    form
+                        .modal-header
+                            h4.modal-title Edit Admin
+                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                            | &times;
+                        .modal-body
+                            .col-sm-12
+                                label Nombre
+                                input#admin-name.form-control.mb-4(type='text' placeholder='Admin Name' required='')
+                            .col-sm-12
+                                .form-group
+                                    label Apellido
+                                    input#school-id.form-control.mb-4(type='text' placeholder='School ID' required='')
+                            .col-sm-12
+                                .form-group
+                                    label Usuario
+                                    input#school-name.form-control.mb-4(type='text' placeholder='School Name' required='')
+                            .col-md-12
+                                .form-group
+                                    label Correo
+                                    input#signup-email.form-control.mb-4(type='email' placeholder="Admin's Email" required='')
+                            .col-md-12
+                                .form-group
+                                    label Default Password
+                                    input#signup-password.form-control.mb-4(type='password' placeholder='Default Password' required='')
+                            .col-md-12
+                                .form-group
+                                    label Admin Designation
+                                    .form-group.mr-1
+                                        select#designation.form-control(required='')
+                                            option Super Admin
+                                            option Admin
+                                            option Editor
+                        .modal-footer
+                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                            input.btn.btn-info(type='submit' value='Save')

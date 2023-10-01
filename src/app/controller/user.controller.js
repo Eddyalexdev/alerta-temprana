@@ -1,4 +1,6 @@
 const User = require("../models/user.model")
+const {} = require('bcrypt')
+const { hashPassword } = require("../utils/bcrypt")
 
 const getUsers = async (req, res) => {
     const users = await User.findAll()
@@ -8,16 +10,18 @@ const getUsers = async (req, res) => {
 const postUser = async (req, res) => {
     const {name, surname, user_id, email, password, role} = req.body
 
-    const user = await User.create({
+    const hash = await hashPassword(password)
+
+    await User.create({
         name,
         surname,
         user_id,
         email,
-        password,
+        password: hash,
         role
     })
 
-    res.redirect('/admin/users', {'message': "Usuario creado con exito"})
+    res.redirect('/admin/users')
 }
 
 module.exports = {getUsers, postUser}

@@ -76,7 +76,7 @@
 }
 .page-title h3 {
   margin-bottom: 0;
-  color: rgb(0, 0, 0));
+  color: rgb(0, 0, 0);
   font-size: 2rem;
 }
 .page-header {
@@ -128,4 +128,33 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.media-item {
+  position: relative;
+}
+
+.media-item:hover > .media-item__options{
+  opacity: 1;
+  transition: .5s;
+}
+
+.media-item__options {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, .5);
+  transition: .5s;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  gap: 10px;
+}
+
+.media-file {
+  height: 250px;
+  object-fit: cover;
 }

@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: alerta-temprana
+    ports:
+      - 80:9005
+    networks:
+      - at
+
+  db
+
+
+networks:
+  at:
+    driver: bridge

@@ -7,9 +7,7 @@ const User = sequelize.define('User', {
     user_id: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    role: {
-        type: ['sa', 'a', 'e'],
-    }
+    role: DataTypes.STRING
 })
 
 module.exports = User
