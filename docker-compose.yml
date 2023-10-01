@@ -9,7 +9,8 @@ services:
     networks:
       - at
 
-  db
+  db:
+    image: 
 
 
 networks:

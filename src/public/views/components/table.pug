@@ -71,7 +71,10 @@ mixin table(labels, datas)
                                         label URL
                                         input#admin-name.form-control.mb-4(type='text' placeholder='' required='', name="url", value=data.url)
                                     .col-sm-4.d-flex.align-items-center.justify-content-center
-                                        input.mr-2(type="checkbox", name="external" value=data.external)
+                                        if data.external === 'on'
+                                            input.mr-2(type="checkbox", name="external" checked)
+                                        else 
+                                            input.mr-2(type="checkbox", name="external" )
                                         span link externo?
                             .col-sm-12
                                 .form-group
