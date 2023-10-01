@@ -1,0 +1,147 @@
+extends ../layout/admin.pug
+
+block content
+    #container.main-container.sidebar-closed.sbar-open
+        include ../components/navbar
+
+        #content.main-content
+            .layout-px-spacing
+                .page-header
+                    .page-title
+                        h3 Administrar Formularios
+                        a.btn.btn-info(href='#createForm' style='width: 400px; margin-top: 50px;' data-toggle='modal')
+                            i.material-icons &#xE147;
+                            span(style='font-size: 25px; color: #fff;') Agregar Panel Nuevo
+                .table-title.text-center
+                    .row.text-center
+                        .text-center(style='margin-top: 40px;')
+                .widget-content.widget-content-area.br-6
+                    .table-responsive.mb-4.mt-4
+                        table#table1.table.table-hover.text-center(style='width:100%')
+                            thead
+                                tr
+                                    th Titulo
+                                    th URL
+                                    th Tipo
+                                    th Acciones
+                            tbody
+                                each form in forms
+                                    tr 
+                                        td=form.title
+                                        td=form.url
+                                        if form.type_url === 'external'
+                                            td Externa
+                                        else 
+                                            td Interna
+                                        td 
+                                            a(href=`#editForm${form.id}` data-toggle="modal").btn.btn-warning.mr-2 Editar
+                                            a(href=`#deleteForm${form.id}` data-toggle="modal").btn.btn-danger Eliminar
+        each form in forms
+            .modal.fade(id=`deleteForm${form.id}`)
+                .modal-dialog
+                    .modal-content
+                        form
+                            .modal-header
+                                h4.modal-title Eliminar Formulario
+                                button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                                | &times;
+                            .modal-body
+                                p=`¿Seguro que quiere eliminar el formulario "${form.title}"?`
+                                p.text-warning
+                                small Esta acci&oacute;n no se puede revertir.
+                            .modal-footer
+                                input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                                a(href=`/admin/formularios/${form.id}`).btn.btn-danger Eliminar
+            .modal.fade(id=`editForm${form.id}`)
+                .modal-dialog
+                    .modal-content
+                        form
+                            .modal-header
+                                h4.modal-title Editar Formulario
+                                button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                                | &times;
+                            .modal-body
+                                .col-sm-12
+                                    label Titulo
+                                    input.form-control.mb-4(type='text' placeholder='Titulo de Formulario' required='', name="title", value=form.title)
+                                .col-sm-12
+                                    .form-group
+                                        label.d-block Tipo de Url
+                                        .row
+                                            label.col-6
+                                                span.mr-2 interno
+                                                input.form-type-url(type="radio" value="internal" name="type_url" checked=`${form.type_url === 'internal' ? 'on':'off'}`)
+                                            label.col-6  
+                                                span.mr-2 externo
+                                                input.form-type-url(type="radio" value="external" name="type_url" checked=`${form.type_url === 'external' ? 'on':'off'}`)
+                                .col-md-12
+                                    .form-group
+                                        label URL
+
+                                        .form-group.mr-1
+                                            select#form-internal.form-control.d-block(name="internal" value=form.url)
+                                                option(value="/5001") 5001
+                                                option(value="/5002") 5002
+                                                option(value="/5003") 5003
+                                                option(value="/5004") 5004
+                                                option(value="/5005") 5005
+
+                                            input#form-external.form-control.mb-4.d-none(type='text' placeholder='Url del Formulario', name="external")
+                            .modal-footer
+                                input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                                button.btn.btn-success(type='submit') Agregar
+
+        #createForm.modal.fade
+            .modal-dialog
+                .modal-content
+                    form(method="POST")
+                        .modal-header
+                            h4.modal-title Crear Formulario
+                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                            | &times;
+                        .modal-body
+                            .col-sm-12
+                                label Titulo
+                                input.form-control.mb-4(type='text' placeholder='Titulo de Formulario' required='', name="title")
+                            .col-sm-12
+                                .form-group
+                                    label.d-block Tipo de Url
+                                    .row
+                                        label.col-6
+                                            span.mr-2 interno
+                                            input.form-type-url(type="radio" value="internal" name="type_url" checked)
+                                        label.col-6  
+                                            span.mr-2 externo
+                                            input.form-type-url(type="radio" value="external" name="type_url")
+                            .col-md-12
+                                .form-group
+                                    label URL
+
+                                    .form-group.mr-1
+                                        select#form-internal.form-control.d-block(name="internal")
+                                            option(value="/5001") 5001
+                                            option(value="/5002") 5002
+                                            option(value="/5003") 5003
+                                            option(value="/5004") 5004
+                                            option(value="/5005") 5005
+
+                                        input#form-external.form-control.mb-4.d-none(type='text' placeholder='Url del Formulario', name="external")
+                        .modal-footer
+                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                            button.btn.btn-success(type='submit') Agregar
+
+        script.
+            const forms = document.querySelectorAll('.form-type-url')
+            const internal =  document.getElementById('form-internal')
+            const external =  document.getElementById('form-external')
+            forms.forEach((form) => {
+                form.addEventListener('change', (e) => {
+                    if (e.target.value === 'internal') {
+                        external.classList.replace('d-block', 'd-none')
+                        internal.classList.replace('d-none', 'd-block')
+                    } else {
+                        internal.classList.replace('d-block', 'd-none')
+                        external.classList.replace('d-none', 'd-block')
+                    }
+                })
+            })

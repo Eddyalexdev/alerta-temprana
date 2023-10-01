@@ -4,6 +4,7 @@ mixin table(labels, datas)
             tr
                 each label in labels
                     th= label
+                th acciones
         tbody#tch-table
             each data in datas
                 tr
@@ -11,3 +12,86 @@ mixin table(labels, datas)
                     td=data.title
                     td=data.url
                     td=data.description
+                    td 
+                        a.edit-kiosko-button(href=`#editKiosko${data.id}` data-toggle="modal" data-icon=data.icon).btn.btn-warning.mr-2 Editar
+                        a(href=`#deleteKiosko${data.id}` data-toggle="modal").btn.btn-danger Eliminar
+    each data in datas
+        .modal.fade(id=`deleteKiosko${data.id}`)
+            .modal-dialog
+                .modal-content
+                    form
+                        .modal-header
+                            h4.modal-title Eliminar Kiosko
+                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                            | &times;
+                        .modal-body
+                            p=`¿Seguro que quiere eliminar el kiosko "${data.title}"?`
+                            p.text-warning
+                            small Esta acci&oacute;n no se puede revertir.
+                        .modal-footer
+                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                            a(href=`/admin/kioskos/${data.id}`).btn.btn-danger Eliminar
+
+        .modal.fade(id=`editKiosko${data.id}`)
+            .modal-dialog
+                .modal-content
+                    form(method="POST", action=`/admin/kioskos/${data.id}`)
+                        .modal-header
+                            h4.modal-title Editar Kiosko
+                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                            | &times;
+                        #add-form.modal-body
+                            .col-md-12
+                                .form-group
+                                    label Icono
+                                    .form-group.mr-1
+                                        select#designation.form-control(required='', name="icon")
+                                            option(value="fa-phone").option-kiosko
+                                                span.fa.fa-phone Telefono
+                                            option(value="fa-book").option-kiosko
+                                                span.fa.fa-phone Libro
+                                            option(value="fa-pencil").option-kiosko 
+                                                span.fa.fa-phone Lapiz
+                                            option(value="fa-laptop").option-kiosko 
+                                                span.fa.fa-phone Laptop
+                                            option(value="fa-line-chart").option-kiosko 
+                                                span.fa.fa-phone Grafico
+                                            option(value="fa-envelope").option-kiosko 
+                                                span.fa.fa-phone Correo
+                                            option(value="fa-external-link").option-kiosko 
+                                                span.fa.fa-phone Link Externo
+                                            option(value="fa-undo").option-kiosko 
+                                                span.fa.fa-phone Flecha
+                            .col-sm-12
+                                label Titulo
+                                input#admin-name.form-control.mb-4(type='text' placeholder='' required='', name="title" value=data.title)
+                            .col-sm-12
+                                .row
+                                    .col-sm-8
+                                        label URL
+                                        input#admin-name.form-control.mb-4(type='text' placeholder='' required='', name="url", value=data.url)
+                                    .col-sm-4.d-flex.align-items-center.justify-content-center
+                                        input.mr-2(type="checkbox", name="external" value=data.external)
+                                        span link externo?
+                            .col-sm-12
+                                .form-group
+                                    label Descripcion
+                                    textarea(name="description", cols="30", rows="10" ).form-control.mb-4=data.description
+                        .modal-footer
+                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                            button.btn.btn-success(type='submit') Editar
+
+    script.
+        const options = document.querySelectorAll('.option-kiosko')
+        const buttons = document.querySelectorAll('.edit-kiosko-button')
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                options.forEach((option) => {
+                    option.removeAttribute('selected')
+                    if (option.value === e.target.getAttribute('data-icon')) {
+                        option.setAttribute('selected', 'on')
+                    }
+                })
+            })
+        })

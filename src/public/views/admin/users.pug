@@ -28,7 +28,7 @@ block content
                                     th USUARIO
                                     th CORREO
                                     th Tipo
-                                    //th Acciones
+                                    th Acciones
                             tbody
                                 each user in users
                                     tr 
@@ -42,7 +42,62 @@ block content
                                             td Admin
                                         else
                                             td Editor
+                                        td 
+                                            a(href=`#editUser${user.id}` data-toggle="modal").btn.btn-warning.mr-2 Editar
+                                            a(href=`#deleteUser${user.id}` data-toggle="modal").btn.btn-danger Eliminar
         // END CONTENT AREA
+
+        each user in users
+            .modal.fade(id=`deleteUser${user.id}`)
+                .modal-dialog
+                    .modal-content
+                        form
+                            .modal-header
+                                h4.modal-title Eliminar Usuario
+                                button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                                | &times;
+                            .modal-body
+                                p=`¿Seguro que quiere eliminar el usuariow "${user.name}"?`
+                                p.text-warning
+                                small Esta acci&oacute;n no se puede revertir.
+                            .modal-footer
+                                input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                                a(href=`/admin/users/${user.id}`).btn.btn-danger Eliminar
+            .modal.fade(id=`editUser${user.id}`)
+                .modal-dialog
+                    .modal-content
+                        form(method="POST", action=`/admin/users/${user.id}`)
+                            .modal-header
+                                h4.modal-title Editar Usuario 
+                                button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                                | &times;
+                            .modal-body
+                                .col-sm-12
+                                    label Nombre
+                                    input.form-control.mb-4(type='text' placeholder='Admin Name' required='' name="name" value=user.name)
+                                .col-sm-12
+                                    .form-group
+                                        label Apellido
+                                        input#school-id.form-control.mb-4(type='text' placeholder='School ID' required='' name="surname" value=user.surname)
+                                .col-sm-12
+                                    .form-group
+                                        label Usuario
+                                        input#school-name.form-control.mb-4(type='text' placeholder='School Name' required='' name="user_id" value=user.user_id)
+                                .col-md-12
+                                    .form-group
+                                        label Correo
+                                        input#signup-email.form-control.mb-4(type='email' placeholder="Admin's Email" required='' name="email" value=user.email)
+                                .col-md-12
+                                    .form-group
+                                        label Admin Designation
+                                        .form-group.mr-1
+                                            select#designation.form-control(required='' value=user.role)
+                                                option(value="sub-admin") Super Admin
+                                                option(value="admin") Admin
+                                                option(value="editor") Editor
+                            .modal-footer
+                                input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                                input.btn.btn-info(type='submit' value='Save')
 
         // Add admin
         #addadminModal.modal.fade
@@ -141,3 +196,7 @@ block content
                             input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
                             input.btn.btn-danger(type='submit' value='Delete')
     // END MAIN CONTAINER
+
+    script.
+        if (user)
+            localStorage.setItem('user', JSON.stringify(user))

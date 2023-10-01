@@ -26,54 +26,6 @@ html(lang='en')
                 li
                     a(href='kiosko.html') Menu Principal
         header
-            nav.nav
-                input#nav__checkbox.nav__checkbox(type='checkbox', name='')
-                ul.nav__menu
-                    li.menu__logo2
-                        img(src='images/logo4.jpg', alt='')
-                    li
-                        a(href='5001.html') Formulario para Solicitud de Baja de Documentos (5001)
-            nav.nav
-                input#nav__checkbox.nav__checkbox(type='checkbox', name='')
-                ul.nav__menu
-                    li.menu__logo2
-                        img(src='images/logo4.jpg', alt='')
-                    li
-                        a(href='5002.html') Formulario para Entrega de N&oacute;mina de Cuadros Directivos (5002)
-            nav.nav
-                input#nav__checkbox.nav__checkbox(type='checkbox', name='')
-                ul.nav__menu
-                    li.menu__logo2
-                        img(src='images/logo4.jpg', alt='')
-                    li
-                        a(href='5003.html') Formulario para Entrega de Memoria de Labores (5003)
-            nav.nav
-                input#nav__checkbox.nav__checkbox(type='checkbox', name='')
-                ul.nav__menu
-                    li.menu__logo2
-                        img(src='images/logo4.jpg', alt='')
-                    li
-                        a(href='5004.html') Formulario para Actualizaci&oacute;n de Datos (5004)
-            nav.nav
-                input#nav__checkbox.nav__checkbox(type='checkbox', name='')
-                ul.nav__menu
-                    li.menu__logo2
-                        img(src='images/logo4.jpg', alt='')
-                    li
-                        a(href='5004.html')
-                            | Formulario para Solicitud de Autorizaci&oacute;n de Libros Manuales, Hojas Movibles o Formas Contables (5005)
-            nav.nav
-                input#nav__checkbox.nav__checkbox(type='checkbox', name='')
-                ul.nav__menu
-                    li.menu__logo2
-                        img(src='images/logo4.jpg', alt='')
-                    li
-                        a(href='https://ingecop.gob.gt/wp-content/uploads/2020/02/Bifoliar-Autorizaci%C3%B3n-Registros-y-Requisitos-N%C3%B3minas.pdf')
-                            | Autorizaci&oacute;n de Registros y Formas Contables, Requisitos para Entrega de N&oacute;mina de Cuadros Directivos.
-            nav.nav
-                input#nav__checkbox.nav__checkbox(type='checkbox', name='')
-                ul.nav__menu
-                    li.menu__logo2
-                        img(src='images/logo4.jpg', alt='')
-                    li
-                        a(href='https://ingecop.gob.gt/wp-content/uploads/2020/02/Bifoliar-Requisitos-para-Entrega-de-Memoria-de-Labores.pdf') Requisitos para Entrega de Memoria de Labores
+            each form in forms
+                include ./components/form
+                +form(form.title, form.url, form.type_url)

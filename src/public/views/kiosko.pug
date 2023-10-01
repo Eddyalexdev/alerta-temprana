@@ -8,7 +8,10 @@ html(lang="es")
         link(rel='stylesheet' href='css/kiosko.css')
         link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
         title INGECOP - Kiosko
-    body(style=`background-image: url('${page.media ? '/public/' + page.media : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg/1200px-Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg'}')`)
+    if page
+        body(style=`background-image: url('${page.media ? '/public/' + page.media : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg/1200px-Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg'}')`)
+    else
+        body
         .container
             h2
             section.services

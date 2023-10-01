@@ -1,19 +1,19 @@
 const router = require('express').Router()
 const {login, logout} = require('../controller/auth.controller')
+const Form = require('../models/form.model')
 const Kiosko = require('../models/kiosko.model')
 const Page = require('../models/page.model')
 
 router.get('/', async (req, res) => {
     const page = await Page.findOne({ where: { slug: 'home' }})
-    const ext = page.media.split('.').pop()
-    res.render("init", { 'page': page, 'type': ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp' ? 'image' : 'video' })
+    const ext = page?.media.split('.').pop()
+    res.render("init", { 'page': page, 'type': ext === undefined ? '' : ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp' ? 'image' : 'video' })
 })
 
 router.get('/kiosko', async (req, res) => {
     const kioskos = await Kiosko.findAll()
     const page = await Page.findOne({ where: { slug: 'kiosko' }}) 
-    const ext = page.media.split('.').pop()
-    res.render("kiosko", { 'kioskos': kioskos, 'page': page, 'type': ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp' ? 'image' : 'video' })
+    res.render("kiosko", { 'kioskos': kioskos, 'page': page})
 })
 
 router.get('/contacto', async (req, res) => {
@@ -28,7 +28,8 @@ router.get('/login', async (req, res) => {
         return
     }
     const page = await Page.findOne({ where: { slug: 'login' }})
-    res.render('login', { 'page': page })
+    const ext = page?.media.split('.').pop()
+    res.render('login', { 'page': page,  'type': ext === undefined ? '' : ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp' ? 'image' : 'video' })
 })
 
 router.post('/login', login)
@@ -107,8 +108,9 @@ router.get('/vatHerramienta', (req, res) => {
     res.render('vatHerramienta')
 })
 
-router.get('/formularios', (req, res) => {
-    res.render('formularios')
+router.get('/formularios', async (req, res) => {
+    const forms = await Form.findAll()
+    res.render('formularios', { 'forms': forms })
 })
 
 router.get('/google', (req, res) => {
