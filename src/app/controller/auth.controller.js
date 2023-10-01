@@ -7,7 +7,7 @@ const login = async (req, res) => {
     const user = await User.findOne({ where: { user_id: username }})
 
     if(user === null || user === undefined) {
-        res.render('login', { 'message': "usuarion no encontrado" })
+        res.render('login', { 'message': "usuario no encontrado" })
         return
     }
 
@@ -24,6 +24,8 @@ const login = async (req, res) => {
         maxAge: 1000 * 60 * 60 * 24 * 7,
         httpOnly: true
     })
+
+    res.cookie('user_id', user.id)
 
     res.redirect('/admin/users')
 }

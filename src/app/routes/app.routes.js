@@ -3,6 +3,7 @@ const {login, logout} = require('../controller/auth.controller')
 const Form = require('../models/form.model')
 const Kiosko = require('../models/kiosko.model')
 const Page = require('../models/page.model')
+const VatEncuesta = require('../models/vatEncuesta.model')
 
 router.get('/', async (req, res) => {
     const page = await Page.findOne({ where: { slug: 'home' }})
@@ -96,8 +97,9 @@ router.get('/vat', (req, res) => {
     res.render('vat')
 })
 
-router.get('/vatEncuesta', (req, res) => {
-    res.render('vatEncuesta')
+router.get('/vatEncuesta', async (req, res) => {
+    const encuestas = await VatEncuesta.findAll()
+    res.render('vatEncuesta', { 'encuestas': encuestas })
 })
 
 router.get('/vatHerramientaCopy', (req, res) => {

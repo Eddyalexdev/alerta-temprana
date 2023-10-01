@@ -133,16 +133,35 @@ body{
 }
 
 .toast {
-    position: abolute;
+    position: absolute;
     left: 0;
-    top: 30px;
     right: 0;
+    top: 30px;
     margin: auto;
-    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .toast > span {
     color: white;
+    display: inline-block;
+    padding: 10px 15px;
+    background: #dc3545;
+    text-transform: uppercase;
+    font-weight: bold;
+    animation: error .1s linear forwards;
+    animation-delay: 2s;
+}
+
+@keyframes error {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    } to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 }
 
 .video-formulario {

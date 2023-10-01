@@ -3,6 +3,6 @@ mixin form(title, url, type)
         input#nav__checkbox.nav__checkbox(type='checkbox', name='')
         ul.nav__menu
             li.menu__logo2
-                img(src='images/logo4.jpg', alt='')
+                img(src='/images/logo4.jpg', alt='')
             li
                 a(href=url, target=`${type === 'external' ? '_blank' : ''}`)=title

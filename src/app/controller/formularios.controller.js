@@ -32,4 +32,28 @@ const deleteForm = async (req, res) => {
     res.redirect('/admin/formularios')
 }
 
-module.exports = {getForms, postForm, deleteForm}
+const putForm = async (req, res) => {
+    const {id} = req.params
+    const {title, internal, external, type_url} = req.body 
+    const form = await Form.findByPk(id)
+    if (form) {
+        if (external !== "")  {
+            await form.update({
+                title, 
+                url: external, 
+                type_url
+            })
+        } else {
+            await form.update({
+                title,
+                url: internal,
+                type_url
+            })
+        }
+        await form.save()
+    }
+    res.redirect('/admin/formularios')
+}
+
+
+module.exports = {getForms, postForm, deleteForm, putForm}

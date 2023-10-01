@@ -36,10 +36,10 @@ html(lang="es")
                         .dropdown-menu.position-absolute.e-animated.e-fadeInUp(aria-labelledby='userProfileDropdown')
                             .user-profile-section
                                 .media.mx-auto
-                                    img.img-fluid.mr-2(src='../assets/images/avatar6.png' alt='avatar')
+                                    img.img-fluid.mr-2(src='/assets/images/avatar6.png' alt='avatar')
                                     .media-body
-                                        h5 Rodrigo Garcia
-                                        p Super Admin
+                                        h5#name-admin Anonymous
+                                        p#role-admin Invitado 
                             .dropdown-item
                                 a(href='../password-recovery.html')
                                     svg.feather.feather-user(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round')
@@ -60,6 +60,30 @@ html(lang="es")
         //End Content
 
         //Start Scripts
+        if user
+            script.
+                const userAdmin = !{jsStringify(user)};
+                if (userAdmin) {
+                    localStorage.setItem('user', JSON.stringify(userAdmin))
+                }
+
+        script.
+            if(localStorage.getItem('user')) {
+                const user = JSON.parse(localStorage.getItem('user'))
+                const name = document.getElementById('name-admin')
+                const role = document.getElementById('role-admin')
+
+                name.textContent = user.name
+
+                if (user.role === 'sub-admin') {
+                    role.textContent = "Super Admin"
+                } else if (user.role === 'admin') {
+                    role.textContent = "Admin"
+                } else {
+                    role.textContent = 'Editor'
+                }
+            }
+
         script(src='/js/admin/libs/jquery-3.1.1.min.js')
         script(src='/js/bootstrap/popper.min.js')
         script(src='/js/bootstrap/bootstrap.min.js')

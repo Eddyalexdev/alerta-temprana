@@ -1,9 +1,17 @@
 const User = require("../models/user.model")
 const { hashPassword } = require("../utils/bcrypt")
+const jsStringify = require('js-stringify')
 
 const getUsers = async (req, res) => {
     const users = await User.findAll()
-    res.render('admin/users', { 'users': users })
+    const user_id = req.cookies.user_id
+
+    if (!user_id) {
+        res.render('admin/users', { 'users': users })
+    }
+
+    const user = await User.findByPk(user_id)
+    res.render('admin/users', { jsStringify , 'users': users, user })
 }
 
 const postUser = async (req, res) => {
@@ -25,14 +33,15 @@ const postUser = async (req, res) => {
 
 const putUser = async (req, res) => {
     const {id} = req.params
-    const {name, surname, email, user_id} = req.body 
+    const {name, surname, email, user_id, role} = req.body 
     const user = await User.findByPk(id)
     if (user) {
         await user.update({
             name,
             surname,
             email,
-            user_id
+            user_id,
+            role
         })
         await user.save()
     }

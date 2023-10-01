@@ -8,7 +8,7 @@ block content
             .layout-px-spacing
                 .page-header
                     .page-title
-                        h3 Administrar Formularios
+                        h3 Administrar Vat Encuestas
                         a.btn.btn-info(href='#createForm' style='width: 400px; margin-top: 50px;' data-toggle='modal')
                             i.material-icons &#xE147;
                             span(style='font-size: 25px; color: #fff;') Agregar Panel Nuevo
@@ -25,25 +25,25 @@ block content
                                     th Tipo
                                     th Acciones
                             tbody
-                                each form in forms
+                                each encuesta in encuestas
                                     tr 
-                                        td=form.title
-                                        td=form.url
-                                        if form.type_url === 'external'
+                                        td=encuesta.title
+                                        td=encuesta.url
+                                        if encuesta.type_url === 'external'
                                             td Externa
                                         else 
                                             td Interna
                                         td 
-                                            a(href=`#editForm${form.id}` data-toggle="modal" data-url=form.url).btn.btn-warning.mr-2.edit-form-button Editar
-                                            a(href=`#deleteForm${form.id}` data-toggle="modal").btn.btn-danger Eliminar
+                                            a(href=`#editEncuesta${encuesta.id}` data-toggle="modal" data-url=encuesta.url).btn.btn-warning.mr-2.edit-form-button Editar
+                                            a(href=`#deleteEncuesta${encuesta.id}` data-toggle="modal").btn.btn-danger Eliminar
 
-        each form in forms
-            .modal.fade(id=`deleteForm${form.id}`)
+        each form in encuestas
+            .modal.fade(id=`deleteEncuesta${form.id}`)
                 .modal-dialog
                     .modal-content
                         form
                             .modal-header
-                                h4.modal-title Eliminar Formulario
+                                h4.modal-title Eliminar Encuesta
                                 button.close(type='button' data-dismiss='modal' aria-hidden='true')
                                 | &times;
                             .modal-body
@@ -52,11 +52,11 @@ block content
                                 small Esta acci&oacute;n no se puede revertir.
                             .modal-footer
                                 input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
-                                a(href=`/admin/formularios/${form.id}`).btn.btn-danger Eliminar
-            .modal.fade(id=`editForm${form.id}`)
+                                a(href=`/admin/vatEncuestas/${form.id}`).btn.btn-danger Eliminar
+            .modal.fade(id=`editEncuesta${form.id}`)
                 .modal-dialog
                     .modal-content
-                        form(method="POST", action=`/admin/formularios/${form.id}`)
+                        form(method="POST", action=`/admin/vatEncuestas/${form.id}`)
                             .modal-header
                                 h4.modal-title Editar Formulario
                                 button.close(type='button' data-dismiss='modal' aria-hidden='true')
@@ -103,13 +103,13 @@ block content
                 .modal-content
                     form(method="POST")
                         .modal-header
-                            h4.modal-title Crear Formulario
+                            h4.modal-title Crear Encuesta
                             button.close(type='button' data-dismiss='modal' aria-hidden='true')
                             | &times;
                         .modal-body
                             .col-sm-12
                                 label Titulo
-                                input.form-control.mb-4(type='text' placeholder='Titulo de Formulario' required='', name="title")
+                                input.form-control.mb-4(type='text' placeholder='Titulo de Encuesta' required='', name="title")
                             .col-sm-12
                                 .form-group
                                     label.d-block Tipo de Url

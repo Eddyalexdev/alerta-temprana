@@ -43,7 +43,7 @@ block content
                                         else
                                             td Editor
                                         td 
-                                            a(href=`#editUser${user.id}` data-toggle="modal").btn.btn-warning.mr-2 Editar
+                                            a(href=`#editUser${user.id}` data-toggle="modal" data-role=user.role).edit-form-button.btn.btn-warning.mr-2 Editar
                                             a(href=`#deleteUser${user.id}` data-toggle="modal").btn.btn-danger Eliminar
         // END CONTENT AREA
 
@@ -91,13 +91,13 @@ block content
                                     .form-group
                                         label Admin Designation
                                         .form-group.mr-1
-                                            select#designation.form-control(required='' value=user.role)
-                                                option(value="sub-admin") Super Admin
-                                                option(value="admin") Admin
-                                                option(value="editor") Editor
+                                            select#designation.form-control(required='' name="role")
+                                                option(value="sub-admin").option-form Super Admin
+                                                option(value="admin").option-form Admin
+                                                option(value="editor").option-form Editor
                             .modal-footer
                                 input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
-                                input.btn.btn-info(type='submit' value='Save')
+                                button.btn.btn-info(type="submit") Editar
 
         // Add admin
         #addadminModal.modal.fade
@@ -139,64 +139,17 @@ block content
                         .modal-footer
                             input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
                             button.btn.btn-success(type='submit') Agregar
-
-        #editadminModal.modal.fade
-            .modal-dialog
-                .modal-content
-                    form
-                        .modal-header
-                            h4.modal-title Edit Admin
-                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
-                            | &times;
-                        .modal-body
-                            .col-sm-12
-                                label Nombre
-                                input#admin-name.form-control.mb-4(type='text' placeholder='Admin Name' required='')
-                            .col-sm-12
-                                .form-group
-                                    label Apellido
-                                    input#school-id.form-control.mb-4(type='text' placeholder='School ID' required='')
-                            .col-sm-12
-                                .form-group
-                                    label Usuario
-                                    input#school-name.form-control.mb-4(type='text' placeholder='School Name' required='')
-                            .col-md-12
-                                .form-group
-                                    label Correo
-                                    input#signup-email.form-control.mb-4(type='email' placeholder="Admin's Email" required='')
-                            .col-md-12
-                                .form-group
-                                    label Default Password
-                                    input#signup-password.form-control.mb-4(type='password' placeholder='Default Password' required='')
-                            .col-md-12
-                                .form-group
-                                    label Admin Designation
-                                    .form-group.mr-1
-                                        select#designation.form-control(required='')
-                                            option Super Admin
-                                            option Admin
-                                            option Editor
-                        .modal-footer
-                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
-                            input.btn.btn-info(type='submit' value='Save')
-
-        #deleteadminModal.modal.fade
-            .modal-dialog
-                .modal-content
-                    form
-                        .modal-header
-                            h4.modal-title Delete Admin
-                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
-                            | &times;
-                        .modal-body
-                            p &iquest;Seguro que quiere eliminar los siguientes campos?
-                            p.text-warning
-                            small Esta acci&oacute;n no se puede revertir.
-                        .modal-footer
-                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
-                            input.btn.btn-danger(type='submit' value='Delete')
-    // END MAIN CONTAINER
-
     script.
-        if (user)
-            localStorage.setItem('user', JSON.stringify(user))
+        const options = document.querySelectorAll('.option-form')
+        const buttons = document.querySelectorAll('.edit-form-button')
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                options.forEach((option) => {
+                    option.removeAttribute('selected')
+                    if (option.value === e.target.getAttribute('data-role')) {
+                        option.setAttribute('selected', 'on')
+                    }
+                })
+            })
+        })

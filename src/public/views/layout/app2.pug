@@ -4,7 +4,7 @@ html(lang='en')
         meta(charset='UTF-8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        title INGECOP - VAT Encuesta
+        title INGECOP - Formularios
         link(rel='icon', type='image/jpg', href='images/logo2 - copia.png')
         link(rel='stylesheet', href='css/estilo_formularios.css')
     body
@@ -20,18 +20,9 @@ html(lang='en')
             ul.nav__menu
                 li.menu__logo
                     a(href='/kiosko')
-                        img(src='images/logo1.png', alt='')
+                        img(src='/images/logo1.png', alt='')
                 li
                     a(href='/contacto') Solicitar Asistencia
                 li
                     a(href='/kiosko') Menu Principal
-        header
-            if encuestas
-                each encuesta in encuestas
-                    nav.nav
-                        input#nav__checkbox.nav__checkbox(type='checkbox', name='')
-                        ul.nav__menu
-                            li.menu__logo2
-                                img(src='/images/logo4.png', alt='')
-                            li
-                                a(href=encuesta.url, target=`${type === 'external' ? '_blank' : ''}`)=encuesta.title
+        block content
