@@ -1,0 +1,273 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title Document
+        link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl', crossorigin='anonymous')
+        script(src='js/jspdf.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js')
+        script(src='js/app.js')
+        link(rel='stylesheet', href='css/estilo_formularios.css')
+    body
+        nav.nav
+            input#nav__checkbox.nav__checkbox(type='checkbox', name='')
+            label.nav__toggle(for='nav__checkbox')
+                // Menu
+                svg.menu(viewBox='0 0 448 512', width='100', title='bars')
+                    path(d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z')
+                // Close
+                svg.close(viewBox='0 0 384 512', width='100', title='times')
+                    path(d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z')
+            ul.nav__menu
+                li.menu__logo
+                    a(href='kiosko.html')
+                        img(src='images/logo1.png', alt='')
+                li
+                    a(href='contacto.html') Solicitar Asistencia
+                li
+                    a(href='formularios.html') Regresar a formularios
+        .container.mt-4
+            .row
+                .col-md-8.offset-md-2
+                    h3 Formulario para Solicitud de Baja de Documentos (5001)
+                    hr
+                    form#form
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='lugar') Lugar
+                                select#lugar.form-control(name='proceso')
+                                    option(value='-1', selected='', disabled='') Seleccione...
+                                    option(value='Guatemala') Guatemala
+                                    option(value='Quetzaltenango') Quetzaltenango
+                                    option(value='Huehuetenango') Huehuetenango
+                                    option(value='Coban, Altaverapaz') Coban, Altaverapaz
+                                    option(value='Flores, Petén') Flores, Pet&eacute;n
+                            .col-md-6
+                                label.form-label(for='fecha') Fecha
+                                input#fecha.form-control(type='datetime-local')
+                        .mb-3
+                            label.form-label(for='cop') Nombre de la Cooperativa
+                            input#cop.form-control(type='text', placeholder='Ingrese el nombre de la cooperativa')
+                        .mb-3
+                            label.form-label(for='domicilio') Domicilio
+                            input#domicilio.form-control(type='text', placeholder='Ingresa la dirección de tu domicilio')
+                        .row.mb-2
+                            .col-md-3
+                                label.form-label(for='departamento') Departamento
+                                select#departamento.form-control(name='proceso')
+                                    option(value='-1', selected='', disabled='') Seleccione...
+                                    option(value='Alta Verapaz') Alta Verapaz
+                                    option(value='Baja Verapaz') Baja Verapaz
+                                    option(value='Chimaltenango') Chimaltenango
+                                    option(value='Chiquimula') Chiquimula
+                                    option(value='El Progreso') El Progreso
+                                    option(value='Escuintla') Escuintla
+                                    option(value='Guatemala') Guatemala
+                                    option(value='	Huehuetenango') &#x9;Huehuetenango
+                                    option(value='Jalapa') Jalapa
+                                    option(value='Jutiapa') Jutiapa
+                                    option(value='Petén') Pet&eacute;n
+                                    option(value='Quetzaltenango') Quetzaltenango
+                                    option(value='Quiché') Quich&eacute;
+                                    option(value='Retalhuleu') Retalhuleu
+                                    option(value='Sacatepequez') Sacatepequez
+                                    option(value='San Marcos') San Marcos
+                                    option(value='Santa Rosa') Santa Rosa
+                                    option(value='Sololá') Solol&aacute;
+                                    option(value='Suchitepequez') Suchitepequez
+                                    option(value='Totonicapán') Totonicap&aacute;n
+                                    option(value='Zacapa') Zacapa
+                            .col-md-3
+                                label.form-label(for='municipio') Municipio
+                                input#municipio.form-control(type='text', placeholder='Municipio')
+                            .col-md-6
+                                label.form-label(for='nit') Numero de Identificacion Tributaria (NIT) 
+                                input#nit.form-control(type='text', placeholder='Ejemplo: 00000000-9')
+                        .mb-3
+                            label.form-label(for='copcor') Correo Electronico de la cooperativa
+                            input#copcor.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                        hr
+                        h3 Nomina de cuadros directivos
+                        .row.d-md-3
+                            .col-md-4
+                                label.form-label(for='libroacta') Segun libro de actas
+                                input#libroacta.form-control(type='text', placeholder='Ejemplo: 0000')
+                            .col-md-4
+                                label.form-label(for='numacta') Y Acta No.
+                                input#numacta.form-control(type='text', placeholder='Ejemplo: 00')
+                            .col-md-4
+                                label.form-label(for='veinte') 20
+                                input#veinte.form-control(type='text', placeholder='Ejemplo: 00')
+                        hr
+                        h3 Consejo Administrativo
+                        h5 Cargo - Presidente
+                        .row.d-md-3
+                            .col-md-7
+                                label.form-label(for='nompres') Nombre
+                                input#nompres.form-control(type='text', placeholder='Ingrese el nombre del presidente')
+                            .col-md-5
+                                label.form-label(for='corpres') Correo Personal
+                                input#corpres.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                            .col-md-3
+                                label.form-label(for='edpres') Edad
+                                input#edpres.form-control(type='text', placeholder='Ej: 35 Años')
+                            .col-md-3
+                                label.form-label(for='telpres') Telefono
+                                input#telpres.form-control(type='text', placeholder='Tel.')
+                            .col-md-3
+                                label.form-label(for='inpres') Elecci&oacute;n
+                                input#inpres.form-control(type='date')
+                            .col-md-3
+                                label.form-label(for='finpres') Fin Periodo
+                                input#finpres.form-control(type='date')
+                            .col-md-12
+                                label.form-label(for='escpres') Escolaridad
+                                input#escpres.form-control(type='text', placeholder='Ej: Licenciatura en Administración de Empresas')
+                        hr
+                        h5 Cargo - Vicepresidente
+                        .row.d-md-3
+                            .col-md-7
+                                label.form-label(for='nomvis') Nombre
+                                input#nomvis.form-control(type='text')
+                            .col-md-5
+                                label.form-label(for='corvis') Correo Personal
+                                input#corvis.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                            .col-md-3
+                                label.form-label(for='edvis') Edad
+                                input#edvis.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='telvis') Telefono
+                                input#telvis.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='invis')  Elecci&oacute;n
+                                input#invis.form-control(type='date')
+                            .col-md-3
+                                label.form-label(for='finvis') Fin Periodo
+                                input#finvis.form-control(type='date')
+                            .col-md-12
+                                label.form-label(for='escvis') Escolaridad
+                                input#escvis.form-control(type='text', placeholder='Ej: Licenciatura en Administración de Empresas')
+                        hr
+                        h5 Cargo - Secretario
+                        .row.d-md-3
+                            .col-md-7
+                                label.form-label(for='nomsec') Nombre
+                                input#nomsec.form-control(type='text')
+                            .col-md-5
+                                label.form-label(for='corsec') Correo Personal
+                                input#corsec.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                            .col-md-3
+                                label.form-label(for='edsec') Edad
+                                input#edsec.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='telsec') Telefono Celular
+                                input#telsec.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='insec')  Elecci&oacute;n
+                                input#insec.form-control(type='date')
+                            .col-md-3
+                                label.form-label(for='finsec') Fin Periodo
+                                input#finsec.form-control(type='date')
+                            |  
+                            .col-md-12
+                                label.form-label(for='escsec') Escolaridad
+                                input#escsec.form-control(type='text', placeholder='Ej: Licenciatura')
+                        hr
+                        h5 Cargo - Tesorero
+                        .row.d-md-3
+                            .col-md-7
+                                label.form-label(for='nomtes') Nombre
+                                input#nomtes.form-control(type='text')
+                            .col-md-5
+                                label.form-label(for='cortes') Correo Personal
+                                input#cortes.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                            .col-md-3
+                                label.form-label(for='edtes') Edad
+                                input#edtes.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='teltes') Telefono Celular
+                                input#teltes.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='intes')  Elecci&oacute;n
+                                input#intes.form-control(type='date')
+                            .col-md-3
+                                label.form-label(for='fintes') Fin Periodo
+                                input#fintes.form-control(type='date')
+                            .col-md-12
+                                label.form-label(for='esctes') Escolaridad
+                                input#esctes.form-control(type='text', placeholder='Ej: Licenciatura en Administración de Empresas')
+                        hr
+                        h5 Cargo - Vocal
+                        .row.d-md-3
+                            .col-md-7
+                                label.form-label(for='nomvoc') Nombre
+                                input#nomvoc.form-control(type='text')
+                            .col-md-5
+                                label.form-label(for='corvoc') Correo Personal
+                                input#corvoc.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                            .col-md-3
+                                label.form-label(for='edvoc') Edad
+                                input#edvoc.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='telvoc') Telefono Celular
+                                input#telvoc.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='invoc')  Elecci&oacute;n
+                                input#invoc.form-control(type='date')
+                            .col-md-3
+                                label.form-label(for='finvoc') Fin Periodo
+                                input#finvoc.form-control(type='date')
+                            .col-md-12
+                                label.form-label(for='escvoc') Escolaridad
+                                input#escvoc.form-control(type='text', placeholder='Ej: Licenciatura')
+                        hr
+                        h3 Consejo Administrativo
+                        h5 Cargo - Presidente
+                        .row.d-md-3
+                            .col-md-7
+                                label.form-label(for='nompres') Nombre
+                                input#nompres.form-control(type='text')
+                            .col-md-5
+                                label.form-label(for='corpres') Correo Personal
+                                input#corpres.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                            .col-md-3
+                                label.form-label(for='edpres') Edad
+                                input#edpres.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='telpres') Telefono Celular
+                                input#telpres.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='inpres') Elecci&oacute;n
+                                input#inpres.form-control(type='date')
+                            .col-md-3
+                                label.form-label(for='finpres') Fin Periodo
+                                input#finpres.form-control(type='date')
+                            .col-md-12
+                                label.form-label(for='escpres') Escolaridad
+                                input#escpres.form-control(type='text', placeholder='Ej: Licenciatura')
+                        hr
+                        span.d-block.pb-2 Firma digital aqui
+                        .signature.mb-2(style='width: 100%; height: 200px;')
+                            canvas#signature-canvas(style='border: 4px dashed rgb(228, 225, 38); width: 100%; height: 200px; background-color: white;')
+                            button(type='reset') Limpiar firma
+                        button.btn.btn-primary.mb-4(type='submit') Generar PDF
+        script.
+            // Set the inactivity timeout in milliseconds (15 seconds)
+            const inactivityTimeout = 300000; // 15 seconds
+            let timeoutId;
+            // Function to reset the timeout
+            function resetTimeout() {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(redirectToMainPage, inactivityTimeout);
+            }
+            // Function to redirect to the main page
+            function redirectToMainPage() {
+            window.location.href = "init.html"; // Replace with the URL of your main page
+            }
+            // Reset the timeout whenever there is user activity
+            window.addEventListener("mousemove", resetTimeout);
+            window.addEventListener("keydown", resetTimeout);
+            // Initial setup of the timeout
+            resetTimeout();

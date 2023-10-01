@@ -1,0 +1,214 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title Document
+        link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl', crossorigin='anonymous')
+        script(src='js/jspdf.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js')
+        script(src='js/app3.js')
+        link(rel='stylesheet', href='css/estilo_formularios.css')
+    body
+        nav.nav
+            input#nav__checkbox.nav__checkbox(type='checkbox', name='')
+            label.nav__toggle(for='nav__checkbox')
+                // Menu
+                svg.menu(viewBox='0 0 448 512', width='100', title='bars')
+                    path(d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z')
+                // Close
+                svg.close(viewBox='0 0 384 512', width='100', title='times')
+                    path(d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z')
+            ul.nav__menu
+                li.menu__logo
+                    a(href='kiosko.html')
+                        img(src='images/logo1.png', alt='')
+                li
+                    a(href='contacto.html') Solicitar Asistencia
+                li
+                    a(href='formularios.html') Regresar a formularios
+        .container.mt-4
+            .row
+                .col-md-8.offset-md-2
+                    h3
+                        | FORMULARIO PARA ENTREGA DE MEMORIA
+                        | DE LABORES
+                    h5
+                        | FORMULARIO NO. INGECOP-SALF-5003
+                    hr
+                    h5
+                        | SECCI&Oacute;N DE AUTORIZACI&Oacute;N DE LIBROS Y FORMAS
+                    h6
+                        | 1 - LISTADO DE REQUISITOS DE MEMORIA DE LABORES
+                    form#form
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='lugar') Lugar
+                                select#lugar.form-control(name='proceso')
+                                    option(value='-1', selected='', disabled='') Seleccione...
+                                    option(value='Guatemala') Guatemala
+                                    option(value='Quetzaltenango') Quetzaltenango
+                                    option(value='Huehuetenango') Huehuetenango
+                                    option(value='Coban, Altaverapaz') Coban, Altaverapaz
+                                    option(value='Flores, Petén') Flores, Pet&eacute;n
+                            .col-md-6
+                                label.form-label(for='fecha') Fecha
+                                input#fecha.form-control(type='date')
+                        .mb-3
+                            label.form-label(for='cop')
+                                | Nombre Completo de la
+                                | Cooperativa o Federacion
+                            input#cop.form-control(type='text')
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='dom') Direcci&oacute;n
+                                input#dom.form-control(type='text')
+                            .col-md-6
+                                label.form-label(for='nit') Numero de Identificacion Tributaria 
+                                input#nit.form-control(type='text')
+                        .row.mb-3
+                            .col-md-6
+                                label.form-label(for='rl') Representante Legal
+                                input#rl.form-control(type='text')
+                            .col-md-6
+                                label.form-label(for='tel') Telefono / Linea Fija / Celular
+                                input#tel.form-control(type='text')
+                        .mb-3
+                            label.form-label(for='cor') Correo Electronico / E-mail
+                            input#cor.form-control(type='text')
+                        hr
+                        h3 FORMA DE ENTREGA DE MEMORIA DE LABORES
+                        h6 MARCAR CON UNA &quot;X&quot; - FORMA DE ENTREGA DE MEMORIA DE LABORES 
+                        .row.d-md-3
+                            .col-md-3
+                                label.form-label(for='fi') FISICA
+                                input#fi.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='cd') CD
+                                input#cd.form-control(type='text')
+                            .col-md-3
+                                label.form-label(for='em') E-MAIL
+                                input#em.form-control(type='')
+                            .col-md-3
+                                label.form-label(for='us') USB
+                                input#us.form-control(type='')
+                        hr
+                        hr
+                        h6 MARCAR CON UNA &quot;X&quot; - ENTREGAR LA SIGUIENTE DOCUMENTACI&Oacute;N: 
+                        table(border='0')
+                            tbody
+                                tr
+                                    td(width='200px')
+                                        | 1.1 Formulariode Actualizaci&oacute;nde Datos INGECOP-SALF-5004
+                                    td(width='10%')
+                                        input#sp.form-control(type='')
+                        hr
+                        hr
+                        h3 2) INFORMACI&Oacute;N LEGAL Y ADMINISTRATIVA: 
+                        h6 MARCAR CON UNA &quot;X&quot;
+                        table(border='0')
+                            tbody
+                                tr
+                                    td(width='200px')
+                                        | 2.1 Convocatoria de Asamblea General Ordinaria Anual
+                                    td(width='10%')
+                                        input#p1.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 2.2 Agenda de Asamblea General Ordinaria Anual
+                                    td(width='10%')
+                                        input#p2.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 2.3 Certificaci&oacute;n de Acta de Asamblea General Anual
+                                    td(width='10%')
+                                        input#p3.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 2.4 Certificaci&oacute;n de Asociados por G&eacute;nero (Aplica solo para Cooperativas de Primer Grado NO LISTADO)
+                                    td(width='10%')
+                                        input#p4.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 2.4.1 Federaciones: Lista de Cooperativas
+                                    td(width='10%')
+                                        input#p5.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 2.5 Registro Tributario Unificado (RTU) de la Cooperativa ACTUALIZADO
+                                    td(width='10%')
+                                        input#p6.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 2.6 Registro Tributario Unificado (RTU) del Contador ACTUALIZADO
+                                    td(width='10%')
+                                        input#p7.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 2.7 Informe del Consejo de Administraci&oacute;n
+                                    td(width='10%')
+                                        input#p8.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 2.8 Informe de la Comisi&oacute;n de Vigilancia
+                                    td(width='10%')
+                                        input#p9.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 2.9 Informe de Otros Comit&eacute;s (Comit&eacute; de Cr&eacute;ditos, educaci&oacute;n, etc.) . y sellado por el Comit&eacute;. (si Aplica)
+                                    td(width='10%')
+                                        input#p10.form-control(type='')
+                        hr
+                        hr
+                        center
+                            h3 3) INFORMACI&Oacute;N CONTABLE 
+                        center
+                            h6 MARCAR CON UNA &quot;X&quot;
+                        table(border='0')
+                            tbody
+                                tr
+                                    td(width='200px')
+                                        | 3.1 Estado de Situaci&oacute;n Financiera (Balance General)
+                                    td(width='10%')
+                                        input#p11.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 3.2 Estado de Resultados
+                                    td(width='10%')
+                                        input#p12.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 3.3 Estado de cambio en el Patrimonio
+                                    td(width='10%')
+                                        input#p13.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 3.4 Estado de Flujos de Efectivo
+                                    td(width='10%')
+                                        input#p14.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 3.5 Notas a los Estados financieros
+                                    td(width='10%')
+                                        input#p15.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 3.6 Dictamen de la Comisi&oacute;n de Vigilancia CON FIRMA Y SELLO
+                                    td(width='10%')
+                                        input#p16.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 3.7 Presupuesto de Ingresos yEgresos para el per&iacute;odo a iniciar
+                                    td(width='10%')
+                                        input#p17.form-control(type='')
+                                tr
+                                    td(width='200px')
+                                        | 3.8 PlandeTrabajoparaelper&iacute;odoainiciar (Debidamentefirmadoyselladoporel Consejode Administraci&oacute;n)
+                                    td(width='10%')
+                                        input#p18.form-control(type='')
+                        hr
+                        span.d-block.pb-2 Firma digital aqui
+                        .signature.mb-2(style='width: 100%; height: 200px;')
+                            canvas#signature-canvas(style='border: 1px dashed red; width: 100%; height: 200px; background-color: white;')
+                        button.btn.btn-primary.mb-4(type='submit') Generar PDF
