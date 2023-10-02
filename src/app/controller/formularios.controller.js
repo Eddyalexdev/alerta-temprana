@@ -1,8 +1,9 @@
 const Form = require("../models/form.model")
+const {less, allRoutes} = require("../data/urls")
 
 const getForms = async (req, res) => {
     const forms = await Form.findAll()
-    res.render('admin/forms', { 'forms': forms })
+    res.render('admin/forms', { 'forms': forms, 'options': allRoutes })
 }
 
 const postForm = async (req, res) => {

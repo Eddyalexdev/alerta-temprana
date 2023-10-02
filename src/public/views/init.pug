@@ -12,7 +12,7 @@ html(lang="es")
         link(rel='stylesheet' href='/css/botones2.css')
     body
         .contenedor-formulario.contenedor
-            if type && type === 'video'
+            if type && type === 'video' && page.media !== ""
                 .imagen-formulario
                     video(controls loop muted autoplay).video-formulario
                         source(src=`/public/${page.media}`)

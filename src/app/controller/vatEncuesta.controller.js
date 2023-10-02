@@ -1,8 +1,9 @@
+const { allRoutes } = require("../data/urls")
 const VatEncuesta = require("../models/vatEncuesta.model")
 
 const getVatEncuestas = async (req, res) => {
     const vatEncuestas = await VatEncuesta.findAll()
-    res.render('admin/vat-encuestas', { 'encuestas': vatEncuestas })
+    res.render('admin/vat-encuestas', { 'encuestas': vatEncuestas, 'options': allRoutes })
 }
 
 const postVatEncuesta = async (req, res) => {

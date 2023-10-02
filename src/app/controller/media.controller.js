@@ -33,4 +33,16 @@ const putMedia = async (req, res) => {
     res.render('admin/media', { 'pages': pages, 'message': 'imagen actualizada' })
 }
 
-module.exports = {postMedia, getMedia, putMedia}
+const deleteMedia = async (req, res) => {
+    const {id} = req.params
+    const page = await Page.findByPk(id)
+    if(page) {
+        await page.update({
+            media: ""
+        })
+        await page.save()
+    }
+    res.redirect('/admin/media/pages')
+}
+
+module.exports = {postMedia, getMedia, putMedia, deleteMedia}

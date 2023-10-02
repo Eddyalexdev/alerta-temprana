@@ -61,9 +61,13 @@ block content
                                 .row
                                     .col-sm-8
                                         label URL
-                                        input#admin-name.form-control.mb-4(type='text' placeholder='' required='', name="url")
+                                        input#input-kiosko.form-control.mb-4.d-none(type='text' placeholder='', name="urlExternal")
+                                        select#list-kiosko.form-control.mb-4.d-block(name="urlInternal")
+                                            if options
+                                                each option in options
+                                                    option(value=option.url).option-form=option.text
                                     .col-sm-4.d-flex.align-items-center.justify-content-center
-                                        input.mr-2(type="checkbox", name="external")
+                                        input.mr-2(type="checkbox", name="external")#kioskoCheckbox
                                         span link externo?
                             .col-sm-12
                                 .form-group
@@ -72,3 +76,17 @@ block content
                         .modal-footer
                             input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
                             button.btn.btn-success(type='submit') Agregar
+    script.
+        const checkbox = document.getElementById('kioskoCheckbox')
+        const list = document.getElementById('list-kiosko')
+        const input = document.getElementById('input-kiosko')
+
+        checkbox.addEventListener('change', (e) => {
+            if(e.target.checked) {
+                input.classList.replace('d-none', 'd-block')
+                list.classList.replace('d-block', 'd-none')
+            } else {
+                input.classList.replace('d-block', 'd-none')
+                list.classList.replace('d-none', 'd-block')
+            }
+        })

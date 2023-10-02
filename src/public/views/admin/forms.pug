@@ -72,28 +72,26 @@ block content
                                             label.col-6
                                                 span.mr-2 interno
                                                 if form.type_url === 'internal'
-                                                    input.form-type-url(type="radio" value="internal" name="type_url" checked)
+                                                    input.form-type-url(type="radio" value="internal" name="type_url" checked data-id=form.id)
                                                 else 
-                                                    input.form-type-url(type="radio" value="internal" name="type_url")
+                                                    input.form-type-url(type="radio" value="internal" name="type_url" data-id=form.id)
                                             label.col-6  
                                                 span.mr-2 externo
                                                 if form.type_url === 'external'
-                                                    input.form-type-url(type="radio" value="external" name="type_url" checked)
+                                                    input.form-type-url(type="radio" value="external" name="type_url" checked data-id=form.id)
                                                 else
-                                                    input.form-type-url(type="radio" value="external" name="type_url")
+                                                    input.form-type-url(type="radio" value="external" name="type_url" data-id=form.id)
                                 .col-md-12
                                     .form-group
                                         label URL
 
                                         .form-group.mr-1
-                                            select#form-internal.form-control.d-block(name="internal" value=form.url)
-                                                option(value="/5001").option-form 5001
-                                                option(value="/5002").option-form 5002
-                                                option(value="/5003").option-form 5003
-                                                option(value="/5004").option-form 5004
-                                                option(value="/5005").option-form 5005
+                                            select#form-internal.form-control.list-form-edit(class=`${form.type_url === 'internal' ? 'd-block' : 'd-none'}` name="internal" value=form.url data-id=form.id)
+                                                if options
+                                                    each option in options
+                                                        option(value=option.url).option-form=option.text
 
-                                            input#form-external.form-control.mb-4.d-none(type='text' placeholder='Url del Formulario', name="external")
+                                            input#form-external.form-control.mb-4.input-form-edit(class=`${form.type_url === 'external' ? 'd-block' : 'd-none'}` type='text' placeholder='Url del Formulario', name="external" data-url=form.url data-id=form.id value=`${form.type_url === 'external' ? form.url : ''}`)
                             .modal-footer
                                 input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
                                 button.btn.btn-success(type='submit') Editar
@@ -126,11 +124,8 @@ block content
 
                                     .form-group.mr-1
                                         select#form-internal-create.form-control.d-block(name="internal")
-                                            option(value="/5001") 5001
-                                            option(value="/5002") 5002
-                                            option(value="/5003") 5003
-                                            option(value="/5004") 5004
-                                            option(value="/5005") 5005
+                                            each option in options
+                                                option(value=option.url).option-form=option.text
 
                                         input#form-external-create.form-control.mb-4.d-none(type='text' placeholder='Url del Formulario', name="external")
                         .modal-footer
@@ -141,10 +136,33 @@ block content
             const forms = document.querySelectorAll('.form-type-url')
             const internal =  document.getElementById('form-internal-create')
             const external =  document.getElementById('form-external-create')
+            const inputs = document.querySelectorAll('.input-form-edit')
+            const lists = document.querySelectorAll('.list-form-edit')
+
             forms.forEach((form) => {
                 form.addEventListener('change', (e) => {
-                    console.log(internal)
-                    console.log(external)
+                    if(e.target.getAttribute('data-id')) {
+                        inputs.forEach(input => {
+                            if(input.getAttribute('data-id') === e.target.getAttribute('data-id')) {
+                                if (e.target.value === 'internal') {
+                                    input.classList.replace('d-block', 'd-none')
+                                    input.value = ""
+                                } else {
+                                    input.classList.replace('d-none', 'd-block')
+                                    input.value = input.getAttribute('data-url')
+                                }
+                            }
+                        })
+                        lists.forEach(list => {
+                            if(list.getAttribute('data-id') === e.target.getAttribute('data-id')) {
+                                if (e.target.value === 'external') {
+                                    list.classList.replace('d-block', 'd-none')
+                                } else {
+                                    list.classList.replace('d-none', 'd-block')
+                                }
+                            } 
+                        })
+                    }
                     if (e.target.value === 'internal') {
                         external.classList.replace('d-block', 'd-none')
                         internal.classList.replace('d-none', 'd-block')

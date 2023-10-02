@@ -6,6 +6,9 @@ mixin page-image(title, image, slug, id)
             - const ext = image.split('.').pop()
             if ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp'
                 img(src=`/public/${image}`, alt="").w-100.media-file
+            else if image === ""
+                .media-file.bg-warning.d-flex.align-items-center.justify-content-center
+                    h4.text-white.text-center No se selecciono ninguna imagen o video
             else
                 video(controls).w-100.media-file
                     source(src=`/public/${image}`)
