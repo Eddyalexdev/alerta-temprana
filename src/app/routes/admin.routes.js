@@ -4,6 +4,7 @@ const { postKiosko, deleteKiosko, putKiosko } = require('../controller/kioskos.c
 const { getMedia, postMedia, putMedia, deleteMedia } = require('../controller/media.controller')
 const { postUser, getUsers, putUser, deleteUser } = require('../controller/user.controller')
 const { getVatEncuestas, postVatEncuesta, deleteVatEncuesta, putVatEncuestas } = require('../controller/vatEncuesta.controller')
+const { getContact } = require('../controller/contact.controller')
 const auth = require('../middleware/auth.middleware')
 const Kiosko = require('../models/kiosko.model')
 const router = require('express').Router()
@@ -41,5 +42,8 @@ router.get('/vatEncuestas', auth, getVatEncuestas)
 router.post('/vatEncuestas', auth, postVatEncuesta)
 router.get('/vatEncuestas/:id', auth, deleteVatEncuesta)
 router.post('/vatEncuestas/:id', auth, putVatEncuestas)
+
+router.get('/contacto', getContact)
+
 
 module.exports = router
