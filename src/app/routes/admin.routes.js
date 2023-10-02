@@ -3,6 +3,7 @@ const { getForms, postForm, deleteForm } = require('../controller/formularios.co
 const { postKiosko, deleteKiosko, putKiosko } = require('../controller/kioskos.controller')
 const { getMedia, postMedia, putMedia } = require('../controller/media.controller')
 const { postUser, getUsers, putUser, deleteUser } = require('../controller/user.controller')
+const { getContact } = require('../controller/contact.controller')
 const auth = require('../middleware/auth.middleware')
 const Kiosko = require('../models/kiosko.model')
 const router = require('express').Router()
@@ -31,5 +32,8 @@ router.post('/media/pages/:id', auth, upload.single('file'), putMedia)
 router.get('/formularios', getForms)
 router.post('/formularios', postForm)
 router.get('/formularios/:id', deleteForm)
+
+router.get('/contacto', getContact)
+
 
 module.exports = router
