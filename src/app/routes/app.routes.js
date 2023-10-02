@@ -12,13 +12,15 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/kiosko', async (req, res) => {
-    const kioskos = await Kiosko.findAll()
+    const kioskos = await Kiosko.findAll({order: [
+        ['id', 'DESC']
+    ]})
     const page = await Page.findOne({ where: { slug: 'kiosko' }}) 
     res.render("kiosko", { 'kioskos': kioskos, 'page': page})
 })
 
 router.get('/contacto', async (req, res) => {
-    const page = await Page.findOne({ where: { slug: 'contacto' } })
+    const page = await Page.findOne({ where: { slug: 'kiosko' } })
     res.render("contacto", { 'page': page })
 })
 

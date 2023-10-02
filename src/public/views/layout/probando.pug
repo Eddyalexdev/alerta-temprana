@@ -1,0 +1,17 @@
+html
+    head
+        meta(charset='utf-8')
+        title
+        link(rel='stylesheet', href='/css/base.css')
+        link(rel='stylesheet', href='/css/acordeon.css')
+        link(rel='stylesheet', href='/css/botones2.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+        script(src='/js/js/table2excel.js')
+        script(src='/js/js/exceljs.min.js')
+        script(src='/js/js/table2excel.core.js')
+        script.
+            function exportTables () {
+                new Table2Excel('table').export()
+            }
+    body
+        block content

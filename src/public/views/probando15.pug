@@ -1,70 +1,57 @@
-html
-    head
-        meta(charset='utf-8')
-        title
-        link(rel='stylesheet', href='/css/base.css')
-        link(rel='stylesheet', href='/css/acordeon.css')
-        link(rel='stylesheet', href='/botones2.css')
-        script(src='/js/js/table2excel.js')
-        script(src='/js/js/exceljs.min.js')
-        script(src='/js/js/table2excel.core.js')
-        script.
-            function exportTables () {
-            new Table2Excel('table').export()
-            }
-    body
-        button(onclick='exportTables()') export
-        table(data-excel-name='MOROSIDAD')
-            thead
-                tr
-                    th(colspan='3', ;='', style='background-color: rgb(255, 255, 255); text-align: center; color: white;')
-                        h3
-                tr
-                    th(colspan='3', ;='', style='background-color: rgb(57, 160, 74); text-align: center;')
-                        h3
-                            | DIEZ MAYORES CUENTAS DE PR&Eacute;STAMOS Y CUENTAS POR PAGAR
-            tbody
-                tr
-                    th(style='text-align: center; background-color: rgb(57, 160, 74);') No. Cuenta
-                    th(style='text-align: center; background-color: rgb(57, 160, 74);')
-                        | Cuenta
-                    th(style='text-align: center; background-color: rgb(57, 160, 74);') Monto        
-            tfoot
-                tr
-                    th(style='color: black;') 101101        
-                    td(style='color: black;  ')
-                        | Caja Moneda Nacional
-                    td
-                        input(type='text', value='Q')
-                tr
-                    th(style='background-color: rgb(221, 221, 220); color: black;')
-                        | 101601
-                    td(style='color: black; background-color: rgb(221, 221, 220);')
-                        | Caja Moneda Extranjera
-                    td(style='background-color: rgb(221, 221, 220);')
-                        input(type='text', value='Q')
-                tr
-                    th(style='color: black;')
-                        | 104
-                    td(style='color: black;')
-                        | Cuentas por Cobrar
-                    td
-                        input(type='text', value='Q')
-                tr
-                    th(style='background-color: rgb(221, 221, 220); color: black;')
-                        | 105
-                    td(style='color: black; background-color: rgb(221, 221, 220);')
-                        | Bienes Realizables
-                    td(style='background-color: rgb(221, 221, 220);')
-                        input(type='text', value='Q')
-                tr
-                    th(style='  color: black;')
-                        | 109
-                    td(style='color: black;')
-                        | Inmuebles/Muebles
-                    td
-                        input(type='text', value='Q')
-                tr
-                    th(style='color: black;')
-                    td(style=' color: rgb(0, 0, 0); text-align: right;') Total
-                    td(style='background-color: rgb(57, 160, 74); color: white; text-align: center;') Q0.00
+extends ./layout/probando
+block content
+    button(onclick='exportTables()') export
+    table(data-excel-name='MOROSIDAD')
+        thead
+            tr
+                th(colspan='3', ;='', style='background-color: rgb(255, 255, 255); text-align: center; color: white;')
+                    h3
+            tr
+                th(colspan='3', ;='', style='background-color: rgb(57, 160, 74); text-align: center;')
+                    h3
+                        | DIEZ MAYORES CUENTAS DE PR&Eacute;STAMOS Y CUENTAS POR PAGAR
+        tbody
+            tr
+                th(style='text-align: center; background-color: rgb(57, 160, 74);') No. Cuenta
+                th(style='text-align: center; background-color: rgb(57, 160, 74);')
+                    | Cuenta
+                th(style='text-align: center; background-color: rgb(57, 160, 74);') Monto        
+        tfoot
+            tr
+                th(style='color: black;') 101101        
+                td(style='color: black;  ')
+                    | Caja Moneda Nacional
+                td
+                    input(type='text', value='Q')
+            tr
+                th(style='background-color: rgb(221, 221, 220); color: black;')
+                    | 101601
+                td(style='color: black; background-color: rgb(221, 221, 220);')
+                    | Caja Moneda Extranjera
+                td(style='background-color: rgb(221, 221, 220);')
+                    input(type='text', value='Q')
+            tr
+                th(style='color: black;')
+                    | 104
+                td(style='color: black;')
+                    | Cuentas por Cobrar
+                td
+                    input(type='text', value='Q')
+            tr
+                th(style='background-color: rgb(221, 221, 220); color: black;')
+                    | 105
+                td(style='color: black; background-color: rgb(221, 221, 220);')
+                    | Bienes Realizables
+                td(style='background-color: rgb(221, 221, 220);')
+                    input(type='text', value='Q')
+            tr
+                th(style='  color: black;')
+                    | 109
+                td(style='color: black;')
+                    | Inmuebles/Muebles
+                td
+                    input(type='text', value='Q')
+            tr
+                th(style='color: black;')
+                td(style=' color: rgb(0, 0, 0); text-align: right;') Total
+                td(style='background-color: rgb(57, 160, 74); color: white; text-align: center;') Q0.00

@@ -19,12 +19,11 @@ const postMedia = async (req, res) => {
 
 const putMedia = async (req, res) => {
     const {id} = req.params
-    const {title, slug} = req.body
+    const {title} = req.body
     const {filename} = req.file
     const media = await Page.findByPk(id)
     await media.update({
         title,
-        slug,
         media: filename
     })
     await media.save()

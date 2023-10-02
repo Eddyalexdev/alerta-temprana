@@ -16,7 +16,7 @@ html(lang='es')
 
         .contenedor-formulario.contenedor
             if page
-                if type && type === 'video'
+                if type && type === 'video' && page.media !== ""
                     .imagen-formulario
                         video(controls loop muted autoplay).video-formulario
                             source(src=`/public/${page.media}`)

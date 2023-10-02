@@ -8,72 +8,13 @@ html(lang="es")
         link(rel='stylesheet' href='css/kiosko.css')
         link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
         title INGECOP - Kiosko
-    if page
-        body(style=`background-image: url('${page.media ? '/public/' + page.media : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg/1200px-Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg'}')`)
-    else
-        body
+    body(style=`background-image: url('${page && page.media ? '/public/' + page.media : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg/1200px-Santa_Catalina_Arch_-_Antigua_Guatemala_Feb_2020.jpg'}'); }`)
         .container
             h2
             section.services
                 include ./components/card
                 each kiosko in kioskos
                     +card(kiosko.icon, kiosko.title, kiosko.description, kiosko.url, kiosko.external)
-                a#link(href='/contacto')
-                    .card
-                        .content
-                            .icon
-                                i.fa.fa-phone
-                            .title Solicitar Asistencia
-                            p Puedes solicitar Asistencia a un agente desde este bot&oacute;n
-                a#link(href='formularios.html')
-                    .card
-                        .content
-                            .icon
-                                i.fa.fa-book
-                            .title Libros y Formas
-                            p Aqui encontrar&aacute;s los libros y formas para rellenar
-                a#link(href='vatEncuesta.html')
-                    .card
-                        .content
-                            .icon
-                                i.fa.fa-pencil
-                            .title VAT Encuesta
-                            p Ac&aacute; puedes acceder a las encuestas de tu cooperativa
-                a#link(href='http://190.99.117.234:9095/')
-                    .card
-                        .content
-                            .icon
-                                i.fa.fa-laptop
-                            .title VAT Indicadores 
-                            p Este Sistema de Indicadores es exclusiva para las cooperativas
-                a#link(href='vat.html')
-                    .card
-                        .content
-                            .icon
-                                i.fa.fa-line-chart
-                            .title VAT Herramienta nivel 1
-                            p Accede a la herramienta Nivel 1 desde este bot&oacute;n
-                a#link(href='http://google.com')
-                    .card
-                        .content
-                            .icon
-                                i.fa.fa-envelope
-                            .title Correo Navegador
-                            p Desde ac&aacute; puedes acceder al navegador de Google
-                a#link(href='https://portal.sat.gob.gt/portal/')
-                    .card
-                        .content
-                            .icon
-                                i.fa.fa-external-link
-                            .title Portal SAT
-                            p Accede al portal sat desde una nueva pesta&ntilde;a
-                a#link(href='https://ingecop.gob.gt/')
-                    .card
-                        .content
-                            .icon
-                                i.fa.fa-globe
-                            .title Plataforma Web
-                            p Ac&aacute; puedes acceder a la plataforma Web de Ingecop
                 a#link(href='/')
                     .card
                         .content

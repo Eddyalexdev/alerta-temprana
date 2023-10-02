@@ -1,79 +1,66 @@
-html
-    head
-        meta(charset='utf-8')
-        title
-        link(rel='stylesheet', href='/css/base.css')
-        link(rel='stylesheet', href='/css/acordeon.css')
-        link(rel='stylesheet', href='/botones2.css')
-        script(src='/js/js/table2excel.js')
-        script(src='/js/js/exceljs.min.js')
-        script(src='/js/js/table2excel.core.js')
-        script.
-            function exportTables () {
-            new Table2Excel('table').export()
-            }
-    body
-        button(onclick='exportTables()') export
-        table(data-excel-name='MOROSIDAD')
-            thead
-                tr
-                    th(colspan='4', ;='', style='background-color: rgb(57, 160, 74); text-align: center;')
-                        h3
-                            | MONTO DE MOROSIDAD DE DIRECTIVOS
-                tr
-                    th(colspan='4', ;='', style='background-color: rgb(255, 255, 255); text-align: center; color: white;')
-                        h3
-                tr
-                    th(colspan='4', ;='', style='background-color: rgb(57, 160, 74); text-align: center;')
-                        h3 Cantidad Total de Pr&eacute;stamos
-                tr
-                    th(style='color: black;')
-                        | Total de Pr&eacute;stamos a Directivos
-                    td
-                        input(type='text', value='100')
-                    td
-                        input(type='text', value='Q100.000.00')
-                    td
-                        input(type='text', value='100%')
-            tbody
-                tr
-                    td(colspan='4', style='text-align: center; background-color: white; color: white;') Cantidad Total de Pr&eacute;stamos
-                tr
-                    th(style='text-align: center; background-color: rgb(57, 160, 74);') Periodos de Morosidad
-                    th(style='text-align: center; background-color: rgb(57, 160, 74);') Cuentas en Morosidad
-                    th(style='text-align: center; background-color: rgb(57, 160, 74);') Cantidad en Quetzales
-                    th(style='text-align: center; background-color: rgb(57, 160, 74); border: 5px black;') Porcentaje
-            tfoot
-                tr
-                    th(style='color: black;') 31-90 D&Iacute;AS
-                    td
-                        input(type='text', value='')
-                    td
-                        input(type='text', value='Q')
-                    td(style='color: black;') 0.00%
-                tr
-                    th(style='background-color: rgb(221, 221, 220); color: black;') 91-180 D&Iacute;AS
-                    td(style='background-color: rgb(221, 221, 220);')
-                        input(type='text', value='')
-                    td(style='background-color: rgb(221, 221, 220);')
-                        input(type='text', value='Q')
-                    td(style='background-color: rgb(221, 221, 220); color: black') 1.25%
-                tr
-                    th(style='color: black;') 181-365 D&Iacute;AS
-                    td
-                        input(type='text', value='')
-                    td
-                        input(type='text', value='Q')
-                    td(style='color: black;') 0.00%
-                tr
-                    th(style='background-color: rgb(221, 221, 220); color: black;') MAS DE 365 D&Iacute;AS
-                    td(style='background-color: rgb(221, 221, 220);')
-                        input(type='text', value='')
-                    td(style='background-color: rgb(221, 221, 220);')
-                        input(type='text', value='Q')
-                    td(style='background-color: rgb(221, 221, 220); color: black;') 1.25%
-                tr
-                    th(style='color: black;') TOTAL
-                    td
-                    td(style='background-color: rgb(179, 245, 179); color: white;') Q
-                    td(style='background-color: rgb(179, 245, 179); color: white;') Q
+extends ./layout/probando
+block content
+    button(onclick='exportTables()') export
+    table(data-excel-name='MOROSIDAD')
+        thead
+            tr
+                th(colspan='4', ;='', style='background-color: rgb(57, 160, 74); text-align: center;')
+                    h3
+                        | MONTO DE MOROSIDAD DE DIRECTIVOS
+            tr
+                th(colspan='4', ;='', style='background-color: rgb(255, 255, 255); text-align: center; color: white;')
+                    h3
+            tr
+                th(colspan='4', ;='', style='background-color: rgb(57, 160, 74); text-align: center;')
+                    h3 Cantidad Total de Pr&eacute;stamos
+            tr
+                th(style='color: black;')
+                    | Total de Pr&eacute;stamos a Directivos
+                td
+                    input(type='text', value='100')
+                td
+                    input(type='text', value='Q100.000.00')
+                td
+                    input(type='text', value='100%')
+        tbody
+            tr
+                td(colspan='4', style='text-align: center; background-color: white; color: white;') Cantidad Total de Pr&eacute;stamos
+            tr
+                th(style='text-align: center; background-color: rgb(57, 160, 74);') Periodos de Morosidad
+                th(style='text-align: center; background-color: rgb(57, 160, 74);') Cuentas en Morosidad
+                th(style='text-align: center; background-color: rgb(57, 160, 74);') Cantidad en Quetzales
+                th(style='text-align: center; background-color: rgb(57, 160, 74); border: 5px black;') Porcentaje
+        tfoot
+            tr
+                th(style='color: black;') 31-90 D&Iacute;AS
+                td
+                    input(type='text', value='')
+                td
+                    input(type='text', value='Q')
+                td(style='color: black;') 0.00%
+            tr
+                th(style='background-color: rgb(221, 221, 220); color: black;') 91-180 D&Iacute;AS
+                td(style='background-color: rgb(221, 221, 220);')
+                    input(type='text', value='')
+                td(style='background-color: rgb(221, 221, 220);')
+                    input(type='text', value='Q')
+                td(style='background-color: rgb(221, 221, 220); color: black') 1.25%
+            tr
+                th(style='color: black;') 181-365 D&Iacute;AS
+                td
+                    input(type='text', value='')
+                td
+                    input(type='text', value='Q')
+                td(style='color: black;') 0.00%
+            tr
+                th(style='background-color: rgb(221, 221, 220); color: black;') MAS DE 365 D&Iacute;AS
+                td(style='background-color: rgb(221, 221, 220);')
+                    input(type='text', value='')
+                td(style='background-color: rgb(221, 221, 220);')
+                    input(type='text', value='Q')
+                td(style='background-color: rgb(221, 221, 220); color: black;') 1.25%
+            tr
+                th(style='color: black;') TOTAL
+                td
+                td(style='background-color: rgb(179, 245, 179); color: white;') Q
+                td(style='background-color: rgb(179, 245, 179); color: white;') Q

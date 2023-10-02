@@ -1,70 +1,57 @@
-html
-    head
-        meta(charset='utf-8')
-        title
-        link(rel='stylesheet', href='/css/base.css')
-        link(rel='stylesheet', href='/css/acordeon.css')
-        link(rel='stylesheet', href='/botones2.css')
-        script(src='/js/js/table2excel.js')
-        script(src='/js/js/exceljs.min.js')
-        script(src='/js/js/table2excel.core.js')
-        script.
-            function exportTables () {
-            new Table2Excel('table').export()
-            }
-    body
-        button(onclick='exportTables()') export
-        table(data-excel-name='MOROSIDAD')
-            thead
-                tr
-                    th(colspan='4', ;='', style='background-color: rgb(255, 255, 255); text-align: center; color: white;')
-                        h3
-                tr
-                    th(colspan='4', ;='', style='background-color: rgb(57, 160, 74); text-align: center;')
-                        h3
-                            | CINCO MAYORES ALTAS EN BIENES
-            tbody
-                tr
-                    th(style='text-align: center; background-color: rgb(57, 160, 74);') No.
-                    th(style='text-align: center; background-color: rgb(57, 160, 74);') C&oacute;digo del bien mueble/inmueble        
-                    th(style='text-align: center; background-color: rgb(57, 160, 74);') Monto        
-                    th(style='text-align: center; background-color: rgb(57, 160, 74); border: 5px black;')
-                        | Fecha de baja
-            tfoot
-                tr
-                    th(style='color: black;') 1
-                    td
-                        input(type='text', value='')
-                    td
-                        input(type='text', value='Q')
-                    td(style='color: black;')
-                        input(type='date')
-                tr
-                    th(style='background-color: rgb(221, 221, 220); color: black;') 2
-                    td(style='background-color: rgb(221, 221, 220);')
-                        input(type='text', value='')
-                    td(style='background-color: rgb(221, 221, 220);')
-                        input(type='text', value='Q')
-                    td(style='color: black;')
-                        input(type='date')
-                tr
-                    th(style='color: black;') 3
-                    td
-                        input(type='text', value='')
-                    td
-                        input(type='text', value='Q')
-                    td(style='color: black;')
-                        input(type='date')
-                tr
-                    th(style='background-color: rgb(221, 221, 220); color: black;') 4
-                    td(style='background-color: rgb(221, 221, 220);')
-                        input(type='text', value='')
-                    td(style='background-color: rgb(221, 221, 220);')
-                        input(type='text', value='Q')
-                    td(style='color: black;')
-                        input(type='date')
-                tr
-                    th(style='color: black;')
-                    td(style=' color: rgb(0, 0, 0); text-align: right;') TOTAL
-                    td(style='background-color: rgb(57, 160, 74); color: white;') Q0.00
-                    td(style='background-color: rgb(57, 160, 74); color: white;')
+extends ./layout/probando
+block content
+    button(onclick='exportTables()') export
+    table(data-excel-name='MOROSIDAD')
+        thead
+            tr
+                th(colspan='4', ;='', style='background-color: rgb(255, 255, 255); text-align: center; color: white;')
+                    h3
+            tr
+                th(colspan='4', ;='', style='background-color: rgb(57, 160, 74); text-align: center;')
+                    h3
+                        | CINCO MAYORES ALTAS EN BIENES
+        tbody
+            tr
+                th(style='text-align: center; background-color: rgb(57, 160, 74);') No.
+                th(style='text-align: center; background-color: rgb(57, 160, 74);') C&oacute;digo del bien mueble/inmueble        
+                th(style='text-align: center; background-color: rgb(57, 160, 74);') Monto        
+                th(style='text-align: center; background-color: rgb(57, 160, 74); border: 5px black;')
+                    | Fecha de baja
+        tfoot
+            tr
+                th(style='color: black;') 1
+                td
+                    input(type='text', value='')
+                td
+                    input(type='text', value='Q')
+                td(style='color: black;')
+                    input(type='date')
+            tr
+                th(style='background-color: rgb(221, 221, 220); color: black;') 2
+                td(style='background-color: rgb(221, 221, 220);')
+                    input(type='text', value='')
+                td(style='background-color: rgb(221, 221, 220);')
+                    input(type='text', value='Q')
+                td(style='color: black;')
+                    input(type='date')
+            tr
+                th(style='color: black;') 3
+                td
+                    input(type='text', value='')
+                td
+                    input(type='text', value='Q')
+                td(style='color: black;')
+                    input(type='date')
+            tr
+                th(style='background-color: rgb(221, 221, 220); color: black;') 4
+                td(style='background-color: rgb(221, 221, 220);')
+                    input(type='text', value='')
+                td(style='background-color: rgb(221, 221, 220);')
+                    input(type='text', value='Q')
+                td(style='color: black;')
+                    input(type='date')
+            tr
+                th(style='color: black;')
+                td(style=' color: rgb(0, 0, 0); text-align: right;') TOTAL
+                td(style='background-color: rgb(57, 160, 74); color: white;') Q0.00
+                td(style='background-color: rgb(57, 160, 74); color: white;')

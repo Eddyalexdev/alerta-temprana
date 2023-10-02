@@ -1,40 +1,43 @@
 mixin page-image(title, image, slug, id)
-    .col-3.media-item
-        h5=title
-        small=slug
-        .media-item
-            - const ext = image.split('.').pop()
-            if ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp'
-                img(src=`/public/${image}`, alt="").w-100.media-file
-            else if image === ""
-                .media-file.bg-warning.d-flex.align-items-center.justify-content-center
-                    h4.text-white.text-center No se selecciono ninguna imagen o video
-            else
-                video(controls).w-100.media-file
-                    source(src=`/public/${image}`)
-            .media-item__options
-                a(href=`#editMedia${id}` data-toggle="modal").btn.btn-success Editar
-                a(href=`/admin/media/pages/${id}`).btn.btn-warning Eliminar
+    if slug !== 'contacto'
+        .col-6.col-lg-3.media-item
+            h5=title
+            small=slug
+            .media-item
+                - const ext = image.split('.').pop()
+                if ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp'
+                    img(src=`/public/${image}`, alt="").w-100.media-file
+                else if image === ""
+                    .media-file.bg-warning.d-flex.align-items-center.justify-content-center
+                        h4.text-white.text-center No se selecciono ninguna imagen o video
+                else
+                    video(controls).w-100.media-file
+                        source(src=`/public/${image}`)
+                .media-item__options
+                    a(href=`#editMedia${id}` data-toggle="modal").btn.btn-success Editar
+                    a(href=`/admin/media/pages/${id}`).btn.btn-warning Eliminar
+            if slug === 'home' || slug === "login"
+                small.d-block Tamaño recomendado para la imagen 720 x 550
+            else 
+                small.d-block Tamaño recomendado para la imagen 1920 x 1080
+            
 
-        .modal.fade(id=`editMedia${id}`)
-            .modal-dialog
-                .modal-content
-                    form(method="POST", action=`/admin/media/pages/${id}`, enctype="multipart/form-data")
-                        .modal-header
-                            h4.modal-title Editar Imagen o Video
-                            button.close(type='button' data-dismiss='modal' aria-hidden='true')
-                            | &times;
-                        #add-form.modal-body
-                            .col-sm-12
-                                label Titulo
-                                input.form-control.mb-4(type='text' placeholder='' required='', name="title", value=title)
-                            .col-sm-12
-                                label Slug
-                                input.form-control.mb-4(type='text' placeholder='' required='', name="slug", value=slug)
-                            .col-sm-12
-                                label Imagen/Video
-                                input.form-control(type='file' placeholder='' required='', name="file")
-                                small El archivo debe ser solamente de extension: jpeg, jpg, png, mp4 u otra extension de video
-                        .modal-footer
-                            input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
-                            button.btn.btn-success(type='submit') Editar
+            .modal.fade(id=`editMedia${id}`)
+                .modal-dialog
+                    .modal-content
+                        form(method="POST", action=`/admin/media/pages/${id}`, enctype="multipart/form-data")
+                            .modal-header
+                                h4.modal-title Editar Imagen o Video
+                                button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                                | &times;
+                            #add-form.modal-body
+                                .col-sm-12
+                                    label Titulo
+                                    input.form-control.mb-4(type='text' placeholder='' required='', name="title", value=title)
+                                .col-sm-12
+                                    label Imagen/Video
+                                    input.form-control(type='file' placeholder='' required='', name="file")
+                                    small El archivo debe ser solamente de extension: jpeg, jpg, png, mp4 u otra extension de video
+                            .modal-footer
+                                input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                                button.btn.btn-success(type='submit') Editar

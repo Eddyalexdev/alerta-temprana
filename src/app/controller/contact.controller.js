@@ -5,6 +5,4 @@ const getContact = async (req, res) => {
     res.render('admin/contacto', { 'contacts': contacts })
 }
 
-
-
 module.exports = {getContact}
