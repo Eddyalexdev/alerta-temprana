@@ -91,7 +91,7 @@ window.addEventListener('load', async () => {
 async function generatePDF(lugar, fecha, cop, domicilio, nit, departamento, municipio, nompres, libroacta, numacta, veinte, copcor, telpres, corpres, edpres, escpres, inpres, finpres,
     nomvis, telvis, corvis, edvis, escvis, invis, finvis, nomsec, telsec, corsec, edsec, escsec, insec, finsec, nomtes, teltes, cortes, edtes, esctes, intes, fintes,
     nomvoc, telvoc, corvoc, edvoc, escvoc, invoc, finvoc ){
-    const image = await loadImage("images/formulario.jpg");
+    const image = await loadImage("/images/formulario.jpg");
     const signatureImage = signaturePad.toDataURL();
 
     const pdf = new jsPDF('p', 'pt', 'letter');
@@ -155,20 +155,7 @@ async function generatePDF(lugar, fecha, cop, domicilio, nit, departamento, muni
     pdf.text(escvoc, 353, 470);
     pdf.text(invoc, 403, 470);
     pdf.text(finvoc, 448, 470);
-
-
-
-
-    
-
-
-
-
     pdf.setFillColor(0,0,0);
-
-  
-
-
     pdf.save("INGECOP-5001");
     //window.print("INGECOP-5001.pdf");
 

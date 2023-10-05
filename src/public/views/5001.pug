@@ -1,5 +1,9 @@
 extends ./layout/app
 
+block scripts
+    script(src='/js/jspdf.min.js')
+    script(src='/js/app.js')
+
 block content
     .container.mt-4
         .row
@@ -19,7 +23,7 @@ block content
                                 option(value='Flores, Petén') Flores, Pet&eacute;n
                         .col-md-6
                             label.form-label(for='fecha') Fecha
-                            input#fecha.form-control(type='datetime-local')
+                            input#fecha.form-control(type='date')
                     .mb-3
                         label.form-label(for='cop') Nombre de la Cooperativa
                         input#cop.form-control(type='text', placeholder='Ingrese el nombre de la cooperativa')

@@ -84,12 +84,12 @@ html(lang='es')
                     path(d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z')
             ul.nav__menu
                 li.menu__logo
-                    a(href='kiosko.html')
+                    a(href='/kiosko')
                         img(src='images/logo1.png', alt='')
                 li
-                    a(href='contacto.html') Solicitar Asistencia
+                    a(href='/contacto') Solicitar Asistencia
                 li
-                    a(href='kiosko.html') Regresar
+                    a(href='/kiosko') Regresar
         center
             table(data-excel-name='Nombre de la cooperativa')
                 thead
@@ -971,7 +971,7 @@ html(lang='es')
                 }
                 // Function to redirect to the main page
                 function redirectToMainPage() {
-                    window.location.href = "init.html"; // Replace with the URL of your main page
+                    window.location.href = "/"; // Replace with the URL of your main page
                 }
                 // Reset the timeout whenever there is user activity
                 window.addEventListener("mousemove", resetTimeout);
@@ -990,7 +990,7 @@ html(lang='es')
                         label(for='email', style='color: #000;') Adjunte el archivo que acaba de descargar:
                         input(type='file', name='attachment', accept='PDF')
                         input.submit-button(type='submit', value='Confirmar y enviar formulario')
-                        input(type='hidden', name='_next', value='http://127.0.0.1:5500/vat.html')
+                        input(type='hidden', name='_next', value='/')
                         input(type='hidden', name='_captcha', value='false')
                         input(type='hidden', name='_subject', value='Alerta Temprana - Alguien ha enviado un nuevo documento')
                         input(type='hidden', name='_autoresponse', value='Hola, alguien te ha enviado un nuevo archivo')
@@ -1014,4 +1014,4 @@ html(lang='es')
                     if (event.target === modal) {
                         modal.style.display = 'none';
                         }
-                    }
+                }

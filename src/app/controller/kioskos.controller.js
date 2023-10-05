@@ -1,7 +1,7 @@
 const Kiosko = require('../models/kiosko.model')
 
 const postKiosko = async (req, res) => {
-    const {title, description, icon, urlExternal, urlInternal , external} = req.body
+    const {title, description, icon, urlExternal, urlInternal , external, color} = req.body
 
     if(title === "" || description === "" || icon === "") {
         res.redirect("/admin/kioskos")
@@ -12,6 +12,7 @@ const postKiosko = async (req, res) => {
             title,
             description,
             icon,
+            color,
             url: urlExternal,
             external
         })
@@ -20,6 +21,7 @@ const postKiosko = async (req, res) => {
             title,
             description,
             icon,
+            color,
             url: urlInternal,
             external
         })
@@ -40,7 +42,7 @@ const deleteKiosko = async (req, res) => {
 
 const putKiosko  = async (req, res) => {
     const {id} = req.params
-    const {title, description, icon, urlExternal, urlInternal, external} = req.body 
+    const {title, description, icon, urlExternal, urlInternal, external, color} = req.body 
     const kiosko = await Kiosko.findByPk(id)
     if (kiosko) {
         if (urlExternal !== "") {
@@ -48,6 +50,7 @@ const putKiosko  = async (req, res) => {
                 title,
                 description,
                 icon,
+                color,
                 url: urlExternal,
                 external
             })
@@ -56,6 +59,7 @@ const putKiosko  = async (req, res) => {
                 title,
                 description,
                 icon,
+                color,
                 url: urlInternal,
                 external
             })

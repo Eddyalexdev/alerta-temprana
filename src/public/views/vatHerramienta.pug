@@ -5,21 +5,21 @@ html(lang='es')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         title INGECOP - Herramienta Nivel 1
-        link(rel='icon', type='image/jpg', href='images/logo2 - copia.png')
+        link(rel='icon', type='image/jpg', href='/images/logo2 - copia.png')
         link(rel='stylesheet', href='/css/base.css')
         link(rel='stylesheet', href='/css/acordeon.css')
         link(rel='stylesheet', href='/botones2.css')
         script(src='/js/js/table2excel.js')
         script(src='/js/js/exceljs.min.js')
         script(src='/js/js/table2excel.core.js')
-        script(src='/dist/table2excel.js')
+        script(src='/js/dist/table2excel.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js')
         script.
             function exportTables () {
             new Table2Excel('table').export()
             }
-        link(rel='icon', type='image/jpg', href='images/logo2 - copia.png')
-        link(rel='stylesheet', href='css/estilo_formularios.css')
+        link(rel='icon', type='image/jpg', href='/images/logo2 - copia.png')
+        link(rel='stylesheet', href='/css/estilo_formularios.css')
     body
         nav.nav
             input#nav__checkbox.nav__checkbox(type='checkbox', name='')
@@ -32,13 +32,13 @@ html(lang='es')
                     path(d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z')
             ul.nav__menu
                 li.menu__logo
-                    a(href='/kiosko.html')
+                    a(href='/kiosko')
                         img(src='/images/logo1.png', alt='')
                 li
-                    a(href='/contacto.html') Solicitar Asistencia
+                    a(href='/contacto') Solicitar Asistencia
                 li
-                    a(href='/kiosko.html') Regresar
-        link(rel='icon', type='image/jpg', href='images/logo2 - copia.png')
+                    a(href='/kiosko') Regresar
+        link(rel='icon', type='image/jpg', href='/images/logo2 - copia.png')
         section
             ul.acordeon
                 li.open
@@ -93,51 +93,51 @@ html(lang='es')
                 li
                     h2 MONTO DE MOROSIDAD
                     div
-                        iframe(src='probando3.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando3', ;='', style='width: 100%; height: 100%;')
                 li
                     h2 MONTO DE MOROSIDAD DE DIRECTIVOS
                     div
-                        iframe(src='probando4.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando4', ;='', style='width: 100%; height: 100%;')
                 li
                     h2 MOROSIDAD DE EMPLEADOS
                     div
-                        iframe(src='probando6.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando6', ;='', style='width: 100%; height: 100%;')
                 li
                     h2 BIENES EXTRAORDINARIOS DE MAYOR VALOR
                     div
-                        iframe(src='probando5.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando5', ;='', style='width: 100%; height: 100%;')
                 li
                     h2 BAJAS EN BIENES MUEBLES E INMUEBLES
                     div
-                        iframe(src='probando7.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando7', ;='', style='width: 100%; height: 100%;')
                 li
                     h2 ALTAS EN BIENES MUEBLES E INMUEBLES
                     div
-                        iframe(src='probando8.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando8', ;='', style='width: 100%; height: 100%;')
                 li
                     h2 MAYORES CUENTAS DE AHORRO CORRIENTE
                     div
-                        iframe(src='probando9.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando9', ;='', style='width: 100%; height: 100%;')
                 li
                     h2 MAYORES CUENTAS DE AHORRO A PLAZO FIJO
                     div
-                        iframe(src='probando10.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando10', ;='', style='width: 100%; height: 100%;')
                 li
                     h2 MAYORES CUENTAS EN APORTACIONES EXTRAORDINARIAS
                     div
-                        iframe(src='probando12.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando12', ;='', style='width: 100%; height: 100%;')
                 li
                     h2 MAYORES CUENTAS DE GASTO DEL PERIODO
                     div
-                        iframe(src='probando13.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando13', ;='', style='width: 100%; height: 100%;')
                 li
                     h2 MAYORES CUENTAS DE PR&Eacute;STAMOS Y CUENTAS POR PAGAR
                     div
-                        iframe(src='probando14.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando14', ;='', style='width: 100%; height: 100%;')
                 li
                     h2 ACTIVOS PRODUCTIVOS
                     div
-                        iframe(src='probando15.html', ;='', style='width: 100%; height: 100%;')
+                        iframe(src='/probando15', ;='', style='width: 100%; height: 100%;')
         div(style='text-align: center; bottom: 50px;')
             script(src='/js/acordeon.js')
             script.
