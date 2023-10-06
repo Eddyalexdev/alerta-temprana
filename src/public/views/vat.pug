@@ -807,19 +807,19 @@ html(lang='es')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 1
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                input(type='text', value='Ej: Proveedor A')
+                                input(type='text')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto12(type='text', id='', onkeyup='sumar12();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 2
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                input(type='text', value='Ej: Acreedor B')
+                                input(type='text')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto12(type='text', id='', onkeyup='sumar12();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 3
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                input(type='text', value='Ej: Banco 1 S.A.')
+                                input(type='text')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto12(type='text', id='', onkeyup='sumar12();')
                         tr
@@ -982,7 +982,7 @@ html(lang='es')
                 .modal-content
                     span#closeModal.close &times;
                     h2 Contact Form
-                    form(action='https://formsubmit.co/moranoliver3@gmail.com', method='POST', enctype='multipart/form-data')
+                    form(action='https://formsubmit.co/notificacionesat17@gmail.com', method='POST', enctype='multipart/form-data', target="_blank")
                         label(for='name', style='color: #000000;') Ingresa el nombre de la cooperativa:
                         input#name(type='text', name='name', required='')
                         label(for='email', style='color: #000;') Ingrese su correo electronico:
@@ -990,7 +990,7 @@ html(lang='es')
                         label(for='email', style='color: #000;') Adjunte el archivo que acaba de descargar:
                         input(type='file', name='attachment', accept='PDF')
                         input.submit-button(type='submit', value='Confirmar y enviar formulario')
-                        input(type='hidden', name='_next', value='/')
+                        input(type='hidden', name='_next', value='https://srvkiosko/init')
                         input(type='hidden', name='_captcha', value='false')
                         input(type='hidden', name='_subject', value='Alerta Temprana - Alguien ha enviado un nuevo documento')
                         input(type='hidden', name='_autoresponse', value='Hola, alguien te ha enviado un nuevo archivo')

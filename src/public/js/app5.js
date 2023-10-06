@@ -56,16 +56,7 @@ async function generatePDF(lugar, fecha ){
     pdf.setFontSize(8);
     pdf.text(lugar, 55, 230);
     pdf.text(fecha, 120, 230);
-   
-
-    
-
-
-
-
     pdf.setFillColor(0,0,0);
-
-  
 
 
     pdf.save("INGECOP-5002");

@@ -14,7 +14,7 @@ html(lang="es")
             section.services
                 include ./components/card
                 each kiosko in kioskos
-                    +card(kiosko.icon, kiosko.title, kiosko.description, kiosko.url, kiosko.external)
+                    +card(kiosko.icon, kiosko.title, kiosko.description, kiosko.url, kiosko.external, kiosko.color)
                 a#link(href='/')
                     .card
                         .content

@@ -6,6 +6,7 @@ const Kiosko = sequelize.define('Kiosko', {
     description: DataTypes.STRING,
     icon: DataTypes.STRING,
     url: DataTypes.STRING,
+    color: DataTypes.STRING,
     external: DataTypes.STRING
 })
 

@@ -3,7 +3,7 @@ const Kiosko = require('../models/kiosko.model')
 const postKiosko = async (req, res) => {
     const {title, description, icon, urlExternal, urlInternal , external, color} = req.body
 
-    if(title === "" || description === "" || icon === "") {
+    if(title === "" || description === "" || icon === "" || color === "") {
         res.redirect("/admin/kioskos")
     }
 
