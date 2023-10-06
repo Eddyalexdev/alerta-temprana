@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {login, logout} = require('../controller/auth.controller')
+const Correo = require('../models/correo')
 const Form = require('../models/form.model')
 const Kiosko = require('../models/kiosko.model')
 const Page = require('../models/page.model')
@@ -12,9 +13,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/kiosko', async (req, res) => {
-    const kioskos = await Kiosko.findAll({order: [
-        ['id', 'DESC']
-    ]})
+    const kioskos = await Kiosko.findAll()
     const page = await Page.findOne({ where: { slug: 'kiosko' }}) 
     res.render("kiosko", { 'kioskos': kioskos, 'page': page})
 })
@@ -95,8 +94,10 @@ router.get('/probando15', (req, res) => {
     res.render('probando15')
 })
 
-router.get('/vat', (req, res) => {
-    res.render('vat')
+router.get('/vat', async (req, res) => {
+    const correos = await Correo.findAll()
+    const correo = correos[0]
+    res.render('vat', {correo})
 })
 
 router.get('/vatEncuesta', async (req, res) => {

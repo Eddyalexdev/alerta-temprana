@@ -1,0 +1,24 @@
+extends ../layout/admin.pug
+
+block content
+    #container.main-container.sidebar-closed.sbar-open
+        include ../components/navbar
+
+        #content.main-content
+            .layout-px-spacing
+                .py-3
+                    .bg-white.p-4
+                        .d-flex.align-items-center.justify-content-between
+                            h2 Administrar la direccion de correo electronico
+                        hr
+                        if correo
+                            form.d-flex.flex-column(method="POST", action=`/admin/correo/${correo.id}`)
+                                input(type="text", name="correo", value=correo.correo)
+                                div.d-flex 
+                                    span Correo actual: 
+                                    span=correo.correo
+                                button(type="submit").btn.btn-primary Cambiar correo actual
+                        else
+                            form.d-flex.flex-column(method="POST")
+                                input(type="text", name="correo").mb-4
+                                button(type="submit").btn.btn-primary Crear direccion de correo

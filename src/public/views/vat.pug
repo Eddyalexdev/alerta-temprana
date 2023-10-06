@@ -87,9 +87,12 @@ html(lang='es')
                     a(href='/kiosko')
                         img(src='images/logo1.png', alt='')
                 li
+                    a(href='https://ingecop.gob.gt/wp-content/uploads/1669/19/Alerta-Temprana-nn.xlsm', target="_blank") Descarga la Herramienta de la Seccion Alerta Temprana 
+                li
                     a(href='/contacto') Solicitar Asistencia
                 li
                     a(href='/kiosko') Regresar
+        center
         center
             table(data-excel-name='Nombre de la cooperativa')
                 thead
@@ -175,11 +178,11 @@ html(lang='es')
                     tr
                         th(style='color: black; background-color: rgb(255, 255, 255);') TOTAL DE CUENTAS:
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='100')
+                            input(type='text')
                         td(style='background-color: white; text-align: center;')
-                            input.tt(type='text', value='100000', data-row="1")
+                            input.tt(type='text', data-row="1")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='100%')
+                            input(type='text')
                 tbody
                     tr
                         th(style='text-align: center; background-color: rgb(255, 175, 3); color: black;') Periodos de Morosidad
@@ -194,7 +197,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto3.monto-final(type='text', onkeyup='sumar3();', data-id="1", data-row="1")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="1", disabled)
+                            input.percentage-final(type='text', data-id="1", disabled)
                     tr.r_calculate(data-id="2")
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 91-180 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -202,7 +205,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto3.monto-final(type='text', onkeyup='sumar3();', data-id="2", data-row="1")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="2", disabled)
+                            input.percentage-final(type='text', data-id="2", disabled)
                     tr.r_calculate(data-id="3")
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 181-365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -247,9 +250,9 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input(type='text', value='')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input.tt(type='text', value='100', data-row="2")
+                            input.tt(type='text', data-row="2")
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input(type='text', value='100%')
+                            input(type='text')
                 tbody
                     tr
                         th(style='background-color: rgb(255, 175, 3); text-align: center; color: black;') Periodos de Morosidad
@@ -314,11 +317,11 @@ html(lang='es')
                         th(style='color: black; background-color: white;')
                             | Total de Pr&eacute;stamos a Empleados
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input(type='text', value='100')
+                            input(type='text')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input.tt(type='text', value='100.000.00', data-row="3")
+                            input.tt(type='text', data-row="3")
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input(type='text', value='100%')
+                            input(type='text')
                 tbody
                     tr
                         th(style='background-color: rgb(255, 175, 3); text-align: center; color: black;') Periodos de Morosidad
@@ -924,13 +927,13 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 | Depreciaciones Acumuladas
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                input.monto13(type='text', id='', onkeyup='sumar13();')
+                                input.monto13#montoDepreciaciones(type='text', onkeyup='sumar13();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 203&#x9;
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 | Amortizaciones Acumuladas
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                input.monto13(type='text', id='', onkeyup='sumar13();')
+                                input.monto13#montoAmortizaciones(type='text', onkeyup='sumar13();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 299&#x9;
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
@@ -1001,7 +1004,7 @@ html(lang='es')
                 .modal-content
                     span#closeModal.close &times;
                     h2 Contact Form
-                    form(action='https://formsubmit.co/notificacionesat17@gmail.com', method='POST', enctype='multipart/form-data', target="_blank")
+                    form(action=`https://formsubmit.co/${correo ? correo.correo : "notificacionesat17@gmail.com"}`, method='POST', enctype='multipart/form-data', target="_blank")
                         label(for='name', style='color: #000000;') Ingresa el nombre de la cooperativa:
                         input#name(type='text', name='name', required='')
                         label(for='email', style='color: #000;') Ingrese su correo electronico:

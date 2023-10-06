@@ -125,7 +125,7 @@ async function generatePDF(lugar,fecha,cop,dire,nit,rl,tel,cor,lb1,nr1,m1,p1,p2,
     const signatureImage = signaturePad.toDataURL();
     const pdf = new jsPDF('p', 'pt', 'letter');
     pdf.addImage(image, 'PNG', 0, 0, 625, 792);
-    pdf.addImage(signatureImage, 'PNG', 350, 705, 300, 60);
+    pdf.addImage(signatureImage, 'PNG', 350, 585, 300, 60);
     pdf.setFontSize(12);
     pdf.setFontSize(8);
 

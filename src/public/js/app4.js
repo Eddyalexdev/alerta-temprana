@@ -61,70 +61,72 @@ window.addEventListener('load', async () => {
         let p19  = document.getElementById('p19').value;
         let p20  = document.getElementById('p20').value;
 
-        generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,em,us,sp,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20);
+        generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20);
         
     })
 
 });
 
-async function generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,em,us,sp,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20){
+async function generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20){
     const image = await loadImage("images/formulario4.jpg");
     const signatureImage = signaturePad.toDataURL();
 
     const pdf = new jsPDF('p', 'pt', 'letter');
 
-    pdf.addImage(image, 'PNG', 0, 0, 565, 792);
-    pdf.addImage(signatureImage, 'PNG', 350, 705, 300, 60);
+    pdf.addImage(image, 'PNG', 0, 0, 625, 792);
+    pdf.addImage(signatureImage, 'PNG', 250, 685, 300, 60);
 
     pdf.setFontSize(12);
 
     pdf.setFontSize(8);
-    pdf.text(lugar, 55, 230);
-    pdf.text(fecha, 120, 230);
-    pdf.text(nit, 475, 170);
+    pdf.text(lugar, 120, 188);
+    pdf.text(fecha, 190, 188);
 
-    pdf.text(cop, 175, 195);
-    pdf.text(dom, 122, 220);
-    pdf.text(rl, 175, 238);
+    pdf.text(cop, 235, 205);
+
+    pdf.text(dom, 122, 223);
+    pdf.text(nit, 145, 238);
+    pdf.text(rl, 122, 255);
 
     //
-    pdf.text(tel, 170, 253);
-    pdf.text(cor, 375, 253);
+    pdf.text(tel, 145, 273);
+    pdf.text(cor, 365, 273);
 
     // middle items
-    pdf.text(fi, 320, 270);
-    pdf.text(cd, 355, 270);
-    pdf.text(em, 405, 270);
-    pdf.text(us, 455, 270);
+    pdf.text(fi, 406, 290);
+    pdf.text(cd, 468, 290);
 
-    pdf.text(sp, 500, 303);
-
-    pdf.text(p1, 500, 360);
-    pdf.text(p2, 500, 375);
-    pdf.text(p3, 500, 390);
-    pdf.text(p4, 500, 405);
-    pdf.text(p5, 500, 420);
-    pdf.text(p6, 500, 435);
-    pdf.text(p7, 500, 450);
-    pdf.text(p8, 500, 465);
-
-    pdf.text(p9, 500, 475);
-    pdf.text(p10, 500, 490);
-
-    pdf.text(p11, 500, 515);
-    pdf.text(p12, 500, 545);
     //
-    pdf.text(p13, 500, 623);
-    pdf.text(p14, 500, 638);
-    pdf.text(p15, 500, 652);
-    pdf.text(p16, 500, 664);
-    pdf.text(p17, 500, 681);
-    pdf.text(p18, 500, 703);
-    pdf.text(p19, 500, 703);
-    pdf.text(p20, 500, 703);
+    pdf.text(p1, 220, 305);
+    pdf.text(p2, 220, 320);
+    pdf.text(p3, 220, 333);
+
+    //
+    pdf.text(p4, 220, 363);
+    pdf.text(p5, 220, 378);
+
+    //
+    pdf.text(p6, 122, 568);
+    pdf.text(p7, 122, 583);
+    pdf.text(p9, 153, 600);
+    pdf.text(p8, 122, 618);
+    pdf.text(p10, 153, 635);
+    pdf.text(p11, 375, 635);
+
+    pdf.text(p12, 165, 653);
+    pdf.text(p14, 389, 653);
+    pdf.text(p15, 493, 653);
+
+    pdf.text(p13, 153, 670);
+    pdf.text(p16, 373, 670);
+    pdf.text(p17, 470, 670);
+
+    pdf.text(p18, 213, 688);
+    pdf.text(p19, 283, 688);
+    pdf.text(p20, 355, 688);
 
     pdf.setFillColor(0,0,0);
-    pdf.save("INGECOP-5002");
+    pdf.save("INGECOP-5004");
     //window.print("INGECOP-5001.pdf");
 
 }

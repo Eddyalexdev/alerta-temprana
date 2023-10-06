@@ -9,6 +9,7 @@ const auth = require('../middleware/auth.middleware')
 const Kiosko = require('../models/kiosko.model')
 const router = require('express').Router()
 const {allRoutes} = require('../data/urls')
+const { getCorreo, postCorreo, putCorreo } = require('../controller/correo.controller')
 
 // TODO: Administracion de usuarios
 router.get('/users', auth, getUsers)
@@ -44,6 +45,11 @@ router.get('/vatEncuestas/:id', auth, deleteVatEncuesta)
 router.post('/vatEncuestas/:id', auth, putVatEncuestas)
 
 router.get('/contacto', getContact)
+
+// TODO: Correos
+router.get('/correo', getCorreo)
+router.post('/correo', postCorreo)
+router.post('/correo/:id', putCorreo)
 
 
 module.exports = router
