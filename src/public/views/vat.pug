@@ -177,7 +177,7 @@ html(lang='es')
                         td(style='background-color: white; text-align: center;')
                             input(type='text', value='100')
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='100,000.00')
+                            input.tt(type='text', value='100000', data-row="1")
                         td(style='background-color: white; text-align: center;')
                             input(type='text', value='100%')
                 tbody
@@ -187,38 +187,38 @@ html(lang='es')
                         th(style='text-align: center; background-color: rgb(255, 175, 3);color: black;') Cantidad en Quetzales
                         th(style='text-align: center; background-color: rgb(255, 175, 3); color: black;') Porcentaje
                 tfoot
-                    tr
+                    tr.r_calculate(data-id="1")
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 31-90 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto2(type='text', onkeyup='sumar2();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input#txt_campo2_6.monto3(type='text', onkeyup='sumar3();')
+                            input#txt_campo2_6.monto3.monto-final(type='text', onkeyup='sumar3();', data-id="1", data-row="1")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
-                    tr
+                            input.percentage-final(type='text', value='', data-id="1", disabled)
+                    tr.r_calculate(data-id="2")
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 91-180 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto2(type='text', onkeyup='sumar2();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input#txt_campo2_6.monto3(type='text', onkeyup='sumar3();')
+                            input#txt_campo2_6.monto3.monto-final(type='text', onkeyup='sumar3();', data-id="2", data-row="1")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
-                    tr
+                            input.percentage-final(type='text', value='', data-id="2", disabled)
+                    tr.r_calculate(data-id="3")
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 181-365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto2(type='text', onkeyup='sumar2();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input#txt_campo2_6.monto3(type='text', onkeyup='sumar3();')
+                            input#txt_campo2_6.monto3.monto-final(type='text', onkeyup='sumar3();' data-id="3", data-row="1")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
-                    tr
+                            input.percentage-final(type='text', value='', data-id="3", disabled)
+                    tr.r_calculate(data-id="4")
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') MAS DE 365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto2(type='text', onkeyup='sumar2();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input#txt_campo2_6.monto3(type='text', onkeyup='sumar3();')
+                            input#txt_campo2_6.monto3.monto-final(type='text', onkeyup='sumar3();', data-id="4", data-row="1")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
+                            input.percentage-final(type='text', value='', data-id="4", disabled)
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') TOTAL
                         td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
@@ -247,7 +247,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input(type='text', value='')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input(type='text', value='')
+                            input(type='text', value='100', data-row="2")
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input(type='text', value='100%')
                 tbody
@@ -262,33 +262,33 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto9(type='text', onkeyup='sumar9();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input#txt_campo2_6.monto14(type='text', onkeyup='sumar14();')
+                            input#txt_campo2_6.monto14.monto-final(type='text', onkeyup='sumar14();', data-id="5", data-row="2")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
+                            input.percentage-final(type='text', value='', data-id="5")
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 91-180 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto9(type='text', onkeyup='sumar9();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input#txt_campo2_6.monto14(type='text', onkeyup='sumar14();')
+                            input#txt_campo2_6.monto14.monto-final(type='text', onkeyup='sumar14();', data-id="6", data-row="2")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
+                            input.percentage-final(type='text', value='', data-id="6")
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 181-365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto9(type='text', onkeyup='sumar9();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input#txt_campo2_6.monto14(type='text', onkeyup='sumar14();')
+                            input#txt_campo2_6.monto14.monto-final(type='text', onkeyup='sumar14();', data-id="7", data-row="2")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
+                            input.percentage-final(type='text', value='', data-id="7")
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') MAS DE 365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto9(type='text', onkeyup='sumar9();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input#txt_campo2_6.monto14(type='text', onkeyup='sumar14();')
+                            input#txt_campo2_6.monto14.monto-final(type='text', onkeyup='sumar14();', data-id="8", data-row="2")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
+                            input.percentage-final(type='text', value='', data-id="8")
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') TOTAL
                         td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
@@ -955,6 +955,31 @@ html(lang='es')
                 |  
                 a
                     button#export.btn2 DESCARGAR EXCEL
+            script.
+                const rCalculates = document.querySelectorAll('.r_calculate')
+                const percentagesFinal = document.querySelectorAll('.percentage-final')
+                const montosFinales = document.querySelectorAll('.monto-final')
+                const tts = document.querySelectorAll('.tt')
+
+                montosFinales.forEach(monto => {
+                    monto.addEventListener('keyup', (e) => {
+                        const attribute = e.target.getAttribute('data-id')
+                        const row = e.target.getAttribute('data-row')
+                        const value = e.target.value
+                        console.log(attribute)
+                        tts.forEach(tt => {
+                            if (tt.getAttribute('data-row') === row) {
+                                percentagesFinal.forEach(percentage => {
+                                    if(percentage.getAttribute('data-id') === attribute) {
+                                        percentage.value = parseFloat(value) / parseFloat(tt.value)
+                                    }
+                                })
+                            }
+                        })
+
+                    })
+                })
+
             script.
                 var table2excel = new Table2Excel();
                 document.getElementById('export').addEventListener('click', function() {
