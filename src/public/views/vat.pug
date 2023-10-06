@@ -247,7 +247,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input(type='text', value='')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input(type='text', value='100', data-row="2")
+                            input.tt(type='text', value='100', data-row="2")
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input(type='text', value='100%')
                 tbody
@@ -316,7 +316,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input(type='text', value='100')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input(type='text', value='Q100.000.00')
+                            input.tt(type='text', value='100.000.00', data-row="3")
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input(type='text', value='100%')
                 tbody
@@ -331,33 +331,33 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto15(type='text', id='', onkeyup='sumar15();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input.monto16(type='text', id='', onkeyup='sumar16();')
+                            input.monto16.monto-final(type='text', id='', onkeyup='sumar16();', data-id="9", data-row="3")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
+                            input.percentage-final(type='text', value='', data-id="9")
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 91-180 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto15(type='text', id='', onkeyup='sumar15();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input.monto16(type='text', id='', onkeyup='sumar16();')
+                            input.monto16.monto-final(type='text', id='', onkeyup='sumar16();', data-id="10", data-row="3")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
+                            input.percentage-final(type='text', value='', data-id="10")
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 181-365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto15(type='text', id='', onkeyup='sumar15();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input.monto16(type='text', id='', onkeyup='sumar16();')
+                            input.monto16.monto-final(type='text', id='', onkeyup='sumar16();', data-id="11", data-row="3")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
+                            input.percentage-final(type='text', value='', data-id="11")
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') MAS DE 365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto15(type='text', id='', onkeyup='sumar15();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input.monto16(type='text', id='', onkeyup='sumar16();')
+                            input.monto16.monto-final(type='text', id='', onkeyup='sumar16();', data-id="12", data-row="3")
                         td(style='background-color: white; text-align: center;')
-                            input(type='text', value='')
+                            input.percentage-final(type='text', value='', data-id="11")
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') TOTAL
                         td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
@@ -914,12 +914,6 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto13(type='text', id='', onkeyup='sumar13();')
                         tr
-                            th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 109&#x9;
-                            td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                | Inmuebles/Muebles
-                            td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                input.monto13(type='text', id='', onkeyup='sumar13();')
-                        tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 110
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 | Cargos Diferidos
@@ -971,7 +965,7 @@ html(lang='es')
                             if (tt.getAttribute('data-row') === row) {
                                 percentagesFinal.forEach(percentage => {
                                     if(percentage.getAttribute('data-id') === attribute) {
-                                        percentage.value = parseFloat(value) / parseFloat(tt.value)
+                                        percentage.value = (parseFloat(value) / parseFloat(tt.value)) * 100
                                     }
                                 })
                             }

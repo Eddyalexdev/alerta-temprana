@@ -21,7 +21,7 @@ block content
                 .widget-content.widget-content-area.br-6
                     .table-responsive.mb-4.mt-4
                         include ../components/table
-                        +table(["Icono", "Titulo", "URL", "Descripcion"], kioskos)
+                        +table(["Icono", "Titulo", "URL", "Descripcion", "Color"], kioskos)
         
         // Modal
         #addadminModal.modal.fade
@@ -61,7 +61,7 @@ block content
                                 input#admin-name.form-control.mb-4(type='text' placeholder='' required='', name="title")
                             .col-sm-12
                                 label Color de fondo
-                                input.form-control.mb-4(type='color' placeholder='' required='', name="color")
+                                input.form-control.mb-4(type='color' placeholder='' required='', name="color", value="#99c1f1")
                             .col-sm-12
                                 .row
                                     .col-sm-8

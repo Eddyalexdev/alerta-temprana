@@ -71,7 +71,7 @@ async function generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,em,us,sp,p1,
     const signatureImage = signaturePad.toDataURL();
     const pdf = new jsPDF('p', 'pt', 'letter');
     pdf.addImage(image, 'PNG', 0, 0, 625, 792);
-    pdf.addImage(signatureImage, 'PNG', 350, 705, 300, 60);
+    pdf.addImage(signatureImage, 'PNG', 350, 735, 300, 60);
     pdf.setFontSize(12);
     pdf.setFontSize(8);
 
@@ -104,18 +104,18 @@ async function generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,em,us,sp,p1,
     pdf.text(p7, 500, 450);
     pdf.text(p8, 500, 465);
 
-    pdf.text(p9, 500, 475);
-    pdf.text(p10, 500, 490);
+    pdf.text(p9, 500, 480);
+    pdf.text(p10, 500, 500);
 
-    pdf.text(p11, 500, 515);
-    pdf.text(p12, 500, 545);
     //
-    pdf.text(p13, 500, 623);
-    pdf.text(p14, 500, 638);
-    pdf.text(p15, 500, 652);
-    pdf.text(p16, 500, 664);
-    pdf.text(p17, 500, 681);
-    pdf.text(p18, 500, 703);
+    pdf.text(p11, 500, 565);
+    pdf.text(p12, 500, 580);
+    pdf.text(p13, 500, 595);
+    pdf.text(p14, 500, 610);
+    pdf.text(p15, 500, 633);
+    pdf.text(p16, 500, 652);
+    pdf.text(p17, 500, 673);
+    pdf.text(p18, 500, 693);
 
     pdf.setFillColor(0,0,0);
     pdf.save("INGECOP-5002");

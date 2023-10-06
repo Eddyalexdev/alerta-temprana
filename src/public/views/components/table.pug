@@ -12,6 +12,7 @@ mixin table(labels, datas)
                     td=data.title
                     td=data.url
                     td=data.description
+                    td(style=`color=${data.color}`)=data.color
                     td 
                         a.edit-kiosko-button(href=`#editKiosko${data.id}` data-toggle="modal" data-icon=data.icon).btn.btn-warning.mr-2 Editar
                         a(href=`#deleteKiosko${data.id}` data-toggle="modal").btn.btn-danger Eliminar
@@ -67,6 +68,9 @@ mixin table(labels, datas)
                             .col-sm-12
                                 label Titulo
                                 input#admin-name.form-control.mb-4(type='text' placeholder='' required='', name="title" value=data.title)
+                            .col-sm-12
+                                label Color de fondo
+                                input.form-control.mb-4(type='color' placeholder='' required='', name="color", value=data.color)
                             .col-sm-12
                                 .row
                                     .col-sm-8
