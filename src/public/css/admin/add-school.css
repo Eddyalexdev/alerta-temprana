@@ -158,3 +158,15 @@
   height: 250px;
   object-fit: cover;
 }
+
+.media-logo {
+  height: 144px;
+  width: 144px;
+  object-fit: cover;
+}
+
+.media-logo-2 {
+  height: 100px;
+  width: 245px;
+  object-fit: cover;
+}

@@ -1,0 +1,46 @@
+mixin page-logo(title, image, slug, id)
+    if slug !== 'contacto'
+        .col-6.col-lg-3.media-item
+            h5=title
+            small=slug
+            .media-item
+                - const ext = image.split('.').pop()
+                if ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp'
+                    if slug === 'home' || slug === "login"
+                        img(src=`/public/${image}`, alt="").w-100.media-logo
+                    else 
+                        img(src=`/public/${image}`, alt="").w-100.media-logo-2
+                else if image === ""
+                    .media-logo-2.bg-warning.d-flex.align-items-center.justify-content-center
+                        h4.text-white.text-center No se selecciono ninguna imagen
+                else
+                    video(controls).w-100.media-file
+                        source(src=`/public/${image}`)
+                .media-item__options
+                    a(href=`#editMedia${id}` data-toggle="modal").btn.btn-success Editar
+                    a(href=`/admin/media/logos/${id}`).btn.btn-warning Eliminar
+            if slug === 'home' || slug === "login"
+                small.d-block Tamaño recomendado para la imagen 144 x 144
+            else 
+                small.d-block Tamaño recomendado para la imagen 245 x 100
+            
+
+            .modal.fade(id=`editMedia${id}`)
+                .modal-dialog
+                    .modal-content
+                        form(method="POST", action=`/admin/media/logos/${id}`, enctype="multipart/form-data")
+                            .modal-header
+                                h4.modal-title Editar Imagen o Video
+                                button.close(type='button' data-dismiss='modal' aria-hidden='true')
+                                | &times;
+                            #add-form.modal-body
+                                .col-sm-12
+                                    label Titulo
+                                    input.form-control.mb-4(type='text' placeholder='' required='', name="title", value=title)
+                                .col-sm-12
+                                    label Imagen
+                                    input.form-control(type='file' placeholder='' required='', name="file")
+                                    small El archivo debe ser solamente de extension: jpeg, jpg, png u otra extension de imagenes
+                            .modal-footer
+                                input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+                                button.btn.btn-success(type='submit') Editar

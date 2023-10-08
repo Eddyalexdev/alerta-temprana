@@ -33,7 +33,10 @@ html(lang='es')
             ul.nav__menu
                 li.menu__logo
                     a(href='/kiosko')
-                        img(src='/images/logo1.png', alt='')
+                        if logo && logo.image !== ""
+                            img(src=`/public/${logo.image}`, alt='', style="width: 245px; height: 100px;")
+                        else 
+                            img(src='/images/logo1.png', alt='', style="height: 100%;")
                 li
                     a(href='/contacto') Solicitar Asistencia
                 li

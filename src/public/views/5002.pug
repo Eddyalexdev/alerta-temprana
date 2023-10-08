@@ -2,315 +2,249 @@ extends ./layout/app
 
 block scripts
     script(src='/js/jspdf.min.js')
-    script(src='/js/app2.js')
+    script(src='/js/app.js')
 
 block content
-        .container.mt-4
-            .row
-                .col-md-8.offset-md-2
-                    h3
-                        | FORMULARIO DE SOLICITUD DE
-                        | BAJA DE DOCUMENTOS
-                    h5
-                        | FORMULARIO NO. INGECOP-SALF-5001
+    .container.mt-4
+        .row
+            .col-md-8.offset-md-2
+                h3 Formulario para Solicitud de Baja de Documentos (5002)
+                hr
+                form#form
+                    .row.mb-3
+                        .col-md-6
+                            label.form-label(for='lugar') Lugar
+                            select#lugar.form-control(name='proceso')
+                                option(value='-1', selected='', disabled='') Seleccione...
+                                option(value='Guatemala') Guatemala
+                                option(value='Quetzaltenango') Quetzaltenango
+                                option(value='Huehuetenango') Huehuetenango
+                                option(value='Coban, Altaverapaz') Coban, Altaverapaz
+                                option(value='Flores, Petén') Flores, Pet&eacute;n
+                        .col-md-6
+                            label.form-label(for='fecha') Fecha
+                            input#fecha.form-control(type='date')
+                    .mb-3
+                        label.form-label(for='cop') Nombre de la Cooperativa
+                        input#cop.form-control(type='text', placeholder='Ingrese el nombre de la cooperativa')
+                    .mb-3
+                        label.form-label(for='domicilio') Domicilio
+                        input#domicilio.form-control(type='text', placeholder='Ingresa la dirección de tu domicilio')
+                    .row.mb-2
+                        .col-md-3
+                            label.form-label(for='departamento') Departamento
+                            select#departamento.form-control(name='proceso')
+                                option(value='-1', selected='', disabled='') Seleccione...
+                                option(value='Alta Verapaz') Alta Verapaz
+                                option(value='Baja Verapaz') Baja Verapaz
+                                option(value='Chimaltenango') Chimaltenango
+                                option(value='Chiquimula') Chiquimula
+                                option(value='El Progreso') El Progreso
+                                option(value='Escuintla') Escuintla
+                                option(value='Guatemala') Guatemala
+                                option(value='	Huehuetenango') &#x9;Huehuetenango
+                                option(value='Jalapa') Jalapa
+                                option(value='Jutiapa') Jutiapa
+                                option(value='Petén') Pet&eacute;n
+                                option(value='Quetzaltenango') Quetzaltenango
+                                option(value='Quiché') Quich&eacute;
+                                option(value='Retalhuleu') Retalhuleu
+                                option(value='Sacatepequez') Sacatepequez
+                                option(value='San Marcos') San Marcos
+                                option(value='Santa Rosa') Santa Rosa
+                                option(value='Sololá') Solol&aacute;
+                                option(value='Suchitepequez') Suchitepequez
+                                option(value='Totonicapán') Totonicap&aacute;n
+                                option(value='Zacapa') Zacapa
+                        .col-md-3
+                            label.form-label(for='municipio') Municipio
+                            input#municipio.form-control(type='text', placeholder='Municipio')
+                        .col-md-6
+                            label.form-label(for='nit') Numero de Identificacion Tributaria (NIT) 
+                            input#nit.form-control(type='text', placeholder='Ejemplo: 00000000-9')
+                    .mb-3
+                        label.form-label(for='copcor') Correo Electronico de la cooperativa
+                        input#copcor.form-control(type='text', placeholder='ejemplo@hotmail.com')
                     hr
-                    h5
-                        | SECCI&Oacute;N DE AUTORIZACI&Oacute;N DE LIBROS Y FORMAS
-                    form#form
-                        .row.mb-3
-                            .col-md-6
-                                label.form-label(for='lugar') Lugar
-                                select#lugar.form-control(name='proceso')
-                                    option(value='-1', selected='', disabled='') Seleccione...
-                                    option(value='Guatemala') Guatemala
-                                    option(value='Quetzaltenango') Quetzaltenango
-                                    option(value='Huehuetenango') Huehuetenango
-                                    option(value='Coban, Altaverapaz') Coban, Altaverapaz
-                                    option(value='Flores, Petén') Flores, Pet&eacute;n
-                            .col-md-6
-                                label.form-label(for='fecha') Fecha
-                                input#fecha.form-control(type='date')
-                        .mb-3
-                            label.form-label(for='cop') Nombre de la Cooperativa o federaci&oacute;n
-                            input#cop.form-control(type='text')
-                        .row.mb-3
-                            .col-md-6
-                                label.form-label(for='dire') Direcci&oacute;n
-                                input#dire.form-control(type='text')
-                            .col-md-6
-                                label.form-label(for='nit') Numero de Identificacion Tributaria 
-                                input#nit.form-control(type='text')
-                        .row.mb-3
-                            .col-md-6
-                                label.form-label(for='rl') Representante Legal
-                                input#rl.form-control(type='text')
-                            .col-md-6
-                                label.form-label(for='tel') Telefono / Linea Fija / Celular
-                                input#tel.form-control(type='text')
-                        .mb-3
-                            label.form-label(for='cor') Correo Electronico / E-mail
-                            input#cor.form-control(type='text')
-                        hr
-                        hr
-                        h3 SOLICITUD DE BAJA DE LIBROS Y/O FORMAS CONTABLES
-                        hr
-                        h5 INGRESE LIBRO #1
-                        .row.d-md-3
-                            .col-md-4
-                                label.form-label(for='lb1') LIBRO
-                                input#lb1.form-control(type='text')
-                            .col-md-4
-                                label.form-label(for='nr1') No. RESOLUCION
-                                input#nr1.form-control(type='text')
-                            .col-md-2
-                                label.form-label(for='m1') Manual
-                                input#m1.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='hm1') Hoja M&oacute;vil
-                                input#p1.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Finalizacion
-                                input#p2.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Extrav&iacute;o
-                                input#p3.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Robo
-                                input#p4.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Cambio 
-                                input#p5.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Otros 
-                                input#ot.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Del
-                                input#p6.form-control(type='date')
-                            .col-md-2
-                                label.form-label(for='veinte') Al
-                                input#p7.form-control(type='date')
-                        hr
-                        h5 INGRESE LIBRO #2
-                        .row.d-md-3
-                            .col-md-4
-                                label.form-label(for='libroacta') LIBRO
-                                input#p8.form-control(type='text')
-                            .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
-                                input#p9.form-control(type='text')
-                            .col-md-2
-                                label.form-label(for='veinte') Manual
-                                input#p10.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Hoja M&oacute;vil
-                                input#p11.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Finalizacion
-                                input#p12.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Extrav&iacute;o
-                                input#p13.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Robo
-                                input#p14.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Cambio 
-                                input#p15.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Otros 
-                                input#ot2.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Del
-                                input#p16.form-control(type='date')
-                            .col-md-2
-                                label.form-label(for='veinte') Al
-                                input#p17.form-control(type='date')
-                        hr
-                        h5 INGRESE LIBRO #3
-                        .row.d-md-3
-                            .col-md-4
-                                label.form-label(for='libroacta') LIBRO
-                                input#p18.form-control(type='text')
-                            .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
-                                input#p19.form-control(type='text')
-                            .col-md-2
-                                label.form-label(for='veinte') Manual
-                                input#p20.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Hoja M&oacute;vil
-                                input#p21.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Finalizacion
-                                input#p22.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Extrav&iacute;o
-                                input#p23.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Robo
-                                input#p24.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Cambio 
-                                input#p25.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Otros 
-                                input#ot3.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Del
-                                input#p26.form-control(type='date')
-                            .col-md-2
-                                label.form-label(for='veinte') Al
-                                input#p27.form-control(type='date')
-                        hr
-                        h5 INGRESE LIBRO #4
-                        .row.d-md-3
-                            .col-md-4
-                                label.form-label(for='libroacta') LIBRO
-                                input#p28.form-control(type='text')
-                            .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
-                                input#p29.form-control(type='text')
-                            .col-md-2
-                                label.form-label(for='veinte') Manual
-                                input#p30.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Hoja M&oacute;vil
-                                input#p31.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Finalizacion
-                                input#p32.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Extrav&iacute;o
-                                input#p33.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Robo
-                                input#p34.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Cambio 
-                                input#p35.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Otros 
-                                input#ot4.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Del
-                                input#p36.form-control(type='date')
-                            .col-md-2
-                                label.form-label(for='veinte') Al
-                                input#p37.form-control(type='date')
-                        hr
-                        h3 SOLICITUD DE BAJA DE LIBROS Y/O FORMAS CONTABLES
-                        hr
-                        h5 INGRESE FORMA #1
-                        .row.d-md-3
-                            .col-md-4
-                                label.form-label(for='libroacta') FORMA
-                                input#p38.form-control(type='text')
-                            .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
-                                input#p39.form-control(type='text')
-                            .col-md-2
-                                label.form-label(for='veinte') Manual
-                                input#p40.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Computarizado
-                                input#p41.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Electronico
-                                input#p42.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Extrav&iacute;o
-                                input#p43.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Robo
-                                input#p44.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Cambio 
-                                input#p45.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Otros 
-                                input#p46.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Del
-                                input#p47.form-control(type='date')
-                            .col-md-2
-                                label.form-label(for='veinte') Al
-                                input#p48.form-control(type='date')
-                        hr
-                        h5 INGRESE FORMA #2
-                        .row.d-md-3
-                            .col-md-4
-                                label.form-label(for='libroacta') FORMA
-                                input#p49.form-control(type='text')
-                            .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
-                                input#p50.form-control(type='text')
-                            .col-md-2
-                                label.form-label(for='veinte') Manual
-                                input#pp1.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Computarizado
-                                input#pp2.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Electronico
-                                input#pp3.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Extrav&iacute;o
-                                input#pp4.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Robo
-                                input#pp5.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Cambio 
-                                input#pp6.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Otros 
-                                input#pp7.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Del
-                                input#pp8.form-control(type='date')
-                            .col-md-2
-                                label.form-label(for='veinte') Al
-                                input#pp9.form-control(type='date')
-                        hr
-                        h5 INGRESE FORMA #3
-                        .row.d-md-3
-                            .col-md-4
-                                label.form-label(for='libroacta') FORMA
-                                input#pp10.form-control(type='text')
-                            .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
-                                input#pp11.form-control(type='text')
-                            .col-md-2
-                                label.form-label(for='veinte') Manual
-                                input#pp12.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Computarizado
-                                input#pp13.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Electronico
-                                input#pp14.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Extravio
-                                input#pp15.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Robo
-                                input#pp16.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Cambio 
-                                input#pp17.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Otros 
-                                input#pp18.form-control(type='')
-                            .col-md-2
-                                label.form-label(for='veinte') Del
-                                input#pp19.form-control(type='date')
-                            .col-md-2
-                                label.form-label(for='veinte') Al
-                                input#pp20.form-control(type='date')
-                        hr
-                        hr
-                        hr
-                        span.d-block.pb-2 Firma digital aqui
-                        .signature.mb-2(style='width: 100%; height: 200px;')
-                            canvas#signature-canvas(style='border: 1px dashed red; width: 100%; height: 200px; background-color: white;')
-                        button.btn.btn-primary.mb-4(type='submit') Generar PDF
+                    h3 Nomina de cuadros directivos
+                    .row.d-md-3
+                        .col-md-4
+                            label.form-label(for='libroacta') Segun libro de actas
+                            input#libroacta.form-control(type='text', placeholder='Ejemplo: 0000')
+                        .col-md-4
+                            label.form-label(for='numacta') Y Acta No.
+                            input#numacta.form-control(type='text', placeholder='Ejemplo: 00')
+                        .col-md-4
+                            label.form-label(for='veinte') 20
+                            input#veinte.form-control(type='text', placeholder='Ejemplo: 00')
+                    hr
+                    h3 CONSEJO DE ADMINISTRACIÓN
+                    h5 Cargo - Presidente
+                    .row.d-md-3
+                        .col-md-7
+                            label.form-label(for='nompres') Nombre
+                            input#nompres.form-control(type='text', placeholder='Ingrese el nombre del presidente')
+                        .col-md-5
+                            label.form-label(for='corpres') Correo Personal
+                            input#corpres.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                        .col-md-3
+                            label.form-label(for='edpres') Edad
+                            input#edpres.form-control(type='text', placeholder='Ej: 35 Años')
+                        .col-md-3
+                            label.form-label(for='telpres') Telefono
+                            input#telpres.form-control(type='text', placeholder='Tel.')
+                        .col-md-3
+                            label.form-label(for='inpres') Elecci&oacute;n
+                            input#inpres.form-control(type='date')
+                        .col-md-3
+                            label.form-label(for='finpres') Fin Periodo
+                            input#finpres.form-control(type='date')
+                        .col-md-12
+                            label.form-label(for='escpres') Escolaridad
+                            input#escpres.form-control(type='text', placeholder='Ej: Licenciatura en Administración de Empresas')
+                    hr
+                    h5 Cargo - Vicepresidente
+                    .row.d-md-3
+                        .col-md-7
+                            label.form-label(for='nomvis') Nombre
+                            input#nomvis.form-control(type='text')
+                        .col-md-5
+                            label.form-label(for='corvis') Correo Personal
+                            input#corvis.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                        .col-md-3
+                            label.form-label(for='edvis') Edad
+                            input#edvis.form-control(type='text')
+                        .col-md-3
+                            label.form-label(for='telvis') Telefono
+                            input#telvis.form-control(type='text')
+                        .col-md-3
+                            label.form-label(for='invis')  Elecci&oacute;n
+                            input#invis.form-control(type='date')
+                        .col-md-3
+                            label.form-label(for='finvis') Fin Periodo
+                            input#finvis.form-control(type='date')
+                        .col-md-12
+                            label.form-label(for='escvis') Escolaridad
+                            input#escvis.form-control(type='text', placeholder='Ej: Licenciatura en Administración de Empresas')
+                    hr
+                    h5 Cargo - Secretario
+                    .row.d-md-3
+                        .col-md-7
+                            label.form-label(for='nomsec') Nombre
+                            input#nomsec.form-control(type='text')
+                        .col-md-5
+                            label.form-label(for='corsec') Correo Personal
+                            input#corsec.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                        .col-md-3
+                            label.form-label(for='edsec') Edad
+                            input#edsec.form-control(type='text')
+                        .col-md-3
+                            label.form-label(for='telsec') Telefono Celular
+                            input#telsec.form-control(type='text')
+                        .col-md-3
+                            label.form-label(for='insec')  Elecci&oacute;n
+                            input#insec.form-control(type='date')
+                        .col-md-3
+                            label.form-label(for='finsec') Fin Periodo
+                            input#finsec.form-control(type='date')
+                        |  
+                        .col-md-12
+                            label.form-label(for='escsec') Escolaridad
+                            input#escsec.form-control(type='text', placeholder='Ej: Licenciatura')
+                    hr
+                    h5 Cargo - Tesorero
+                    .row.d-md-3
+                        .col-md-7
+                            label.form-label(for='nomtes') Nombre
+                            input#nomtes.form-control(type='text')
+                        .col-md-5
+                            label.form-label(for='cortes') Correo Personal
+                            input#cortes.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                        .col-md-3
+                            label.form-label(for='edtes') Edad
+                            input#edtes.form-control(type='text')
+                        .col-md-3
+                            label.form-label(for='teltes') Telefono Celular
+                            input#teltes.form-control(type='text')
+                        .col-md-3
+                            label.form-label(for='intes')  Elecci&oacute;n
+                            input#intes.form-control(type='date')
+                        .col-md-3
+                            label.form-label(for='fintes') Fin Periodo
+                            input#fintes.form-control(type='date')
+                        .col-md-12
+                            label.form-label(for='esctes') Escolaridad
+                            input#esctes.form-control(type='text', placeholder='Ej: Licenciatura en Administración de Empresas')
+                    hr
+                    h5 Cargo - Vocal
+                    .row.d-md-3
+                        .col-md-7
+                            label.form-label(for='nomvoc') Nombre
+                            input#nomvoc.form-control(type='text')
+                        .col-md-5
+                            label.form-label(for='corvoc') Correo Personal
+                            input#corvoc.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                        .col-md-3
+                            label.form-label(for='edvoc') Edad
+                            input#edvoc.form-control(type='text')
+                        .col-md-3
+                            label.form-label(for='telvoc') Telefono Celular
+                            input#telvoc.form-control(type='text')
+                        .col-md-3
+                            label.form-label(for='invoc')  Elecci&oacute;n
+                            input#invoc.form-control(type='date')
+                        .col-md-3
+                            label.form-label(for='finvoc') Fin Periodo
+                            input#finvoc.form-control(type='date')
+                        .col-md-12
+                            label.form-label(for='escvoc') Escolaridad
+                            input#escvoc.form-control(type='text', placeholder='Ej: Licenciatura')
+                    hr
+                    h3 Consejo Administrativo
+                    h5 Cargo - Presidente
+                    .row.d-md-3
+                        .col-md-7
+                            label.form-label(for='nompres') Nombre
+                            input#nompres.form-control(type='text')
+                        .col-md-5
+                            label.form-label(for='corpres') Correo Personal
+                            input#corpres.form-control(type='text', placeholder='ejemplo@hotmail.com')
+                        .col-md-3
+                            label.form-label(for='edpres') Edad
+                            input#edpres.form-control(type='text')
+                        .col-md-3
+                            label.form-label(for='telpres') Telefono Celular
+                            input#telpres.form-control(type='text')
+                        .col-md-3
+                            label.form-label(for='inpres') Elecci&oacute;n
+                            input#inpres.form-control(type='date')
+                        .col-md-3
+                            label.form-label(for='finpres') Fin Periodo
+                            input#finpres.form-control(type='date')
+                        .col-md-12
+                            label.form-label(for='escpres') Escolaridad
+                            input#escpres.form-control(type='text', placeholder='Ej: Licenciatura')
+                    hr
+                    span.d-block.pb-2 Firma digital aqui
+                    .signature.mb-2(style='width: 100%; height: 200px;')
+                        canvas#signature-canvas(style='border: 4px dashed rgb(228, 225, 38); width: 100%; height: 200px; background-color: white;')
+                        button(type='reset') Limpiar firma
+                    button.btn.btn-primary.mb-4(type='submit') Generar PDF
+    script.
+        // Set the inactivity timeout in milliseconds (15 seconds)
+        const inactivityTimeout = 300000; // 15 seconds
+        let timeoutId;
+        // Function to reset the timeout
+        function resetTimeout() {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(redirectToMainPage, inactivityTimeout);
+        }
+        // Function to redirect to the main page
+        function redirectToMainPage() {
+        window.location.href = "init.html"; // Replace with the URL of your main page
+        }
+        // Reset the timeout whenever there is user activity
+        window.addEventListener("mousemove", resetTimeout);
+        window.addEventListener("keydown", resetTimeout);
+        // Initial setup of the timeout
+        resetTimeout();

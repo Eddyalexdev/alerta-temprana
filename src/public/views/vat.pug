@@ -5,13 +5,11 @@ html(lang='es')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         title INGECOP - Herramienta Nivel 1
-        link(rel='icon', type='image/jpg', href='images/logo2 - copia.png')
+        link(rel='icon', type='image/jpg', href='/images/logo2 - copia.png')
         link(rel='stylesheet', href='/css/base.css')
         link(rel='stylesheet', href='/css/acordeon.css')
         link(rel='stylesheet', href='/css/botones2.css')
-        script(src='/js/js/table2excel.js')
         script(src='/js/js/exceljs.min.js')
-        script(src='/js/js/table2excel.core.js')
         link(rel='stylesheet', href='/css/estilo_formularios.css')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js')
         style.
@@ -70,8 +68,8 @@ html(lang='es')
             function exportTables () {
                 new Table2Excel('table').export()
             }
-        link(rel='icon', type='image/jpg', href='images/logo2 - copia.png')
-        link(rel='stylesheet', href='css/estilo_formularios.css')
+        link(rel='icon', type='image/jpg', href='/images/logo2 - copia.png')
+        link(rel='stylesheet', href='/css/estilo_formularios.css')
     body
         nav.nav
             input#nav__checkbox.nav__checkbox(type='checkbox', name='')
@@ -85,7 +83,10 @@ html(lang='es')
             ul.nav__menu
                 li.menu__logo
                     a(href='/kiosko')
-                        img(src='images/logo1.png', alt='')
+                        if logo && logo.image !== ""
+                            img(src=`/public/${logo.image}`, alt='', style="width: 245px; height: 100px;")
+                        else 
+                            img(src='/images/logo1.png', alt='', style="height: 100%;")
                 li
                     a(href='https://ingecop.gob.gt/wp-content/uploads/1669/19/Alerta-Temprana-nn.xlsm', target="_blank") Descarga la Herramienta de la Seccion Alerta Temprana 
                 li
@@ -103,7 +104,7 @@ html(lang='es')
                 tbody
                     tr
                         td(style='text-align: center; background-color: #ffffff; ')
-                            input(type='text', value='')
+                            input#cop-name(type='text', value='')
         center
             table(data-excel-name='Mayores cuentas de préstamos')
                 thead
@@ -978,11 +979,6 @@ html(lang='es')
                 })
 
             script.
-                var table2excel = new Table2Excel();
-                document.getElementById('export').addEventListener('click', function() {
-                    table2excel.export(document.querySelectorAll('table'));
-                });
-            script.
                 // Set the inactivity timeout in milliseconds (15 seconds)
                 const inactivityTimeout = 500000; // 15 seconds
                 let timeoutId;
@@ -1037,3 +1033,15 @@ html(lang='es')
                         modal.style.display = 'none';
                         }
                 }
+            script(src='/js/js/table2excel.js')
+            script.
+                const copName = document.getElementById("cop-name")
+                const table2excel = new Table2Excel();
+
+                document.getElementById('export').addEventListener('click', function() {
+                    if (copName.value !== "") {
+                        table2excel.export(document.querySelectorAll('table'), copName.value);
+                        return
+                    }
+                    table2excel.export(document.querySelectorAll('table'), "vat");
+                });

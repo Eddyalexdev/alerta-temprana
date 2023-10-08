@@ -3,13 +3,16 @@ const {login, logout} = require('../controller/auth.controller')
 const Correo = require('../models/correo')
 const Form = require('../models/form.model')
 const Kiosko = require('../models/kiosko.model')
+const Logo = require('../models/logo.model')
 const Page = require('../models/page.model')
 const VatEncuesta = require('../models/vatEncuesta.model')
 
 router.get('/', async (req, res) => {
     const page = await Page.findOne({ where: { slug: 'home' }})
     const ext = page?.media.split('.').pop()
-    res.render("init", { 'page': page, 'type': ext === undefined ? '' : ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp' ? 'image' : 'video' })
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+
+    res.render("init", { 'page': page, 'type': ext === undefined ? '' : ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'png' || ext === 'tif' || ext === 'bmp' ? 'image' : 'video', logo })
 })
 
 router.get('/kiosko', async (req, res) => {
@@ -97,25 +100,31 @@ router.get('/probando15', (req, res) => {
 router.get('/vat', async (req, res) => {
     const correos = await Correo.findAll()
     const correo = correos[0]
-    res.render('vat', {correo})
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+
+    res.render('vat', {correo, logo})
 })
 
 router.get('/vatEncuesta', async (req, res) => {
     const encuestas = await VatEncuesta.findAll()
-    res.render('vatEncuesta', { 'encuestas': encuestas })
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+    res.render('vatEncuesta', { 'encuestas': encuestas, logo })
 })
 
-router.get('/vatHerramientaCopy', (req, res) => {
-    res.render('vatHerramientaCopy')
+router.get('/vatHerramientaCopy', async (req, res) => {
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+    res.render('vatHerramientaCopy', {logo})
 })
 
-router.get('/vatHerramienta', (req, res) => {
-    res.render('vatHerramienta')
+router.get('/vatHerramienta', async (req, res) => {
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+    res.render('vatHerramienta', {logo})
 })
 
 router.get('/formularios', async (req, res) => {
     const forms = await Form.findAll()
-    res.render('formularios', { 'forms': forms })
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+    res.render('formularios', { 'forms': forms, logo })
 })
 
 router.get('/google', (req, res) => {
@@ -134,28 +143,34 @@ router.get('/lista', (req, res) => {
     res.render('lista')
 })
 
-router.get('/5001', (req, res) => {
-    res.render('5001')
+router.get('/5001', async (req, res) => {
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+    res.render('5001', { logo })
 })
 
-router.get('/5002', (req, res) => {
-    res.render('5002')
+router.get('/5002', async (req, res) => {
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+    res.render('5002', { logo })
 })
 
-router.get('/5003', (req, res) => {
-    res.render('5003')
+router.get('/5003', async (req, res) => {
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+    res.render('5003', {logo})
 })
 
-router.get('/5004', (req, res) => {
-    res.render('5004')
+router.get('/5004', async (req, res) => {
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+    res.render('5004', {logo})
 })
 
-router.get('/5005', (req, res) => {
-    res.render('5005')
+router.get('/5005', async (req, res) => {
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+    res.render('5005', {logo})
 })
 
-router.get('/2do', (req, res) => {
-    res.render('2do')
+router.get('/2do', async (req, res) => {
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+    res.render('2do', {logo})
 })
 
 module.exports = router

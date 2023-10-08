@@ -10,6 +10,7 @@ const Kiosko = require('../models/kiosko.model')
 const router = require('express').Router()
 const {allRoutes} = require('../data/urls')
 const { getCorreo, postCorreo, putCorreo } = require('../controller/correo.controller')
+const { getLogos, postLogos, putLogos, deleteLogo } = require('../controller/logos.controller')
 
 // TODO: Administracion de usuarios
 router.get('/users', auth, getUsers)
@@ -44,12 +45,17 @@ router.post('/vatEncuestas', auth, postVatEncuesta)
 router.get('/vatEncuestas/:id', auth, deleteVatEncuesta)
 router.post('/vatEncuestas/:id', auth, putVatEncuestas)
 
-router.get('/contacto', getContact)
+router.get('/contacto', auth,  getContact)
 
 // TODO: Correos
-router.get('/correo', getCorreo)
-router.post('/correo', postCorreo)
-router.post('/correo/:id', putCorreo)
+router.get('/correo', auth, getCorreo)
+router.post('/correo', auth,  postCorreo)
+router.post('/correo/:id', auth, putCorreo)
 
+// TODO: Logos
+router.get('/media/logos', auth ,getLogos)
+router.post('/media/logos', auth, upload.single('file') ,  postLogos)
+router.post('/media/logos/:id', auth, upload.single('file'), putLogos)
+router.get('/media/logos/:id', auth, deleteLogo)
 
 module.exports = router

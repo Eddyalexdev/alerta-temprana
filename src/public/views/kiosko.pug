@@ -15,10 +15,3 @@ html(lang="es")
                 include ./components/card
                 each kiosko in kioskos
                     +card(kiosko.icon, kiosko.title, kiosko.description, kiosko.url, kiosko.external, kiosko.color)
-                a#link(href='/')
-                    .card(style=`background:#99c1f1`)
-                        .content
-                            .icon
-                                i.fa.fa-undo
-                            .title Atras
-                            p Regresa a la pantalla anterior para elegir otra opci&oacute;n

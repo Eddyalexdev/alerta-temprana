@@ -14,7 +14,7 @@ html(lang="es")
         .contenedor-formulario.contenedor
             if type && type === 'video' && page.media !== ""
                 .imagen-formulario
-                    video(controls loop muted autoplay).video-formulario
+                    video(loop muted autoplay).video-formulario
                         source(src=`/public/${page.media}`)
             else if type === ''
                 .imagen-formulario
@@ -25,7 +25,10 @@ html(lang="es")
                 .texto-formulario
                     h2 Bienvenido
                     center
-                        img(src='/images/logo2 - copia.png' style='width: 35%; ')
+                        if logo && logo.image !== ""
+                            img(src=`/public/${logo.image}` style='width: 115px; height: 115px;')
+                        else 
+                            img(src='/images/logo2 - copia.png' style='width: 35%; ')
                         p Elige la opci&oacute;n para continuar
                         a.btn(href='/kiosko') INGRESAR AL MODO USUARIO
                         p(align=' center')
