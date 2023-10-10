@@ -19,7 +19,7 @@ html(lang='es')
                 if type && type === 'video' && page.media !== ""
                     .imagen-formulario
                         video(loop muted autoplay).video-formulario
-                            source(src=`/public/${page.media}`)
+                            source(src=`/public/${page.media}` type="video/mp4")
                 else if type === ''
                     .imagen-formulario
                 else 

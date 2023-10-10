@@ -12,7 +12,7 @@ mixin page-image(title, image, slug, id)
                         h4.text-white.text-center No se selecciono ninguna imagen o video
                 else
                     video(controls).w-100.media-file
-                        source(src=`/public/${image}`)
+                        source(src=`/public/${image}` type="video/mp4")
                 .media-item__options
                     a(href=`#editMedia${id}` data-toggle="modal").btn.btn-success Editar
                     a(href=`/admin/media/pages/${id}`).btn.btn-warning Eliminar
