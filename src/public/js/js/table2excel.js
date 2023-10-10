@@ -179,6 +179,7 @@
 	     * @returns {object} - The XLSX-Workbook object of the tables.
 	     */
 
+
 	  }, {
 	    key: 'getWorkbook',
 	    value: function getWorkbook(tables) {
@@ -328,7 +329,6 @@
 	}();
 
 	// add global reference to `window` if defined
-
 
 	exports.default = Table2Excel;
 	if (window) window.Table2Excel = Table2Excel;

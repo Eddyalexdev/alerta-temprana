@@ -14,10 +14,10 @@ const app = express()
 app.set("views", "./src/public/views")
 app.set("view engine", "pug")
 
-app.use(express.json({limit: '80mb'}))
+app.use(express.json({limit: '100mb'}))
 app.use(express.urlencoded({
     extended: true,
-    limit: '80mb'
+    limit: '100mb'
 }))
 app.use(cookieParser())
 app.use(morgan("dev"))
