@@ -102,7 +102,7 @@ router.get('/vat', async (req, res) => {
     const correo = correos[0]
     const logo = await Logo.findOne({ where: { slug: 'home' }})
 
-    res.render('vat', {correo, logo})
+    res.render('vat', {correo, logo, correos})
 })
 
 router.get('/vatEncuesta', async (req, res) => {

@@ -1000,19 +1000,65 @@ html(lang='es')
                 .modal-content
                     span#closeModal.close &times;
                     h2 Contact Form
-                    form(action=`https://formsubmit.co/${correo ? correo.correo : "notificacionesat17@gmail.com"}`, method='POST', enctype='multipart/form-data', target="_blank")
+                    form(method='POST', enctype='multipart/form-data', target="_blank")#form-email
+                        if correos
+                            label(for='correo', style='color: #000000') seleccione el correo al que se enviaran los datos
+                            div(style="display: flex; gap: 30px; align-items:center; justify-content: center;")
+                                each correo in correos
+                                    div
+                                        input(type="radio", name="correo" style="margin-right: 5px;" value=correo.correo).email_address
+                                        span(style="color: #000000;")=correo.correo
                         label(for='name', style='color: #000000;') Ingresa el nombre de la cooperativa:
                         input#name(type='text', name='name', required='')
                         label(for='email', style='color: #000;') Ingrese su correo electronico:
                         input#email(type='email', name='email', required='')
                         label(for='email', style='color: #000;') Adjunte el archivo que acaba de descargar:
-                        input(type='file', name='attachment', accept='PDF')
+                            input(type='file', name='attachment', accept='PDF', style="width: 100%;")#file
                         input.submit-button(type='submit', value='Confirmar y enviar formulario')
+                        input(type='hidden', name="_cc")#cc
                         input(type='hidden', name='_next', value='https://srvkiosko/init')
                         input(type='hidden', name='_captcha', value='false')
                         input(type='hidden', name='_subject', value='Alerta Temprana - Alguien ha enviado un nuevo documento')
                         input(type='hidden', name='_autoresponse', value='Hola, alguien te ha enviado un nuevo archivo')
             script.
+                const formEmail = document.getElementById("form-email")
+                const emails = document.querySelectorAll('.email_address')
+                const cc = document.getElementById('cc')
+                const email = document.getElementById('email')
+
+                email.addEventListener('change', (e) => {
+                    cc.value = e.target.value
+                })
+
+                emails.forEach((email) => {
+                    email.addEventListener('change', (e) => {
+                        console.log(e.target.value)
+                        formEmail.setAttribute('action', "https://formsubmit.co/" + e.target.value)
+                    })
+                })
+                /* const formEmail = document.getElementById("form-email")
+                const emails = document.querySelectorAll('.email_address')
+
+                const data = {
+                    name,
+                }
+
+                formEmail.addEventListener('submit', (e) => {
+                    e.preventDefault()
+                    emails.forEach(email => {
+                        if(email.checked) {
+                            console.log(email.value)
+                            fetch("https://formsubmit.co/ajax/" + email.value, {
+                                method: "POST",
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                },
+                                body: JSON.stringify(data)
+                            })
+                        }
+                    })
+                })
+                */
                 // Get the modal
                 const modal = document.getElementById('myModal');
                 // Get the button that opens the modal

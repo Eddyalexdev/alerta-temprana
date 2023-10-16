@@ -39,62 +39,6 @@ const allRoutes = [
         text: "Login"
     },
     {
-        url: "/probando2",
-        text: "Probando 2"
-    },
-    {
-        url: "/probando3",
-        text: "Probando 3"
-    },
-    {
-        url: "/probando4",
-        text: "Probando 4"
-    },
-    {
-        url: "/probando5",
-        text: "Probando 5"
-    },
-    {
-        url: "/probando6",
-        text: "Probando 6"
-    },
-    {
-        url: "/probando7",
-        text: "Probando 7"
-    },
-    {
-        url: "/probando8",
-        text: "Probando 8"
-    },
-    {
-        url: "/probando9",
-        text: "Probando 9"
-    },
-    {
-        url: "/probando10",
-        text: "Probando 10"
-    },
-    {
-        url: "/probando11",
-        text: "Probando 11"
-    },
-    {
-        url: "/probando12",
-        text: "Probando 12"
-    },
-    {
-        url: "/probando13",
-        text: "Probando 13"
-    },
-    {
-        url: "/probando14",
-        text: "Probando 14"
-    },
-    {
-        url: "/probando15",
-        text: "Probando 15"
-    },
-    {
         url: "/vat",
         text: "Vat"
     },

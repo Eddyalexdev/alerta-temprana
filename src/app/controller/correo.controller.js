@@ -24,8 +24,7 @@ const putCorreo = async (req, res) => {
 const getCorreo = async (req, res) => {
     const correos = await Correo.findAll()
     if(correos) {
-        const correo = correos[0]
-        res.render('admin/correos', { correo })
+        res.render('admin/correos', { correos })
         return
     }
     res.render('admin/correos')

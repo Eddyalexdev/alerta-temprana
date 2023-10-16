@@ -11,14 +11,15 @@ block content
                         .d-flex.align-items-center.justify-content-between
                             h2 Administrar la direccion de correo electronico
                         hr
-                        if correo
-                            form.d-flex.flex-column(method="POST", action=`/admin/correo/${correo.id}`)
-                                input(type="text", name="correo", value=correo.correo)
-                                div.d-flex 
-                                    span Correo actual: 
-                                    span=correo.correo
-                                button(type="submit").btn.btn-primary Cambiar correo actual
-                        else
-                            form.d-flex.flex-column(method="POST")
+                        .row
+                            if correos
+                                each correo in correos
+                                    form.col-6.d-flex.flex-column(method="POST", action=`/admin/correo/${correo.id}`).mb-4
+                                        input(type="text", name="correo", value=correo.correo)
+                                        div.d-flex 
+                                            span Correo actual: 
+                                            span=correo.correo
+                                        button(type="submit").btn.btn-primary Cambiar correo actual
+                            form.col-6.d-flex.flex-column(method="POST")
                                 input(type="text", name="correo").mb-4
                                 button(type="submit").btn.btn-primary Crear direccion de correo
