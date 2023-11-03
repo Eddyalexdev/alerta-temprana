@@ -101,8 +101,6 @@ async function generatePDF(lugar, fecha, cop, domicilio, nit, departamento, muni
 
     pdf.setFontSize(12);
 
-    
-
     pdf.setFontSize(8);
     pdf.text(lugar, 55, 160);
     pdf.text(fecha, 375, 160);

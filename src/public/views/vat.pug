@@ -24,6 +24,11 @@ html(lang='es')
                 height: 100%;
                 background-color: rgba(0, 0, 0, 0.5);
             }
+            .input-final {
+              background: none;
+              outline: none;
+              border: none;
+            }
             .modal-content {
                 background-color: #fff;
                 margin: 10% auto;
@@ -163,9 +168,7 @@ html(lang='es')
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') TOTAL  
                         td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                            span
-                            |  
-                            span#spTotal
+                          input(type="text", disabled)#spTotal.input-final
         |  
         center
             table(data-excel-name='Monto de Morosidad')
@@ -198,7 +201,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto3.monto-final(type='text', onkeyup='sumar3();', data-id="1", data-row="1")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', data-id="1", disabled)
+                            input.percentage-final(type='text', data-id="1", disabled, data-row="1")
                     tr.r_calculate(data-id="2")
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 91-180 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -206,7 +209,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto3.monto-final(type='text', onkeyup='sumar3();', data-id="2", data-row="1")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', data-id="2", disabled)
+                            input.percentage-final(type='text', data-id="2", disabled, data-row="1")
                     tr.r_calculate(data-id="3")
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 181-365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -214,7 +217,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto3.monto-final(type='text', onkeyup='sumar3();' data-id="3", data-row="1")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="3", disabled)
+                            input.percentage-final(type='text', value='', data-id="3", disabled, data-row="1")
                     tr.r_calculate(data-id="4")
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') MAS DE 365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -222,18 +225,15 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto3.monto-final(type='text', onkeyup='sumar3();', data-id="4", data-row="1")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="4", disabled)
+                            input.percentage-final(type='text', value='', data-id="4", disabled, data-row="1")
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') TOTAL
                         td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                            span
-                            |  
-                            span#spTotal2
+                          input(type="text", disabled)#spTotal2.input-final
                         td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                            span
-                            |  
-                            span#spTotal3
+                          input(type="text", disabled)#spTotal3.input-final
                         td(style='text-align: center; background-color: rgb(255, 175, 3); color: black;')
+                          input.percentage-total(data-row="1", disabled).input-final 
         |  
         center
             table(data-excel-name='Morosidad de Directivos')
@@ -268,7 +268,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto14.monto-final(type='text', onkeyup='sumar14();', data-id="5", data-row="2")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="5")
+                            input.percentage-final(type='text', value='', data-id="5", data-row="2", disabled)
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 91-180 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -276,7 +276,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto14.monto-final(type='text', onkeyup='sumar14();', data-id="6", data-row="2")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="6")
+                            input.percentage-final(type='text', value='', data-id="6", data-row="2", disabled)
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 181-365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -284,7 +284,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto14.monto-final(type='text', onkeyup='sumar14();', data-id="7", data-row="2")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="7")
+                            input.percentage-final(type='text', value='', data-id="7", data-row="2", disabled)
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') MAS DE 365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -292,18 +292,15 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input#txt_campo2_6.monto14.monto-final(type='text', onkeyup='sumar14();', data-id="8", data-row="2")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="8")
+                            input.percentage-final(type='text', value='', data-id="8", data-row="2", disabled)
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') TOTAL
                         td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                            span
-                            |  
-                            span#spTotal9
+                          input(type="text", disabled)#spTotal9.input-final
                         td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                            span
-                            |  
-                            span#spTotal14
+                          input(type="text", disabled)#spTotal14.input-final
                         td(style='text-align: center; background-color: rgb(255, 175, 3); color: black;')
+                          input.percentage-total(type="text", data-row="2", disabled).input-final
         center
             table(data-excel-name='Morosidad de Empleados')
                 thead
@@ -337,7 +334,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto16.monto-final(type='text', id='', onkeyup='sumar16();', data-id="9", data-row="3")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="9")
+                            input.percentage-final(type='text', value='', data-id="9", data-row="3", disabled)
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 91-180 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -345,7 +342,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto16.monto-final(type='text', id='', onkeyup='sumar16();', data-id="10", data-row="3")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="10")
+                            input.percentage-final(type='text', value='', data-id="10", data-row="3", disabled)
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 181-365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -353,7 +350,7 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto16.monto-final(type='text', id='', onkeyup='sumar16();', data-id="11", data-row="3")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="11")
+                            input.percentage-final(type='text', value='', data-id="11", data-row="3", disabled)
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') MAS DE 365 DIAS
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -361,18 +358,15 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto16.monto-final(type='text', id='', onkeyup='sumar16();', data-id="12", data-row="3")
                         td(style='background-color: white; text-align: center;')
-                            input.percentage-final(type='text', value='', data-id="11")
+                            input.percentage-final(type='text', value='', data-id="11", data-row="3", disabled)
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') TOTAL
                         td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                            span
-                            |  
-                            span#spTotal15
+                          input(type="text", disabled)#spTotal15.input-final
                         td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                            span
-                            |  
-                            span#spTotal16
+                          input(type="text", disabled)#spTotal16.input-final
                         td(style='text-align: center; background-color: rgb(255, 175, 3); color: black;')
+                          input.percentage-total(data-row="3", disabled, type="text").input-final
         center
             table(data-excel-name='Bienes extraordinarios de mayor valor')
                 thead
@@ -406,37 +400,35 @@ html(lang='es')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto4(type='text', id='', onkeyup='sumar4();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input(type='text', value='')
+                            input(type='text', value='').input-date
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 2
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto4(type='text', id='', onkeyup='sumar4();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input(type='text', value='')
+                            input(type='text', value='').input-date
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 3
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto4(type='text', id='', onkeyup='sumar4();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input(type='text', value='')
+                            input(type='text', value='').input-date
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 4
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto4(type='text', id='', onkeyup='sumar4();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input(type='text', value='')
+                            input(type='text', value='').input-date
                     tr
                         th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 5
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             input.monto4(type='text', id='', onkeyup='sumar4();')
                         td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                            input(type='text', value='')
+                            input(type='text', value='').input-date
                     tr
                         th(style='text-align: center; background-color: rgb(255, 175, 3); color: black;') TOTAL
                         td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                            span
-                            |  
-                            span#spTotal4
+                          input(type="text", disabled)#spTotal4.input-final
                         td(style='text-align: center; background-color: rgb(255, 175, 3); color: black;')
         center
             center
@@ -461,7 +453,7 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                                 input.monto5(type='text', id='', onkeyup='sumar5();')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                                input(type='text')
+                                input(type='text').input-date
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 2
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -469,7 +461,7 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                                 input.monto5(type='text', id='', onkeyup='sumar5();')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                                input(type='text')
+                                input(type='text').input-date 
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 3
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -477,7 +469,7 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                                 input.monto5(type='text', id='', onkeyup='sumar5();')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                                input(type='text')
+                                input(type='text').input-date
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 4
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -485,7 +477,7 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                                 input.monto5(type='text', id='', onkeyup='sumar5();')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                                input(type='text')
+                                input(type='text').input-date
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 5
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -493,14 +485,12 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                                 input.monto5(type='text', id='', onkeyup='sumar5();')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                                input(type='text')
+                                input(type='text').input-date
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             th(style='text-align: center; background-color: rgb(255, 175, 3); color: black;') TOTAL
                             td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                                span
-                                |  
-                                span#spTotal5
+                              input(type="text", disabled)#spTotal5.input-final
                             td(style='text-align: center; background-color: rgb(255, 175, 3); color: black;')
             center
                 table(data-excel-name='Altas en bienes (Muebles e Inmuebles)')
@@ -524,7 +514,7 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                                 input.monto6(type='text', id='', onkeyup='sumar6();')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                                input(type='text')
+                                input(type='text').input-date
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 2
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -532,7 +522,7 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                                 input.monto6(type='text', id='', onkeyup='sumar6();')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                                input(type='text')
+                                input(type='text').input-date
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 3
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -540,7 +530,7 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                                 input.monto6(type='text', id='', onkeyup='sumar6();')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                                input(type='text')
+                                input(type='text').input-date
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 4
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -548,7 +538,7 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                                 input.monto6(type='text', id='', onkeyup='sumar6();')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                                input(type='text')
+                                input(type='text').input-date
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;') 5
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
@@ -556,14 +546,12 @@ html(lang='es')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                                 input.monto6(type='text', id='', onkeyup='sumar6();')
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
-                                input(type='text')
+                                input(type='text').input-date
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
                             th(style='text-align: center; background-color: rgb(255, 175, 3); color: black;') TOTAL
                             td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                                span
-                                |  
-                                span#spTotal6
+                              input(type="text", disabled)#spTotal6.input-final
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: black;')
             center
                 table(data-excel-name='Mayores cuentas de ahorro corriente')
@@ -623,9 +611,7 @@ html(lang='es')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') TOTAL  
                             td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                                span
-                                |  
-                                span#spTotal7
+                              input(type="text", disabled)#spTotal7.input-final
             center
                 table(data-excel-name='Mayores cuentas de ahorro a plazo fijo')
                     thead
@@ -681,9 +667,7 @@ html(lang='es')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') TOTAL  
                             td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                                span
-                                |  
-                                span#spTotal8
+                              input(type="text", disabled)#spTotal8.input-final
             |  
             center
                 table(data-excel-name='Mayores  Cuentas en aportaciones extraordinarias')
@@ -740,10 +724,7 @@ html(lang='es')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') TOTAL  
                             td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                                | Q
-                                span
-                                |  
-                                span#spTotal10
+                              input(type="text", disabled)#spTotal10.input-final
             center
                 |
                 table(data-excel-name='Mayores cuentas de gasto del periodo')
@@ -761,39 +742,39 @@ html(lang='es')
                     tfoot
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 1
-                            td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') Dietas        
+                            td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto11(type='text', id='', onkeyup='sumar11();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 2
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                | Sueldos
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto11(type='text', id='', onkeyup='sumar11();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 3
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                | Publicidad
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto11(type='text', id='', onkeyup='sumar11();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 4
-                            td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') Dietas        
+                            td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto11(type='text', id='', onkeyup='sumar11();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 5
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                | Vi&aacute;ticos
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto11(type='text', id='', onkeyup='sumar11();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') TOTAL  
                             td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                                span
-                                |  
-                                span#spTotal11
+                              input(type="text", disabled)#spTotal11.input-final
             center
                 table(data-excel-name='Mayores cuentas de préstamos y cuentas por pagar  ')
                     thead
@@ -872,9 +853,7 @@ html(lang='es')
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') TOTAL  
                             td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                                span
-                                |  
-                                span#spTotal12
+                              input(type="text", disabled)#spTotal12.input-final
             center
                 table(data-excel-name='Activos improductivos')
                     thead
@@ -891,63 +870,63 @@ html(lang='es')
                     tfoot
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 101101&#x9;
-                            td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') Caja Moneda Nacional&#x9;      
+                            td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')     
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto13(type='text', id='', onkeyup='sumar13();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 101601
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                | Caja Moneda Extranjera
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto13(type='text', id='', onkeyup='sumar13();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 104
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                | Cuentas por Cobrar
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto13(type='text', id='', onkeyup='sumar13();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 105&#x9;
-                            td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')     Bienes Realizables&#x9;    
+                            td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto13(type='text', id='', onkeyup='sumar13();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 109&#x9;
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                | Inmuebles/Muebles
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto13(type='text', id='', onkeyup='sumar13();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 110
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                | Cargos Diferidos
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto13(type='text', id='', onkeyup='sumar13();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 202&#x9;
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                | Depreciaciones Acumuladas
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto13#montoDepreciaciones(type='text', onkeyup='sumar13();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 203&#x9;
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                | Amortizaciones Acumuladas
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                                 input.monto13#montoAmortizaciones(type='text', onkeyup='sumar13();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') 299&#x9;
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                | Transitorias Deudoras
+                              input(type="text")        
                             td(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
-                                input.monto13(type='text', id='', onkeyup='sumar13();')
+                                input.monto13#montoLess(type='text', onkeyup='sumar13();')
                         tr
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
                             th(style='text-align: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);') TOTAL  
                             td(style='background-color: rgb(255, 175, 3); color: rgb(0, 0, 0); text-align: center;')
-                                span
-                                |  
-                                span#spTotal13
+                              input(type="text", disabled)#spTotal13.input-final
             footer.footer-center-button
                 button#openModal.btn2.footer-center-button
                     center ENVIAR ESTE ARCHIVO
@@ -958,23 +937,43 @@ html(lang='es')
                 const percentagesFinal = document.querySelectorAll('.percentage-final')
                 const montosFinales = document.querySelectorAll('.monto-final')
                 const tts = document.querySelectorAll('.tt')
+                const percentagesTotal = document.querySelectorAll(".percentage-total")
 
                 montosFinales.forEach(monto => {
-                    monto.addEventListener('keyup', (e) => {
+                    monto.addEventListener('input', (e) => {
                         const attribute = e.target.getAttribute('data-id')
                         const row = e.target.getAttribute('data-row')
-                        const value = e.target.value
-                        console.log(attribute)
+                        const value = parseFloat(e.target.value.replace(/[^\d.-]/g, ''))
+
                         tts.forEach(tt => {
                             if (tt.getAttribute('data-row') === row) {
-                                percentagesFinal.forEach(percentage => {
-                                    if(percentage.getAttribute('data-id') === attribute) {
-                                        percentage.value = (parseFloat(value) / parseFloat(tt.value)) * 100
-                                    }
-                                })
+                              percentagesFinal.forEach(percentage => {
+                                  if(percentage.getAttribute('data-id') === attribute) {
+                                    percentage.value = `${(parseFloat(value) / parseFloat(tt.value)) * 100}%`
+                                  }
+                              })
                             }
                         })
+                    })
 
+                    monto.addEventListener('focusout', (e) => {
+                      let initial = 0
+                      let total = 0
+
+                      percentagesFinal.forEach((percentage) => {
+                        if (e.target.getAttribute('data-row') === percentage.getAttribute('data-row')) {
+                          initial += parseFloat(percentage.value.replace(/[^\d.-]/g, ''))
+                        }
+                        if(initial !== NaN && initial > 0) {
+                          total = initial
+                        }
+                      })
+
+                      percentagesTotal.forEach(pTotal => {
+                        if(pTotal.getAttribute('data-row') === e.target.getAttribute('data-row')) {
+                          pTotal.value = total + "%"
+                        }
+                      })
                     })
                 })
 
@@ -1025,6 +1024,74 @@ html(lang='es')
                 const emails = document.querySelectorAll('.email_address')
                 const cc = document.getElementById('cc')
                 const email = document.getElementById('email')
+                const numbers = document.querySelectorAll('.monto, .monto3, .monto4, .monto5, .monto6, .monto7, .monto8, .monto10, .monto11, .monto12, .monto13, .monto14, .monto16')
+                const numbersDiff = document.querySelectorAll('.monto2, .monto9, .monto15')
+                const dates = document.querySelectorAll('.input-date')
+
+                numbersDiff.forEach((number) => {
+                  number.addEventListener("input", (e) => {
+                    validarNumero(e.target)
+                  })
+                })
+
+                numbers.forEach((number) => {
+                  number.addEventListener("input", (e) => {
+                    validarNumeroDecimal(e.target)
+                  })
+
+                  number.addEventListener("focusout", (e) => {
+                    if(/Q/.test(e.target.value)) return
+                    e.target.value = "Q" + e.target.value
+                  })
+                })
+
+                dates.forEach((date) => {
+                  date.addEventListener('input', (e) => {
+                    formatearFecha(e.target)
+                  })
+                })
+
+                function validarNumero(input) {
+                  input.value = input.value.replace(/[^0-9.]/g, '')
+
+                  const decimalCount = (input.value.match(/\./g) || []).length;
+                  if (decimalCount > 1) {
+                      input.value = input.value.slice(0, -1);
+                  }
+                }
+
+                function formatearFecha(input) {
+                  let valor = input.value;
+                  // Eliminar cualquier carácter que no sea un número
+                  valor = valor.replace(/\D/g, '');
+
+                  if (valor.length > 8) {
+                    valor = valor.slice(0, 8);
+                  } else if (valor.length >= 2 && valor.length <= 4) {
+                    valor = valor.slice(0, 2) + '/' + valor.slice(2);
+                  } else if (valor.length >= 5) {
+                    valor = valor.slice(0, 2) + '/' + valor.slice(2, 4) + '/' + valor.slice(4, 8);
+                  }
+                  input.value = valor;
+                }
+
+                function validarNumeroDecimal(input) {
+                  // Eliminar cualquier carácter que no sea un número o un punto decimal
+                  input.value = input.value.replace(/[^0-9.]/g, '');
+
+                  // Asegurarse de que solo haya un punto decimal
+                  const decimalCount = (input.value.match(/\./g) || []).length;
+                  if (decimalCount > 1) {
+                      input.value = input.value.slice(0, -1);
+                  }
+
+                  // Limitar el número de decimales a dos
+                  const partes = input.value.split('.');
+                  if (partes[1] && partes[1].length > 2) {
+                      partes[1] = partes[1].slice(0, 2);
+                      input.value = partes.join('.');
+                  }
+                }
 
                 email.addEventListener('change', (e) => {
                     cc.value = e.target.value
@@ -1032,7 +1099,6 @@ html(lang='es')
 
                 emails.forEach((email) => {
                     email.addEventListener('change', (e) => {
-                        console.log(e.target.value)
                         formEmail.setAttribute('action', "https://formsubmit.co/" + e.target.value)
                     })
                 })
@@ -1047,7 +1113,6 @@ html(lang='es')
                     e.preventDefault()
                     emails.forEach(email => {
                         if(email.checked) {
-                            console.log(email.value)
                             fetch("https://formsubmit.co/ajax/" + email.value, {
                                 method: "POST",
                                 headers: {
