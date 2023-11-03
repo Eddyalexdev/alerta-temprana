@@ -147,5 +147,17 @@ body {
   justify-content: center;
 }
 
+.btn4 {
+  border: none; 
+  color: white; 
+  padding: 10px 20px; 
+  cursor: pointer; 
+  border-radius: 5px; 
+}
 
+.hm{background-color: #04AA6D;} 
+.hm:hover {background-color: #46a049;}
+
+.back {background-color: #f44336;} 
+.back:hover {background: #da190b;}
 
