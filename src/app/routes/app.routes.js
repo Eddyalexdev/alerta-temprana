@@ -168,6 +168,11 @@ router.get('/5005', async (req, res) => {
     res.render('5005', {logo})
 })
 
+router.get('/5006', async (req, res) => {
+    const logo = await Logo.findOne({ where: { slug: 'home' }})
+    res.render('5006', {logo})
+})
+
 router.get('/2do', async (req, res) => {
     const logo = await Logo.findOne({ where: { slug: 'home' }})
     res.render('2do', {logo})
