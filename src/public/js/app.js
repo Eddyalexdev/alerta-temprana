@@ -91,70 +91,70 @@ window.addEventListener('load', async () => {
 async function generatePDF(lugar, fecha, cop, domicilio, nit, departamento, municipio, nompres, libroacta, numacta, veinte, copcor, telpres, corpres, edpres, escpres, inpres, finpres,
     nomvis, telvis, corvis, edvis, escvis, invis, finvis, nomsec, telsec, corsec, edsec, escsec, insec, finsec, nomtes, teltes, cortes, edtes, esctes, intes, fintes,
     nomvoc, telvoc, corvoc, edvoc, escvoc, invoc, finvoc ){
-    const image = await loadImage("/images/formulario.jpg");
+    const image = await loadImage("/images/formulario-new2.jpg");
     const signatureImage = signaturePad.toDataURL();
 
     const pdf = new jsPDF('p', 'pt', 'letter');
 
-    pdf.addImage(image, 'PNG', 0, 0, 565, 792);
+    pdf.addImage(image, 'PNG', 0, 0, 625, 792);
     pdf.addImage(signatureImage, 'PNG', 350, 705, 300, 60);
 
     pdf.setFontSize(12);
 
     pdf.setFontSize(8);
-    pdf.text(lugar, 55, 160);
-    pdf.text(fecha, 375, 160);
-    pdf.text(cop, 125, 182);
-    pdf.text(domicilio, 55, 205);
-    pdf.text(nit, 483, 205);
-    pdf.text(departamento, 125, 232);
-    pdf.text(municipio, 375, 232);
-    pdf.text(copcor, 195, 260 )
-    pdf.text(libroacta, 185, 310);
-    pdf.text(numacta, 455, 310 );
-    pdf.text(veinte, 500, 310 );
+    pdf.text(lugar, 65, 160);
+    pdf.text(fecha, 395, 160);
+    pdf.text(cop, 135, 182);
+    pdf.text(domicilio, 65, 205);
+    pdf.text(nit, 538, 205);
+    pdf.text(departamento, 135, 232);
+    pdf.text(municipio, 395, 232);
+    pdf.text(copcor, 205, 260 )
+    pdf.text(libroacta, 210, 310);
+    pdf.text(numacta, 500, 310 );
+    pdf.text(veinte, 550, 310 );
 
-    pdf.text(nompres, 70, 392);
-    pdf.text(telpres, 190, 392 );
-    pdf.text(corpres, 233, 392 );
-    pdf.text(edpres, 335, 392 );
-    pdf.text(escpres, 352, 392 );
-    pdf.text(inpres, 400, 392 );
-    pdf.text(finpres, 448, 392 );
+    pdf.text(nompres, 80, 392);
+    pdf.text(telpres, 205, 392 );
+    pdf.text(corpres, 280, 392 );
+    pdf.text(edpres, 355, 392 );
+    pdf.text(escpres, 400, 392 );
+    pdf.text(inpres, 450, 392 );
+    pdf.text(finpres, 500, 392 );
 
-    pdf.text(nomvis, 70, 410);
-    pdf.text(telvis, 190, 410);
-    pdf.text(corvis, 235, 410);
-    pdf.text(edvis, 335, 410);
-    pdf.text(escvis, 353, 410);
-    pdf.text(invis, 403, 410);
-    pdf.text(finvis, 448, 410);
+    pdf.text(nomvis, 80, 410);
+    pdf.text(telvis, 205, 410);
+    pdf.text(corvis, 280, 410);
+    pdf.text(edvis, 355, 410);
+    pdf.text(escvis, 400, 410);
+    pdf.text(invis, 450, 410);
+    pdf.text(finvis, 500, 410);
 
-    pdf.text(nomsec, 70, 430);
-    pdf.text(telsec, 188, 430);
-    pdf.text(corsec, 235, 430);
-    pdf.text(edsec, 335, 430);
-    pdf.text(escsec, 353, 430);
-    pdf.text(insec, 403, 430);
-    pdf.text(finsec, 448, 430);
+    pdf.text(nomsec, 80, 430);
+    pdf.text(telsec, 205, 430);
+    pdf.text(corsec, 280, 430);
+    pdf.text(edsec, 355, 430);
+    pdf.text(escsec, 400, 430);
+    pdf.text(insec, 450, 430);
+    pdf.text(finsec, 500, 430);
 
-    pdf.text(nomtes, 70, 450);
-    pdf.text(teltes, 188, 450);
-    pdf.text(cortes, 235, 450);
-    pdf.text(edtes, 335, 450);
-    pdf.text(esctes, 353, 450);
-    pdf.text(intes, 403, 450);
-    pdf.text(fintes, 448, 450);
+    pdf.text(nomtes, 80, 450);
+    pdf.text(teltes, 205, 450);
+    pdf.text(cortes, 280, 450);
+    pdf.text(edtes, 355, 450);
+    pdf.text(esctes, 400, 450);
+    pdf.text(intes, 450, 450);
+    pdf.text(fintes, 500, 450);
 
-    pdf.text(nomvoc, 70, 470);
-    pdf.text(telvoc, 188, 470);
-    pdf.text(corvoc, 235, 470);
-    pdf.text(edvoc, 335, 470);
-    pdf.text(escvoc, 353, 470);
-    pdf.text(invoc, 403, 470);
-    pdf.text(finvoc, 448, 470);
+    pdf.text(nomvoc, 80, 470);
+    pdf.text(telvoc, 205, 470);
+    pdf.text(corvoc, 280, 470);
+    pdf.text(edvoc, 355, 470);
+    pdf.text(escvoc, 400, 470);
+    pdf.text(invoc, 450, 470);
+    pdf.text(finvoc, 500, 470);
     pdf.setFillColor(0,0,0);
-    pdf.save("INGECOP-5001");
+    pdf.save("INGECOP-5002");
     //window.print("INGECOP-5001.pdf");
 
 }
