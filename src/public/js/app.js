@@ -41,6 +41,7 @@ window.addEventListener('load', async () => {
         let numacta = document.getElementById("numacta").value;
         let veinte = document.getElementById("veinte").value;
         let copcor = document.getElementById("copcor").value;
+
         let nompres = document.getElementById("nompres").value;
         let telpres = document.getElementById("telpres").value;
         let corpres = document.getElementById("corpres").value;
@@ -48,6 +49,7 @@ window.addEventListener('load', async () => {
         let escpres = document.getElementById("escpres").value;
         let inpres = document.getElementById("inpres").value;
         let finpres = document.getElementById("finpres").value;
+
         let nomvis = document.getElementById("nomvis").value;
         let telvis = document.getElementById("telvis").value;
         let corvis = document.getElementById("corvis").value;
@@ -80,17 +82,40 @@ window.addEventListener('load', async () => {
         let invoc = document.getElementById("invoc").value;
         let finvoc = document.getElementById("finvoc").value;
 
+        let nompres2 = document.getElementById("nompres2").value;
+        let telpres2 = document.getElementById("telpres2").value;
+        let corpres2 = document.getElementById("corpres2").value;
+        let edpres2 = document.getElementById("edpres2").value;
+        let escpres2 = document.getElementById("escpres2").value;
+        let inpres2 = document.getElementById("inpres2").value;
+        let finpres2 = document.getElementById("finpres2").value;
 
-        generatePDF(lugar, fecha, cop, domicilio, nit, departamento, municipio, nompres, libroacta, numacta, veinte, copcor, telpres, corpres, edpres, escpres, inpres, finpres,
+        let nomsec2 = document.getElementById("nomsec2").value;
+        let telsec2 = document.getElementById("telsec2").value;
+        let corsec2 = document.getElementById("corsec2").value;
+        let edsec2 = document.getElementById("edsec2").value;
+        let escsec2 = document.getElementById("escsec2").value;
+        let insec2 = document.getElementById("insec2").value;
+        let finsec2 = document.getElementById("finsec2").value;
+
+        let nomvoc2 = document.getElementById("nomvoc2").value;
+        let telvoc2 = document.getElementById("telvoc2").value;
+        let corvoc2 = document.getElementById("corvoc2").value;
+        let edvoc2 = document.getElementById("edvoc2").value;
+        let escvoc2 = document.getElementById("escvoc2").value;
+        let invoc2 = document.getElementById("invoc2").value;
+        let finvoc2 = document.getElementById("finvoc2").value;
+
+        generatePDF(nomvoc2, telvoc2, corvoc2, edvoc2, escvoc2, invoc2, finvoc2, nomsec2, telsec2, corsec2, edsec2, escsec2, insec2, finsec2, nompres2, telpres2, corpres2, edpres2, escpres2, inpres2, finpres2,lugar, fecha, cop, domicilio, nit, departamento, municipio, nompres, libroacta, numacta, veinte, copcor, telpres, corpres, edpres, escpres, inpres, finpres,
         nomvis, telvis, corvis, edvis, escvis, invis, finvis, nomsec, telsec, corsec, edsec, escsec, insec, finsec,
-        nomtes, teltes, cortes, edtes, esctes, intes, fintes, nomvoc, telvoc, corvoc, edvoc, escvoc, invoc, finvoc );
+        nomtes, teltes, cortes, edtes, esctes, intes, fintes, nomvoc, telvoc, corvoc, edvoc, escvoc, invoc, finvoc);
     })
 
 });
 
-async function generatePDF(lugar, fecha, cop, domicilio, nit, departamento, municipio, nompres, libroacta, numacta, veinte, copcor, telpres, corpres, edpres, escpres, inpres, finpres,
-    nomvis, telvis, corvis, edvis, escvis, invis, finvis, nomsec, telsec, corsec, edsec, escsec, insec, finsec, nomtes, teltes, cortes, edtes, esctes, intes, fintes,
-    nomvoc, telvoc, corvoc, edvoc, escvoc, invoc, finvoc ){
+async function generatePDF(nomvoc2, telvoc2, corvoc2, edvoc2, escvoc2, invoc2, finvoc2, nomsec2, telsec2, corsec2, edsec2, escsec2, insec2, finsec2, nompres2, telpres2, corpres2, edpres2, escpres2, inpres2, finpres2,lugar, fecha, cop, domicilio, nit, departamento, municipio, nompres, libroacta, numacta, veinte, copcor, telpres, corpres, edpres, escpres, inpres, finpres,
+        nomvis, telvis, corvis, edvis, escvis, invis, finvis, nomsec, telsec, corsec, edsec, escsec, insec, finsec,
+        nomtes, teltes, cortes, edtes, esctes, intes, fintes, nomvoc, telvoc, corvoc, edvoc, escvoc, invoc, finvoc){
     const image = await loadImage("/images/formulario-new2.jpg");
     const signatureImage = signaturePad.toDataURL();
 
@@ -153,8 +178,32 @@ async function generatePDF(lugar, fecha, cop, domicilio, nit, departamento, muni
     pdf.text(escvoc, 400, 470);
     pdf.text(invoc, 450, 470);
     pdf.text(finvoc, 500, 470);
+  
+    pdf.text(nompres2, 80, 505);
+    pdf.text(telpres2, 205, 505 );
+    pdf.text(corpres2, 280, 505 );
+    pdf.text(edpres2, 355, 505 );
+    pdf.text(escpres2, 400, 505 );
+    pdf.text(inpres2, 450, 505 );
+    pdf.text(finpres2, 500, 505 );
+
+    pdf.text(nomsec2, 80, 525);
+    pdf.text(telsec2, 205, 525);
+    pdf.text(corsec2, 280, 525);
+    pdf.text(edsec2, 355, 525);
+    pdf.text(escsec2, 400, 525);
+    pdf.text(insec2, 450, 525);
+    pdf.text(finsec2, 500, 525);
+
+    pdf.text(nomvoc2, 80, 545);
+    pdf.text(telvoc2, 205, 545);
+    pdf.text(corvoc2, 280, 545);
+    pdf.text(edvoc2, 355, 545);
+    pdf.text(escvoc2, 400, 545);
+    pdf.text(invoc2, 450, 545);
+    pdf.text(finvoc2, 500, 545);
+
     pdf.setFillColor(0,0,0);
     pdf.save("INGECOP-5002");
     //window.print("INGECOP-5001.pdf");
-
 }
