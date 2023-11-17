@@ -31,7 +31,7 @@ block content
                                 label.form-label(for='fecha') Fecha
                                 input#fecha.form-control(type='date')
                         .mb-3
-                            label.form-label(for='cop') Nombre de la Cooperativa o federaci&oacute;n
+                            label.form-label(for='cop') Nombre de la Cooperativa o Federaci&oacute;n
                             input#cop.form-control(type='text')
                         .row.mb-3
                             .col-md-6
@@ -45,22 +45,25 @@ block content
                                 label.form-label(for='rl') Abreviatura
                                 input#rl.form-control(type='text')
                             .col-md-6
-                                label.form-label(for='tel') Telefono / Linea Fija / Celular
+                                label.form-label(for='tel') Teléfono / Linea Fija / Celular
                                 input#tel.form-control(type='text')
-                        .col-md-6
-                            label.form-label(for='cor') Tel&eacute;fono Celular
-                            input#cor.form-control(type='text')
-                        hr
+                        .row.mb-3
+                          .col-md-6
+                              label.form-label(for='cor') Tel&eacute;fono Celular
+                              input#cor.form-control(type='text')
+                          .col-md-6
+                              label.form-label(for='nit') NIT
+                              input#nit.form-control(type='text')
                         hr
                         h5
                             | La Cooperativa se dedica a la actividad econ&oacute;mica con la que fue inscrita:
                         .row.d-md-3
                             .col-md-2
                                 label.form-label(for='veinte') SI
-                                input#fi.form-control(type='')
+                                input#fi.form-control.veinte(type='')
                             .col-md-2
                                 label.form-label(for='veinte') NO 
-                                input#cd.form-control(type='')
+                                input#cd.form-control.veinte(type='')
                         hr
                         .mb-3
                             label.form-label(for='copcor')
@@ -72,10 +75,23 @@ block content
                         hr
                         .mb-3
                             label.form-label(for='copcor')
-                                | Registro de correo electronico
+                                | Registro de correo electrónico
                             input#p4.form-control(type='text')
                             input#p5.form-control(type='text')
                         hr
+                        h3
+                            | REPRESENTANTE LEGAL ACTUAL 
+                        .row.mb-3
+                          .col-md-12
+                            label.form-label(for='rlan') Nombre
+                            input#rlan.form-control(type='text')
+                        hr
+                        h3
+                            | GERENTE DE LA COOPERATIVE (SI APLICA)
+                        .row.mb-3
+                          .col-md-12
+                            label.form-label(for='gcn') Nombre
+                            input#gcn.form-control(type='text')
                         hr
                         h3
                             | INFORMACI&Oacute;N DEL PERITO CONTADOR
@@ -139,3 +155,21 @@ block content
                         .signature.mb-2(style='width: 100%; height: 200px;')
                             canvas#signature-canvas(style='border: 1px dashed rgb(251, 255, 0); width: 100%; height: 200px; background-color: white;')
                         button.btn.btn-primary.mb-4(type='submit') Generar PDF
+
+        script.
+          const veintes = document.querySelectorAll('.veinte')
+
+          veintes.forEach((veinte) => {
+            if (veinte.value !== "") {
+              veinte.value = ""
+            } 
+
+            veinte.addEventListener('input', (e) => {
+              if (e.target.value == "") {
+                veinte.value = e.target.value
+              } else {
+                veintes.forEach(v => v.value = "")
+              }
+            })
+          })
+

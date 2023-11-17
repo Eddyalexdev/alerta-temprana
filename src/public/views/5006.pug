@@ -13,62 +13,62 @@ block content
                 form#form
                     .mb-3
                         label.form-label(for='cop') Nombre de la Cooperativa
-                        input#cop.form-control(type='text', placeholder='Ingrese el nombre de la cooperativa')
+                        input#cop.form-control(type='text', maxlength='150', placeholder='Ingrese el nombre de la cooperativa')
                     .mb-3
                         label.form-label(for='certi') Certifica que el total de asociados es de:
-                        input#certi.form-control(type='text', placeholder='Total de asociados')
+                        input#certi.form-control(type='text', maxlength='150', placeholder='Total de asociados')
                     hr
                     h3 Suma de Generos
                     .row.d-md-3
                         .col-md-4
                             label.form-label(for='gm') Mujeres
-                            input#gm.form-control(type='text')
+                            input#gm.form-control(type='text', maxlength='3', data-id="1")
                         .col-md-4
                             label.form-label(for='gh') Hombre
-                            input#gh.form-control(type='text')
+                            input#gh.form-control(type='text', maxlength='3', data-id="1")
                         .col-md-4
                             label.form-label(for='tg') Total
-                            input#tg.form-control(type='text')
+                            input#tg.form-control.form-total(type='text', maxlength='3', data-id="1")
                     hr
                     h3 Suma de Rangos de edad
                     .row.d-md-3
                         .col-md-4
                             label.form-label(for='menor') De 0 a 12 años
-                            input#menor.form-control(type='text', placeholder='niñez')
+                            input#menor.form-control(type='text', maxlength='3', placeholder='niñez', data-id="2")
                         .col-md-4
                             label.form-label(for='juv') De 13 a 30 años
-                            input#juv.form-control(type='text', placeholder='juventud')
+                            input#juv.form-control(type='text', maxlength='3', placeholder='juventud', data-id="2")
                         .col-md-4
                             label.form-label(for='adul') De 31 a 60 años
-                            input#adul.form-control(type='text', placeholder='adultos')
+                            input#adul.form-control(type='text', maxlength='3', placeholder='adultos', data-id="2")
                         .col-md-4
                             label.form-label(for='teredad') Mayores a 60 años
-                            input#teredad.form-control(type='text', placeholder='tercera edad')
+                            input#teredad.form-control(type='text', maxlength='3', placeholder='tercera edad', data-id="2")
                         .col-md-4
                             label.form-label(for='tedad') Total
-                            input#tedad.form-control(type='text', placeholder='total')
+                            input#tedad.form-control.form-total(type='text', maxlength='3', placeholder='total', data-id="2")
                     
                     hr
                     h3 Suma de Grupos Étnicos
                     .row.d-md-3
                         .col-md-4
                             label.form-label(for='maya') Maya
-                            input#maya.form-control(type='text')
+                            input#maya.form-control(type='text', maxlength='3', data-id="3")
                         .col-md-4
                             label.form-label(for='xinca') Xinca
-                            input#xinca.form-control(type='text')
+                            input#xinca.form-control(type='text', maxlength='3', data-id="3")
                         .col-md-4
                             label.form-label(for='gari') Garifuna
-                            input#gari.form-control(type='text')
+                            input#gari.form-control(type='text', maxlength='3', data-id="3")
                         .col-md-4
                             label.form-label(for='mesti') Mestizo
-                            input#mesti.form-control(type='text')
+                            input#mesti.form-control(type='text', maxlength='3', data-id="3")
                         .col-md-4
                             label.form-label(for='otro') Otro
-                            input#otro.form-control(type='text')
+                            input#otro.form-control(type='text', maxlength='3', data-id="3")
                         .col-md-4
                             label.form-label(for='tetnico') Total
-                            input#tetnico.form-control(type='text', placeholder='total')
+                            input#tetnico.form-control.form-total(type='text', maxlength='3', placeholder='total', data-id="3")
                     hr
                     h3 CONSEJO DE ADMINISTRACIÓN
                     .container.px-4
@@ -76,65 +76,65 @@ block content
                             .col-2
                                 h5 Presidente
                                 label.form-label(for='capresim') Mujer
-                                input#capresim.form-control(type='text')
+                                input#capresim.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 &nbsp
                                 label.form-label(for='capresiv') Hombre
-                                input#capresiv.form-control(type='text')
+                                input#capresiv.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 VicePresidente
                                 label.form-label(for='cavicepm') Mujer
-                                input#cavicepm.form-control(type='text')
+                                input#cavicepm.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 &nbsp
                                 label.form-label(for='cavicepv') Hombre
-                                input#cavicepv.form-control(type='text')
+                                input#cavicepv.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 Secretario/a
                                 label.form-label(for='casecrem') Mujer
-                                input#casecrem.form-control(type='text')
+                                input#casecrem.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 &nbsp
                                 label.form-label(for='casecrev') Hombre
-                                input#casecrev.form-control(type='text')
+                                input#casecrev.form-control(type='text', maxlength='3')
                     hr
                     .container.px-4
                         .row.gx-3
                             .col-2
                                 h5 Tesorero
                                 label.form-label(for='catesom') Mujer
-                                input#catesom.form-control(type='text')
+                                input#catesom.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 &nbsp
                                 label.form-label(for='catesov') Hombre
-                                input#catesov.form-control(type='text')
+                                input#catesov.form-control(type='text', maxlength='3')
                             .col
                                 h5 Vocal I
                                 label.form-label(for='cavocalm') Mujer
-                                input#cavocalm.form-control(type='text')
+                                input#cavocalm.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 &nbsp
                                 label.form-label(for='cavocalv') Hombre
-                                input#cavocalv.form-control(type='text')
+                                input#cavocalv.form-control(type='text', maxlength='3')
                             .col
                                 h5 Vocal II
                                 label.form-label(for='cavocallm') Mujer
-                                input#cavocallm.form-control(type='text')
+                                input#cavocallm.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 &nbsp
                                 label.form-label(for='cavocallv') Hombre
-                                input#cavocallv.form-control(type='text')
+                                input#cavocallv.form-control(type='text', maxlength='3')
                     hr
                     .container.px-4
                         .row.gx-3
                             .col-2
                                 h5 Otro
                                 label.form-label(for='caotrom') Mujer
-                                input#caotrom.form-control(type='text')
+                                input#caotrom.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 &nbsp
                                 label.form-label(for='caotrov') Hombre
-                                input#caotrov.form-control(type='text',)
+                                input#caotrov.form-control(type='text', maxlength='3',)
                     hr
                     h3 COMISIÓN DE VIGILANCIA
                     .container.px-4
@@ -142,43 +142,40 @@ block content
                             .col-2
                                 h5 Presidente
                                 label.form-label(for='cvpresim') Mujer
-                                input#cvpresim.form-control(type='text')
+                                input#cvpresim.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 &nbsp
                                 label.form-label(for='cvpresiv') Hombre
-                                input#cvpresiv.form-control(type='text')
+                                input#cvpresiv.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 Secretario/a
                                 label.form-label(for='cvsecrem') Mujer
-                                input#cvsecrem.form-control(type='text')
+                                input#cvsecrem.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 &nbsp
                                 label.form-label(for='cvsecrev') Hombre
-                                input#cvsecrev.form-control(type='text')
-                    hr
-                    .container.px-4
-                        .row.gx-3
+                                input#cvsecrev.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 Vocal
                                 label.form-label(for='cvvocam') Mujer
-                                input#cvvocam.form-control(type='text')
+                                input#cvvocam.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 &nbsp
                                 label.form-label(for='cvvocav') Hombre
-                                input#cvvocav.form-control(type='text')
+                                input#cvvocav.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 Otro
                                 label.form-label(for='cvotrom') Mujer
-                                input#cvotrom.form-control(type='text')
+                                input#cvotrom.form-control(type='text', maxlength='3')
                             .col-2
                                 h5 &nbsp
                                 label.form-label(for='cvotrov') Hombre
-                                input#cvotrov.form-control(type='text')
+                                input#cvotrov.form-control(type='text', maxlength='3')
                     hr       
                     h5 Nombre para la Firma
                     .mb-3
                         label.form-label(for='nom') Nombre(s) y Apellido(s)
-                        input#nom.form-control(type='text')
+                        input#nom.form-control(type='text', maxlength='3')
 
                     span.d-block.pb-2 Firma digital aqui
                     .signature.mb-2(style='width: 100%; height: 200px;')
@@ -203,3 +200,17 @@ block content
         window.addEventListener("keydown", resetTimeout);
         // Initial setup of the timeout
         resetTimeout();
+
+        const forms = document.querySelectorAll('.form-control')
+        const totals = document.querySelectorAll('.form-total')
+
+        forms.forEach(input => {
+          input.addEventListener('input', (e) => {
+            console.log(e.target.value)
+            totals.forEach(total => {
+              if(e.target.getAttribute('data-id') == total.getAttribute('data-id')) {
+                total.value += Number(e.target.value)
+              }
+            })
+          })
+        })

@@ -161,3 +161,6 @@ body {
 .back {background-color: #f44336;} 
 .back:hover {background: #da190b;}
 
+.form-label {
+  text-transform: capitalize;
+}

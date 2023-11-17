@@ -31,45 +31,45 @@ block content
                                     option(value='Flores, Petén') Flores, Pet&eacute;n
                             .col-md-6
                                 label.form-label(for='fecha') Fecha
-                                input#fecha.form-control(type='date')
+                                input#fecha.form-control(type='date', maxlength="10")
                         .mb-3
                             label.form-label(for='cop')
                                 | Nombre Completo de la
                                 | Cooperativa o Federacion
-                            input#cop.form-control(type='text')
+                            input#cop.form-control(type='text', maxlength="150")
                         .row.mb-3
                             .col-md-6
                                 label.form-label(for='dom') Direcci&oacute;n
-                                input#dom.form-control(type='text')
+                                input#dom.form-control(type='text', maxlength="150")
                             .col-md-6
                                 label.form-label(for='nit') Numero de Identificacion Tributaria 
-                                input#nit.form-control(type='text')
+                                input#nit.form-control(type='text', maxlength="30")
                         .row.mb-3
                             .col-md-6
                                 label.form-label(for='rl') Representante Legal
-                                input#rl.form-control(type='text')
+                                input#rl.form-control(type='text', maxlength="150")
                             .col-md-6
                                 label.form-label(for='tel') Telefono / Linea Fija / Celular
-                                input#tel.form-control(type='text')
+                                input#tel.form-control(type='text', maxlength="30")
                         .mb-3
                             label.form-label(for='cor') Correo Electronico / E-mail
-                            input#cor.form-control(type='text')
+                            input#cor.form-control(type='text', maxlength="30")
                         hr
                         h3 FORMA DE ENTREGA DE MEMORIA DE LABORES
                         h6 MARCAR CON UNA &quot;X&quot; - FORMA DE ENTREGA DE MEMORIA DE LABORES 
                         .row.d-md-3
                             .col-md-3
                                 label.form-label(for='fi') FISICA
-                                input#fi.form-control(type='text')
+                                input#fi.form-control(type='text', maxlength="1")
                             .col-md-3
                                 label.form-label(for='cd') CD
-                                input#cd.form-control(type='text')
+                                input#cd.form-control(type='text', maxlength="1")
                             .col-md-3
                                 label.form-label(for='em') E-MAIL
-                                input#em.form-control(type='')
+                                input#em.form-control(type='', maxlength="1")
                             .col-md-3
                                 label.form-label(for='us') USB
-                                input#us.form-control(type='')
+                                input#us.form-control(type='', maxlength="1")
                         hr
                         hr
                         h6 MARCAR CON UNA &quot;X&quot; - ENTREGAR LA SIGUIENTE DOCUMENTACI&Oacute;N: 
@@ -79,7 +79,7 @@ block content
                                     td(width='200px')
                                         | 1.1 Formulariode Actualizaci&oacute;nde Datos INGECOP-SALF-5004
                                     td(width='10%')
-                                        input#sp.form-control(type='')
+                                        input#sp.form-control(type='', maxlength="1")
                         hr
                         hr
                         h3 2) INFORMACI&Oacute;N LEGAL Y ADMINISTRATIVA: 
@@ -90,52 +90,52 @@ block content
                                     td(width='200px')
                                         | 2.1 Convocatoria de Asamblea General Ordinaria Anual
                                     td(width='10%')
-                                        input#p1.form-control(type='')
+                                        input#p1.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 2.2 Agenda de Asamblea General Ordinaria Anual
                                     td(width='10%')
-                                        input#p2.form-control(type='')
+                                        input#p2.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 2.3 Certificaci&oacute;n de Acta de Asamblea General Anual
                                     td(width='10%')
-                                        input#p3.form-control(type='')
+                                        input#p3.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 2.4 Certificaci&oacute;n de Asociados por G&eacute;nero (Aplica solo para Cooperativas de Primer Grado NO LISTADO)
                                     td(width='10%')
-                                        input#p4.form-control(type='')
+                                        input#p4.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 2.4.1 Federaciones: Lista de Cooperativas
                                     td(width='10%')
-                                        input#p5.form-control(type='')
+                                        input#p5.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 2.5 Registro Tributario Unificado (RTU) de la Cooperativa ACTUALIZADO
                                     td(width='10%')
-                                        input#p6.form-control(type='')
+                                        input#p6.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 2.6 Registro Tributario Unificado (RTU) del Contador ACTUALIZADO
                                     td(width='10%')
-                                        input#p7.form-control(type='')
+                                        input#p7.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 2.7 Informe del Consejo de Administraci&oacute;n
                                     td(width='10%')
-                                        input#p8.form-control(type='')
+                                        input#p8.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 2.8 Informe de la Comisi&oacute;n de Vigilancia
                                     td(width='10%')
-                                        input#p9.form-control(type='')
+                                        input#p9.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 2.9 Informe de Otros Comit&eacute;s (Comit&eacute; de Cr&eacute;ditos, educaci&oacute;n, etc.) . y sellado por el Comit&eacute;. (si Aplica)
                                     td(width='10%')
-                                        input#p10.form-control(type='')
+                                        input#p10.form-control(type='', maxlength="1")
                         hr
                         hr
                         center
@@ -148,42 +148,42 @@ block content
                                     td(width='200px')
                                         | 3.1 Estado de Situaci&oacute;n Financiera (Balance General)
                                     td(width='10%')
-                                        input#p11.form-control(type='')
+                                        input#p11.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 3.2 Estado de Resultados
                                     td(width='10%')
-                                        input#p12.form-control(type='')
+                                        input#p12.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 3.3 Estado de cambio en el Patrimonio
                                     td(width='10%')
-                                        input#p13.form-control(type='')
+                                        input#p13.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 3.4 Estado de Flujos de Efectivo
                                     td(width='10%')
-                                        input#p14.form-control(type='')
+                                        input#p14.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 3.5 Notas a los Estados financieros
                                     td(width='10%')
-                                        input#p15.form-control(type='')
+                                        input#p15.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 3.6 Dictamen de la Comisi&oacute;n de Vigilancia CON FIRMA Y SELLO
                                     td(width='10%')
-                                        input#p16.form-control(type='')
+                                        input#p16.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 3.7 Presupuesto de Ingresos yEgresos para el per&iacute;odo a iniciar
                                     td(width='10%')
-                                        input#p17.form-control(type='')
+                                        input#p17.form-control(type='' maxlength="1")
                                 tr
                                     td(width='200px')
                                         | 3.8 PlandeTrabajoparaelper&iacute;odoainiciar (Debidamentefirmadoyselladoporel Consejode Administraci&oacute;n)
                                     td(width='10%')
-                                        input#p18.form-control(type='')
+                                        input#p18.form-control(type='' maxlength="1")
                         hr
                         span.d-block.pb-2 Firma digital aqui
                         .signature.mb-2(style='width: 100%; height: 200px;')

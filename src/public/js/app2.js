@@ -121,108 +121,115 @@ window.addEventListener('load', async () => {
 });
 
 async function generatePDF(lugar,fecha,cop,dire,nit,rl,tel,cor,lb1,nr1,m1,p1,p2,p3,p4,p5,ot,ot2,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,ot3,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,ot4,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,pp1,pp2,pp3,pp4,pp5,pp6,pp7,pp8,pp9,pp10,pp11,pp12,pp13,pp14,pp15,pp16,pp17,pp18,pp19,pp20){
-    const image = await loadImage("/images/formularo2.jpg");
+    const image = await loadImage("/images/formulario-1-2023.jpg");
     const signatureImage = signaturePad.toDataURL();
-    const pdf = new jsPDF('p', 'pt', 'letter');
-    pdf.addImage(image, 'PNG', 0, 0, 625, 792);
+    const pdf = new jsPDF('landscape');
+    pdf.addImage(image, 'PNG', 18, 15, 255, 180);
     pdf.addImage(signatureImage, 'PNG', 350, 585, 300, 60);
     pdf.setFontSize(12);
     pdf.setFontSize(8);
 
-    pdf.text(lugar, 105, 210);
-    pdf.text(fecha, 165, 210);
-    pdf.text(nit, 485, 210);
+    pdf.text(lugar, 48, 55);
+    pdf.text(fecha, 100, 55);
+    pdf.text(nit, 230, 55);
 
-    pdf.text(cop, 205, 230);
-    pdf.text(dire, 105, 255);
-    pdf.text(rl, 115, 280);
-    pdf.text(tel, 145, 305);
-    pdf.text(cor, 455, 305);
+    pdf.text(cop, 100, 60);
+    pdf.text(dire, 48, 70);
+    pdf.text(rl, 54, 80);
+    pdf.text(tel, 70, 90);
+    pdf.text(cor, 200, 90);
+
     // Libro 1
-    pdf.text(lb1, 100, 400);
-    pdf.text(nr1, 230, 400);
-    pdf.text(m1, 305, 400);
-    pdf.text(p1, 335, 400);
-    pdf.text(p2, 365, 400);
-    pdf.text(p3, 395, 400);
-    pdf.text(p4, 425, 400);
-    pdf.text(p5, 455, 400);
-    pdf.text(ot, 485, 400);
-    pdf.text(p6, 515, 400);
-    pdf.text(p7, 545, 400);
+    pdf.text(lb1, 23, 107);
+    pdf.text(nr1, 92, 107);
+    pdf.text(m1, 140, 107);
+    pdf.text(p1, 153, 107);
+    pdf.text(p2, 170, 107);
+    pdf.text(p3, 186, 107);
+    pdf.text(p4, 200, 107);
+    pdf.text(p5, 214, 107);
+    pdf.text(ot, 228, 107);
+    pdf.text(p6, 242, 107);
+    pdf.text(p7, 257, 107);
+
     // Libro 2
-    pdf.text(p8, 100, 420);
-    pdf.text(p9, 230, 420);
-    pdf.text(p10, 305, 420);
-    pdf.text(p11, 335, 420);
-    pdf.text(p12, 365, 420);
-    pdf.text(p13, 395, 420);
-    pdf.text(p14, 425, 420);
-    pdf.text(p15, 455, 420);
-    pdf.text(ot2, 485, 420);
-    pdf.text(p16, 515, 420);
-    pdf.text(p17, 545, 420);
+    pdf.text(p8, 23, 113);
+    pdf.text(p9, 92, 113);
+    pdf.text(p10, 140, 113);
+    pdf.text(p11, 153, 113);
+    pdf.text(p12, 170, 113);
+    pdf.text(p13, 186, 113);
+    pdf.text(p14, 200, 113);
+    pdf.text(p15, 214, 113);
+    pdf.text(ot2, 228, 113);
+    pdf.text(p16, 242, 113);
+    pdf.text(p17, 257, 113);
+
     // Libro 3
-    pdf.text(p18, 100, 440);
-    pdf.text(p19, 230, 440);
-    pdf.text(p20, 305, 440);
-    pdf.text(p21, 335, 440);
-    pdf.text(p22, 365, 440);
-    pdf.text(p23, 395, 440);
-    pdf.text(p24, 425, 440);
-    pdf.text(p25, 455, 440);
-    pdf.text(ot3, 485, 440);
-    pdf.text(p26, 515, 440);
-    pdf.text(p27, 545, 440);
+    pdf.text(p18, 23, 118);
+    pdf.text(p19, 92, 118);
+    pdf.text(p20, 140, 118);
+    pdf.text(p21, 153, 118);
+    pdf.text(p22, 170, 118);
+    pdf.text(p23, 186, 118);
+    pdf.text(p24, 200, 118);
+    pdf.text(p25, 214, 118);
+    pdf.text(ot3, 228, 118);
+    pdf.text(p26, 242, 118);
+    pdf.text(p27, 257, 118);
+
     // Libro 4
-    pdf.text(p28, 100, 460);
-    pdf.text(p29, 230, 460);
-    pdf.text(p30, 305, 460);
-    pdf.text(p31, 335, 460);
-    pdf.text(p32, 365, 460);
-    pdf.text(p33, 395, 460);
-    pdf.text(p34, 425, 460);
-    pdf.text(p35, 455, 460);
-    pdf.text(ot4, 485, 460);
-    pdf.text(p36, 515, 460);
-    pdf.text(p37, 545, 460);
+    pdf.text(p28, 23, 123);
+    pdf.text(p29, 92, 123);
+    pdf.text(p30, 140, 123);
+    pdf.text(p31, 153, 123);
+    pdf.text(p32, 170, 123);
+    pdf.text(p33, 186, 123);
+    pdf.text(p34, 200, 123);
+    pdf.text(p35, 214, 123);
+    pdf.text(ot4, 228, 123);
+    pdf.text(p36, 242, 123);
+    pdf.text(p37, 257, 123);
+
     // Forma 1
-    pdf.text(p38, 100, 545);
-    pdf.text(p39, 230, 545);
-    pdf.text(p40, 305, 545);
-    pdf.text(p41, 335, 545);
-    pdf.text(p42, 365, 545);
-    pdf.text(p43, 395, 545);
-    pdf.text(p44, 425, 545);
-    pdf.text(p45, 455, 545);
-    pdf.text(p46, 485, 545);
-    pdf.text(p47, 515, 545);
-    pdf.text(p48, 545, 545);
+    pdf.text(p38, 23, 147);
+    pdf.text(p39, 92, 147);
+    pdf.text(p40, 140, 147);
+    pdf.text(p41, 153, 147);
+    pdf.text(p42, 170, 147);
+    pdf.text(p43, 186, 147);
+    pdf.text(p44, 200, 147);
+    pdf.text(p45, 214, 147);
+    pdf.text(p46, 228, 147);
+    pdf.text(p47, 242, 147);
+    pdf.text(p48, 257, 147);
+
     // Forma 2
-    pdf.text(p49, 100, 565);
-    pdf.text(p50, 230, 565);
-    pdf.text(pp1, 305, 565);
-    pdf.text(pp2, 335, 565);
-    pdf.text(pp3, 365, 565);
-    pdf.text(pp4, 395, 565);
-    pdf.text(pp5, 425, 565);
-    pdf.text(pp6, 455, 565);
-    pdf.text(pp7, 485, 565);
-    pdf.text(pp8, 515, 565);
-    pdf.text(pp9, 545, 565);
+    pdf.text(p49, 23, 152);
+    pdf.text(p50, 92, 152);
+    pdf.text(pp1, 140, 152);
+    pdf.text(pp2, 153, 152);
+    pdf.text(pp3, 170, 152);
+    pdf.text(pp4, 186, 152);
+    pdf.text(pp5, 200, 152);
+    pdf.text(pp6, 214, 152);
+    pdf.text(pp7, 228, 152);
+    pdf.text(pp8, 242, 152);
+    pdf.text(pp9, 257, 152);
+
     // Forma 3
-    pdf.text(pp10, 100, 585);
-    pdf.text(pp11, 230, 585);
-    pdf.text(pp12, 305, 585);
-    pdf.text(pp13, 335, 585);
-    pdf.text(pp14, 365, 585);
-    pdf.text(pp15, 395, 585);
-    pdf.text(pp16, 425, 585);
-    pdf.text(pp17, 455, 585);
-    pdf.text(pp18, 485, 585);
-    pdf.text(pp19, 515, 585);
-    pdf.text(pp20, 545, 585);
+    pdf.text(pp10, 23, 157);
+    pdf.text(pp11, 92, 157);
+    pdf.text(pp12, 140, 157);
+    pdf.text(pp13, 153, 157);
+    pdf.text(pp14, 170, 157);
+    pdf.text(pp15, 186, 157);
+    pdf.text(pp16, 200, 157);
+    pdf.text(pp17, 214, 157);
+    pdf.text(pp18, 228, 157);
+    pdf.text(pp19, 242, 157);
+    pdf.text(pp20, 257, 157);
 
     pdf.setFillColor(0,0,0);
-    pdf.save("INGECOP-5002");
+    pdf.save("INGECOP-5001");
 }

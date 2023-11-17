@@ -116,92 +116,94 @@ window.addEventListener('load', async () => {
 async function generatePDF(nomvoc2, telvoc2, corvoc2, edvoc2, escvoc2, invoc2, finvoc2, nomsec2, telsec2, corsec2, edsec2, escsec2, insec2, finsec2, nompres2, telpres2, corpres2, edpres2, escpres2, inpres2, finpres2,lugar, fecha, cop, domicilio, nit, departamento, municipio, nompres, libroacta, numacta, veinte, copcor, telpres, corpres, edpres, escpres, inpres, finpres,
         nomvis, telvis, corvis, edvis, escvis, invis, finvis, nomsec, telsec, corsec, edsec, escsec, insec, finsec,
         nomtes, teltes, cortes, edtes, esctes, intes, fintes, nomvoc, telvoc, corvoc, edvoc, escvoc, invoc, finvoc){
-    const image = await loadImage("/images/formulario-new2.jpg");
+    const image = await loadImage("/images/formulario-2-2023.jpg");
     const signatureImage = signaturePad.toDataURL();
 
-    const pdf = new jsPDF('p', 'pt', 'letter');
+    const pdf = new jsPDF('landscape');
 
-    pdf.addImage(image, 'PNG', 0, 0, 625, 792);
+    pdf.addImage(image, 'PNG', 15, 8, 265, 188);
     pdf.addImage(signatureImage, 'PNG', 350, 705, 300, 60);
 
     pdf.setFontSize(12);
 
     pdf.setFontSize(8);
-    pdf.text(lugar, 65, 160);
-    pdf.text(fecha, 395, 160);
-    pdf.text(cop, 135, 182);
-    pdf.text(domicilio, 65, 205);
-    pdf.text(nit, 538, 205);
-    pdf.text(departamento, 135, 232);
-    pdf.text(municipio, 395, 232);
-    pdf.text(copcor, 205, 260 )
-    pdf.text(libroacta, 210, 310);
-    pdf.text(numacta, 500, 310 );
-    pdf.text(veinte, 550, 310 );
+    pdf.text(lugar, 32, 44);
+    pdf.text(fecha, 185, 44);
+    pdf.text(cop, 52, 50);
+    pdf.text(domicilio, 32, 56);
+    pdf.text(nit, 255, 56);
+    pdf.text(departamento, 52, 62);
+    pdf.text(municipio, 185, 62);
+    pdf.text(copcor, 97, 68)
 
-    pdf.text(nompres, 80, 392);
-    pdf.text(telpres, 205, 392 );
-    pdf.text(corpres, 280, 392 );
-    pdf.text(edpres, 355, 392 );
-    pdf.text(escpres, 400, 392 );
-    pdf.text(inpres, 450, 392 );
-    pdf.text(finpres, 500, 392 );
+    pdf.text(libroacta, 97, 80);
+    pdf.text(numacta, 234, 80 );
+    pdf.text(veinte, 267, 80 );
 
-    pdf.text(nomvis, 80, 410);
-    pdf.text(telvis, 205, 410);
-    pdf.text(corvis, 280, 410);
-    pdf.text(edvis, 355, 410);
-    pdf.text(escvis, 400, 410);
-    pdf.text(invis, 450, 410);
-    pdf.text(finvis, 500, 410);
+    // 1
+    pdf.text(nompres, 41, 101);
+    pdf.text(telpres, 97, 101 );
+    pdf.text(corpres, 123, 101 );
+    pdf.text(edpres, 185, 101 );
+    pdf.text(escpres, 199, 101 );
+    pdf.text(inpres, 233, 101 );
+    pdf.text(finpres, 256, 101 );
 
-    pdf.text(nomsec, 80, 430);
-    pdf.text(telsec, 205, 430);
-    pdf.text(corsec, 280, 430);
-    pdf.text(edsec, 355, 430);
-    pdf.text(escsec, 400, 430);
-    pdf.text(insec, 450, 430);
-    pdf.text(finsec, 500, 430);
+    pdf.text(nomvis, 41, 106);
+    pdf.text(telvis, 97, 106);
+    pdf.text(corvis, 123, 106);
+    pdf.text(edvis, 185, 106);
+    pdf.text(escvis, 199, 106);
+    pdf.text(invis, 233, 106);
+    pdf.text(finvis, 256, 106);
 
-    pdf.text(nomtes, 80, 450);
-    pdf.text(teltes, 205, 450);
-    pdf.text(cortes, 280, 450);
-    pdf.text(edtes, 355, 450);
-    pdf.text(esctes, 400, 450);
-    pdf.text(intes, 450, 450);
-    pdf.text(fintes, 500, 450);
+    pdf.text(nomsec, 41, 111);
+    pdf.text(telsec, 97, 111);
+    pdf.text(corsec, 123, 111);
+    pdf.text(edsec, 185, 111);
+    pdf.text(escsec, 199, 111);
+    pdf.text(insec, 233, 111);
+    pdf.text(finsec, 256, 111);
 
-    pdf.text(nomvoc, 80, 470);
-    pdf.text(telvoc, 205, 470);
-    pdf.text(corvoc, 280, 470);
-    pdf.text(edvoc, 355, 470);
-    pdf.text(escvoc, 400, 470);
-    pdf.text(invoc, 450, 470);
-    pdf.text(finvoc, 500, 470);
+    pdf.text(nomtes, 41, 116);
+    pdf.text(teltes, 97, 116);
+    pdf.text(cortes, 123, 116);
+    pdf.text(edtes, 185, 116);
+    pdf.text(esctes, 199, 116);
+    pdf.text(intes, 233, 116);
+    pdf.text(fintes, 256, 116);
+
+    pdf.text(nomvoc, 41, 120);
+    pdf.text(telvoc, 97, 120);
+    pdf.text(corvoc, 123, 120);
+    pdf.text(edvoc, 185, 120);
+    pdf.text(escvoc, 199, 120);
+    pdf.text(invoc, 233, 120);
+    pdf.text(finvoc, 256, 120);
   
-    pdf.text(nompres2, 80, 505);
-    pdf.text(telpres2, 205, 505 );
-    pdf.text(corpres2, 280, 505 );
-    pdf.text(edpres2, 355, 505 );
-    pdf.text(escpres2, 400, 505 );
-    pdf.text(inpres2, 450, 505 );
-    pdf.text(finpres2, 500, 505 );
+    pdf.text(nompres2, 41, 130);
+    pdf.text(telpres2, 97, 130 );
+    pdf.text(corpres2, 123, 130 );
+    pdf.text(edpres2, 185, 130 );
+    pdf.text(escpres2, 199, 130 );
+    pdf.text(inpres2, 233, 130 );
+    pdf.text(finpres2, 256, 130 );
 
-    pdf.text(nomsec2, 80, 525);
-    pdf.text(telsec2, 205, 525);
-    pdf.text(corsec2, 280, 525);
-    pdf.text(edsec2, 355, 525);
-    pdf.text(escsec2, 400, 525);
-    pdf.text(insec2, 450, 525);
-    pdf.text(finsec2, 500, 525);
+    pdf.text(nomsec2, 41, 135);
+    pdf.text(telsec2, 97, 135);
+    pdf.text(corsec2, 123, 135);
+    pdf.text(edsec2, 185, 135);
+    pdf.text(escsec2, 199, 135);
+    pdf.text(insec2, 233, 135);
+    pdf.text(finsec2, 256, 135);
 
-    pdf.text(nomvoc2, 80, 545);
-    pdf.text(telvoc2, 205, 545);
-    pdf.text(corvoc2, 280, 545);
-    pdf.text(edvoc2, 355, 545);
-    pdf.text(escvoc2, 400, 545);
-    pdf.text(invoc2, 450, 545);
-    pdf.text(finvoc2, 500, 545);
+    pdf.text(nomvoc2, 41, 140);
+    pdf.text(telvoc2, 97, 140);
+    pdf.text(corvoc2, 123, 140);
+    pdf.text(edvoc2, 185, 140);
+    pdf.text(escvoc2, 199, 140);
+    pdf.text(invoc2, 233, 140);
+    pdf.text(finvoc2, 256, 140);
 
     pdf.setFillColor(0,0,0);
     pdf.save("INGECOP-5002");

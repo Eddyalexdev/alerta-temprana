@@ -1,3 +1,4 @@
+
 function loadImage(url) {
     return new Promise(resolve => {
         const xhr = new XMLHttpRequest();
@@ -64,8 +65,6 @@ window.addEventListener('load', async () => {
 
         let cvpresim = document.getElementById("cvpresim").value;
         let cvpresiv = document.getElementById("cvpresiv").value;
-        let cvvicepm = document.getElementById("cvvicepm").value;
-        let cvvicepv = document.getElementById("cvvicepv").value;
         let cvsecrem = document.getElementById("cvsecrem").value;
         let cvsecrev = document.getElementById("cvsecrev").value;
         let cvvocam = document.getElementById("cvvocam").value;
@@ -78,73 +77,74 @@ window.addEventListener('load', async () => {
 
         generatePDF(cop, certi, gm, gh, tg, menor, juv, adul, teredad, tedad, maya, xinca, gari, mesti, otro, tetnico,
         capresim, capresiv, cavicepm, cavicepv, casecrem, casecrev, catesom, catesov, cavocalm, cavocalv, cavocallm, cavocallv, caotrom, caotrov,
-        cvpresim, cvpresiv, cvvicepm, cvvicepv, cvsecrem, cvsecrev, cvvocam, cvvocav, cvotrom, cvotrov, nom);
+        cvpresim, cvpresiv, cvsecrem, cvsecrev, cvvocam, cvvocav, cvotrom, cvotrov, nom);
     })
 
 });
 
 async function generatePDF(cop, certi, gm, gh, tg, menor, juv, adul, teredad, tedad, maya, xinca, gari, mesti, otro, tetnico,
     capresim, capresiv, cavicepm, cavicepv, casecrem, casecrev, catesom, catesov, cavocalm, cavocalv, cavocallm, cavocallv, caotrom, caotrov,
-    cvpresim, cvpresiv, cvvicepm, cvvicepv, cvsecrem, cvsecrev, cvvocam, cvvocav, cvotrom, cvotrov, nom){
-    const image = await loadImage("/images/formulario6.jpeg");
+    cvpresim, cvpresiv, cvsecrem, cvsecrev, cvvocam, cvvocav, cvotrom, cvotrov, nom){
+    const image = await loadImage("images/formulario-6-2023.jpg");
     const signatureImage = signaturePad.toDataURL();
 
-    const pdf = new jsPDF('p', 'pt', 'letter');
+    const pdf = new jsPDF('landscape');
 
-    pdf.addImage(image, 'PNG', 0, 0, 625, 785);
+    pdf.addImage(image, 'PNG', 18, 15, 255, 180);
     pdf.addImage(signatureImage, 'PNG', 350, 418, 300, 60);
 
     pdf.setFontSize(12);
     
-    pdf.text(cop, 110, 140);
-    pdf.text(certi, 214, 167);
-    pdf.text(gm, 35, 345);
-    pdf.text(gh, 70, 345);
-    pdf.text(tg, 110, 345);
-    pdf.text(menor, 150, 345);
-    pdf.text(juv, 200, 345);
-    pdf.text(adul, 252, 345);
-    pdf.text(teredad, 308, 345);
-    pdf.text(tedad, 353, 345);
-    pdf.text(maya, 386, 345);
-    pdf.text(xinca, 420, 345);
-    pdf.text(gari, 457, 345);
-    pdf.text(mesti, 500, 345);
-    pdf.text(otro, 541, 345);
-    pdf.text(tetnico, 568, 345);
-    
-    pdf.text(capresim, 110, 500);
-    pdf.text(capresiv, 155, 500);
-    pdf.text(cavicepm, 110, 526);
-    pdf.text(cavicepv, 155, 526);
-    pdf.text(casecrem, 110, 553);
-    pdf.text(casecrev, 155, 553);
-    pdf.text(catesom, 110, 580);
-    pdf.text(catesov, 155, 580);
-    pdf.text(cavocalm, 110, 608);
-    pdf.text(cavocalv, 155, 608);
-    pdf.text(cavocallm, 110, 635);
-    pdf.text(cavocallv, 155, 635);
-    pdf.text(caotrom, 110, 661);
-    pdf.text(caotrov, 155, 661);
+    pdf.text(cop, 54, 37);
+    pdf.text(certi, 100, 43);
 
-    pdf.text(cvpresim, 308, 500);
-    pdf.text(cvpresiv, 351, 500);
-    pdf.text(cvvicepm, 308, 526);
-    pdf.text(cvvicepv, 351, 526);
-    pdf.text(cvsecrem, 308, 553);
-    pdf.text(cvsecrev, 351, 553);
-    pdf.text(cvvocam, 308, 580);
-    pdf.text(cvvocav, 351, 580);
-    pdf.text(cvotrom, 308, 608);
-    pdf.text(cvotrov, 351, 608);
+    pdf.text(gm, 20, 91);
+    pdf.text(gh, 36, 91);
+    pdf.text(tg, 53, 91);
+
+    pdf.text(menor, 68, 91);
+    pdf.text(juv, 93, 91);
+    pdf.text(adul, 115, 91);
+    pdf.text(teredad, 140, 91);
+    pdf.text(tedad, 161, 91);
+
+    pdf.text(maya, 176, 91);
+    pdf.text(xinca, 192, 91);
+    pdf.text(gari, 207, 91);
+    pdf.text(mesti, 229, 91);
+    pdf.text(otro, 247, 91);
+    pdf.text(tetnico, 260, 91);
     
-    pdf.text(nom, 386, 475);
+    pdf.text(capresim, 53, 133);
+    pdf.text(capresiv, 68, 133);
+    pdf.text(cavicepm, 53, 140);
+    pdf.text(cavicepv, 68, 140);
+    pdf.text(casecrem, 53, 147);
+    pdf.text(casecrev, 68, 147);
+    pdf.text(catesom, 53, 154);
+    pdf.text(catesov, 68, 154);
+    pdf.text(cavocalm, 53, 162);
+    pdf.text(cavocalv, 68, 162);
+    pdf.text(cavocallm, 53, 169);
+    pdf.text(cavocallv, 68, 169);
+    pdf.text(caotrom, 53, 176);
+    pdf.text(caotrov, 68, 176);
+
+    pdf.text(cvpresim, 140, 133);
+    pdf.text(cvpresiv, 161, 133);
+    pdf.text(cvsecrem, 140, 140);
+    pdf.text(cvsecrev, 161, 140);
+    pdf.text(cvvocam, 140, 147);
+    pdf.text(cvvocav, 161, 147);
+    pdf.text(cvotrom, 140, 154);
+    pdf.text(cvotrov, 161, 154);
+    
+    pdf.text(nom, 179, 124);
 
     pdf.setFontSize(8);
     
     pdf.setFillColor(0,0,0);
-    pdf.save("INGECOP-5001");
+    pdf.save("INGECOP-5006");
     //window.print("INGECOP-5001.pdf");
 
 }

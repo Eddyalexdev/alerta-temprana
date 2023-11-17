@@ -38,21 +38,21 @@ block content
                                 label.form-label(for='dire') Direcci&oacute;n
                                 input#dire.form-control(type='text')
                             .col-md-6
-                                label.form-label(for='nit') Numero de Identificacion Tributaria 
+                                label.form-label(for='nit') Número de Identificacion Tributaria 
                                 input#nit.form-control(type='text')
                         .row.mb-3
                             .col-md-6
                                 label.form-label(for='rl') Representante Legal
                                 input#rl.form-control(type='text')
                             .col-md-6
-                                label.form-label(for='tel') Telefono / Linea Fija / Celular
+                                label.form-label(for='tel') Télefono / Linea Fija / Celular
                                 input#tel.form-control(type='text')
                         .mb-3
-                            label.form-label(for='cor') Correo Electronico / E-mail
+                            label.form-label(for='cor') Correo Electrónico / E-mail
                             input#cor.form-control(type='text')
                         hr
                         hr
-                        h3 SOLICITUD DE BAJA DE LIBROS Y/O FORMAS CONTABLES
+                        h3 SOLICITUD DE BAJA DE LIBROS
                         hr
                         h5 INGRESE LIBRO #1
                         .row.d-md-3
@@ -60,7 +60,7 @@ block content
                                 label.form-label(for='lb1') LIBRO
                                 input#lb1.form-control(type='text')
                             .col-md-4
-                                label.form-label(for='nr1') No. RESOLUCION
+                                label.form-label(for='nr1') No. Resolución
                                 input#nr1.form-control(type='text')
                             .col-md-2
                                 label.form-label(for='m1') Manual
@@ -69,7 +69,7 @@ block content
                                 label.form-label(for='hm1') Hoja M&oacute;vil
                                 input#p1.form-control(type='')
                             .col-md-2
-                                label.form-label(for='veinte') Finalizacion
+                                label.form-label(for='veinte') Finalización
                                 input#p2.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Extrav&iacute;o
@@ -85,10 +85,10 @@ block content
                                 input#ot.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Del
-                                input#p6.form-control(type='text')
+                                input#p6.form-control(type='text', maxlength="7")
                             .col-md-2
                                 label.form-label(for='veinte') Al
-                                input#p7.form-control(type='text')
+                                input#p7.form-control(type='text', maxlength="7")
                         hr
                         h5 INGRESE LIBRO #2
                         .row.d-md-3
@@ -96,7 +96,7 @@ block content
                                 label.form-label(for='libroacta') LIBRO
                                 input#p8.form-control(type='text')
                             .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
+                                label.form-label(for='numacta') No. Resolución
                                 input#p9.form-control(type='text')
                             .col-md-2
                                 label.form-label(for='veinte') Manual
@@ -105,7 +105,7 @@ block content
                                 label.form-label(for='veinte') Hoja M&oacute;vil
                                 input#p11.form-control(type='')
                             .col-md-2
-                                label.form-label(for='veinte') Finalizacion
+                                label.form-label(for='veinte') Finalización
                                 input#p12.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Extrav&iacute;o
@@ -121,10 +121,10 @@ block content
                                 input#ot2.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Del
-                                input#p16.form-control(type='text')
+                                input#p16.form-control(type='text', maxlength="7")
                             .col-md-2
                                 label.form-label(for='veinte') Al
-                                input#p17.form-control(type='text')
+                                input#p17.form-control(type='text', maxlength="7")
                         hr
                         h5 INGRESE LIBRO #3
                         .row.d-md-3
@@ -132,7 +132,7 @@ block content
                                 label.form-label(for='libroacta') LIBRO
                                 input#p18.form-control(type='text')
                             .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
+                                label.form-label(for='numacta') No. Resolución
                                 input#p19.form-control(type='text')
                             .col-md-2
                                 label.form-label(for='veinte') Manual
@@ -141,7 +141,7 @@ block content
                                 label.form-label(for='veinte') Hoja M&oacute;vil
                                 input#p21.form-control(type='')
                             .col-md-2
-                                label.form-label(for='veinte') Finalizacion
+                                label.form-label(for='veinte') Finalización
                                 input#p22.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Extrav&iacute;o
@@ -157,10 +157,10 @@ block content
                                 input#ot3.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Del
-                                input#p26.form-control(type='text')
+                                input#p26.form-control(type='text', maxlength="7")
                             .col-md-2
                                 label.form-label(for='veinte') Al
-                                input#p27.form-control(type='text')
+                                input#p27.form-control(type='text', maxlength="7")
                         hr
                         h5 INGRESE LIBRO #4
                         .row.d-md-3
@@ -168,7 +168,7 @@ block content
                                 label.form-label(for='libroacta') LIBRO
                                 input#p28.form-control(type='text')
                             .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
+                                label.form-label(for='numacta') No. Resolución
                                 input#p29.form-control(type='text')
                             .col-md-2
                                 label.form-label(for='veinte') Manual
@@ -177,7 +177,7 @@ block content
                                 label.form-label(for='veinte') Hoja M&oacute;vil
                                 input#p31.form-control(type='')
                             .col-md-2
-                                label.form-label(for='veinte') Finalizacion
+                                label.form-label(for='veinte') Finalización
                                 input#p32.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Extrav&iacute;o
@@ -193,20 +193,20 @@ block content
                                 input#ot4.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Del
-                                input#p36.form-control(type='text')
+                                input#p36.form-control(type='text', maxlength="7")
                             .col-md-2
                                 label.form-label(for='veinte') Al
-                                input#p37.form-control(type='text')
+                                input#p37.form-control(type='text', maxlength="7")
                         hr
-                        h3 SOLICITUD DE BAJA DE LIBROS Y/O FORMAS CONTABLES
+                        h3 SOLICITUD DE BAJA DE FORMAS CONTABLES
                         hr
                         h5 INGRESE FORMA #1
                         .row.d-md-3
                             .col-md-4
-                                label.form-label(for='libroacta') FORMA
+                                label.form-label(for='libroacta') Forma
                                 input#p38.form-control(type='text')
                             .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
+                                label.form-label(for='numacta') No. Resolución
                                 input#p39.form-control(type='text')
                             .col-md-2
                                 label.form-label(for='veinte') Manual
@@ -215,7 +215,7 @@ block content
                                 label.form-label(for='veinte') Computarizado
                                 input#p41.form-control(type='')
                             .col-md-2
-                                label.form-label(for='veinte') Electronico
+                                label.form-label(for='veinte') Electrónico
                                 input#p42.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Extrav&iacute;o
@@ -231,18 +231,18 @@ block content
                                 input#p46.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Del
-                                input#p47.form-control(type='text')
+                                input#p47.form-control(type='text', maxlength="7")
                             .col-md-2
                                 label.form-label(for='veinte') Al
-                                input#p48.form-control(type='text')
+                                input#p48.form-control(type='text', maxlength="7")
                         hr
                         h5 INGRESE FORMA #2
                         .row.d-md-3
                             .col-md-4
-                                label.form-label(for='libroacta') FORMA
+                                label.form-label(for='libroacta') Forma 
                                 input#p49.form-control(type='text')
                             .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
+                                label.form-label(for='numacta') No. Resolución
                                 input#p50.form-control(type='text')
                             .col-md-2
                                 label.form-label(for='veinte') Manual
@@ -251,7 +251,7 @@ block content
                                 label.form-label(for='veinte') Computarizado
                                 input#pp2.form-control(type='')
                             .col-md-2
-                                label.form-label(for='veinte') Electronico
+                                label.form-label(for='veinte') Electrónico
                                 input#pp3.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Extrav&iacute;o
@@ -267,18 +267,18 @@ block content
                                 input#pp7.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Del
-                                input#pp8.form-control(type='text')
+                                input#pp8.form-control(type='text', maxlength="7")
                             .col-md-2
                                 label.form-label(for='veinte') Al
-                                input#pp9.form-control(type='text')
+                                input#pp9.form-control(type='text', maxlength="7")
                         hr
                         h5 INGRESE FORMA #3
                         .row.d-md-3
                             .col-md-4
-                                label.form-label(for='libroacta') FORMA
+                                label.form-label(for='libroacta') Forma
                                 input#pp10.form-control(type='text')
                             .col-md-4
-                                label.form-label(for='numacta') No. RESOLUCION
+                                label.form-label(for='numacta') No. Resolución
                                 input#pp11.form-control(type='text')
                             .col-md-2
                                 label.form-label(for='veinte') Manual
@@ -287,7 +287,7 @@ block content
                                 label.form-label(for='veinte') Computarizado
                                 input#pp13.form-control(type='')
                             .col-md-2
-                                label.form-label(for='veinte') Electronico
+                                label.form-label(for='veinte') Electrónico
                                 input#pp14.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Extravio
@@ -303,10 +303,10 @@ block content
                                 input#pp18.form-control(type='')
                             .col-md-2
                                 label.form-label(for='veinte') Del
-                                input#pp19.form-control(type='text')
+                                input#pp19.form-control(type='text', maxlength="7")
                             .col-md-2
                                 label.form-label(for='veinte') Al
-                                input#pp20.form-control(type='text')
+                                input#pp20.form-control(type='text', maxlength="7")
                         hr
                         hr
                         hr

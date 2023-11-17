@@ -61,30 +61,33 @@ window.addEventListener('load', async () => {
         let p19  = document.getElementById('p19').value;
         let p20  = document.getElementById('p20').value;
 
-        generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20);
+        let rlan = document.getElementById('rlan').value
+        let gcn = document.getElementById('gcn').value
+
+        generatePDF(rlan, gcn, lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20);
         
     })
 
 });
 
-async function generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20){
-    const image = await loadImage("images/formulario4.jpg");
+async function generatePDF(rlan, gcn, lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20){
+    const image = await loadImage("images/formulario-4-2023.jpg");
     const signatureImage = signaturePad.toDataURL();
 
     const pdf = new jsPDF('p', 'pt', 'letter');
 
-    pdf.addImage(image, 'PNG', 0, 0, 625, 792);
+    pdf.addImage(image, 'PNG', 45, 53, 525, 682); //w / h
     pdf.addImage(signatureImage, 'PNG', 250, 685, 300, 60);
 
     pdf.setFontSize(12);
 
     pdf.setFontSize(8);
-    pdf.text(lugar, 120, 188);
+    pdf.text(lugar, 100, 188);
     pdf.text(fecha, 190, 188);
 
     pdf.text(cop, 235, 205);
 
-    pdf.text(dom, 122, 223);
+    pdf.text(dom, 100, 223);
     pdf.text(nit, 145, 238);
     pdf.text(rl, 122, 255);
 
@@ -97,33 +100,37 @@ async function generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,p1,p2,p3,p4,
     pdf.text(cd, 468, 290);
 
     //
-    pdf.text(p1, 220, 305);
-    pdf.text(p2, 220, 320);
-    pdf.text(p3, 220, 333);
+    pdf.text(p1, 200, 305);
+    pdf.text(p2, 200, 320);
+    pdf.text(p3, 200, 333);
 
     //
-    pdf.text(p4, 220, 363);
-    pdf.text(p5, 220, 378);
+    pdf.text(p4, 200, 364);
+    pdf.text(p5, 200, 378);
 
     //
-    pdf.text(p6, 122, 568);
-    pdf.text(p7, 122, 583);
-    pdf.text(p9, 153, 600);
-    pdf.text(p8, 122, 618);
-    pdf.text(p10, 153, 635);
-    pdf.text(p11, 375, 635);
+    pdf.text(rlan, 100, 407)
+    pdf.text(gcn, 100, 482)
 
-    pdf.text(p12, 165, 653);
-    pdf.text(p14, 389, 653);
-    pdf.text(p15, 493, 653);
+    //
+    pdf.text(p6, 100, 568);
+    pdf.text(p7, 100, 585);
+    pdf.text(p9, 133, 603);
+    pdf.text(p8, 100, 620);
+    pdf.text(p10, 133, 636);
+    pdf.text(p11, 374, 636);
 
-    pdf.text(p13, 153, 670);
-    pdf.text(p16, 373, 670);
-    pdf.text(p17, 470, 670);
+    pdf.text(p12, 155, 653);
+    pdf.text(p14, 390, 653);
+    pdf.text(p15, 496, 653);
 
-    pdf.text(p18, 213, 688);
-    pdf.text(p19, 283, 688);
-    pdf.text(p20, 355, 688);
+    pdf.text(p13, 133, 672);
+    pdf.text(p16, 373, 672);
+    pdf.text(p17, 470, 672);
+
+    pdf.text(p18, 210, 690);
+    pdf.text(p19, 283, 690);
+    pdf.text(p20, 355, 690);
 
     pdf.setFillColor(0,0,0);
     pdf.save("INGECOP-5004");

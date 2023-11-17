@@ -122,72 +122,73 @@ window.addEventListener('load', async () => {
 });
 
 async function generatePDF(lugar,fecha,cop,dom,nit,tel,rl,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,pp1,pp2,pp3,pp4,pp5,pp6,pp7,pp8,pp9,pp10,pp11,pp12,pp13,pp14,pp15,pp16,pp17,pp18,pp19,pp20,pp21,pp22,pp23,pp24,pp25,pp26,pp27){
-    const image = await loadImage("images/formulario5.jpg");
+    const image = await loadImage("images/formulario-5-2023.jpg");
     const signatureImage = signaturePad.toDataURL();
 
     const pdf = new jsPDF('p', 'pt', 'letter');
 
-    pdf.addImage(image, 'PNG', 0, 0, 625, 792);
+    pdf.addImage(image, 'PNG', 45, 53, 525, 682); //w / h
     pdf.addImage(signatureImage, 'PNG', 102, 585, 300, 60);
 
     pdf.setFontSize(12);
 
     pdf.setFontSize(8);
-    pdf.text(lugar, 142, 165);
-    pdf.text(fecha, 220, 165);
+    pdf.text(lugar, 122, 163);
+    pdf.text(fecha, 205, 163);
 
-    pdf.text(cop, 220, 182);
-    pdf.text(dom, 138, 200);
-    pdf.text(nit, 138, 220);
-    pdf.text(tel, 365, 220);
+    pdf.text(cop, 205, 181);
+    pdf.text(dom, 115, 200);
+
+    pdf.text(nit, 115, 219);
+    pdf.text(tel, 363, 219);
 
     // Libro 1
-    pdf.text(rl, 100, 313);
-    pdf.text(p1, 233, 313);
-    pdf.text(p2, 415, 313);
-    pdf.text(p3, 445, 313);
-    pdf.text(p4, 490, 313);
+    pdf.text(rl, 48, 314);
+    pdf.text(p1, 212, 314);
+    pdf.text(p2, 415, 314);
+    pdf.text(p3, 447, 314);
+    pdf.text(p4, 490, 314);
 
     // Libro 2
-    pdf.text(p5, 100, 328);
-    pdf.text(p6, 233, 328);
+    pdf.text(p5, 48, 328);
+    pdf.text(p6, 212, 328);
     pdf.text(p7, 415, 328);
-    pdf.text(p8, 445, 328);
+    pdf.text(p8, 447, 328);
     pdf.text(p9, 490, 328);
 
     // Libro 3
-    pdf.text(p10, 100, 340);
-    pdf.text(p11, 233, 340);
+    pdf.text(p10, 48, 340);
+    pdf.text(p11, 212, 340);
     pdf.text(p12, 415, 340);
-    pdf.text(p13, 445, 340);
+    pdf.text(p13, 447, 340);
     pdf.text(p14, 490, 340);
 
     // Libro 4
-    pdf.text(p15, 100, 355);
-    pdf.text(p16, 233, 355);
+    pdf.text(p15, 48, 355);
+    pdf.text(p16, 212, 355);
     pdf.text(p17, 415, 355);
-    pdf.text(p18, 445, 355);
+    pdf.text(p18, 447, 355);
     pdf.text(p19, 490, 355);
 
     // Libro 5
-    pdf.text(p20, 100, 370);
-    pdf.text(p21, 233, 370);
+    pdf.text(p20, 48, 370);
+    pdf.text(p21, 212, 370);
     pdf.text(p22, 415, 370);
-    pdf.text(p23, 445, 370);
+    pdf.text(p23, 447, 370);
     pdf.text(p24, 490, 370);
     
     // Libro 6
-    pdf.text(p25, 100, 385);
-    pdf.text(p26, 233, 385);
+    pdf.text(p25, 48, 385);
+    pdf.text(p26, 212, 385);
     pdf.text(p27, 415, 385);
-    pdf.text(p28, 445, 385);
+    pdf.text(p28, 447, 385);
     pdf.text(p29, 490, 385);
 
     //libro 7
-    pdf.text(p30, 100, 398);
-    pdf.text(p31, 233, 398);
+    pdf.text(p30, 48, 398);
+    pdf.text(p31, 212, 398);
     pdf.text(p32, 415, 398);
-    pdf.text(p33, 445, 398);
+    pdf.text(p33, 447, 398);
     pdf.text(p34, 490, 398);
 
     // Comentario
@@ -196,58 +197,58 @@ async function generatePDF(lugar,fecha,cop,dom,nit,tel,rl,p1,p2,p3,p4,p5,p6,p7,p
     pdf.text(p37, 234, 425);
 
     // Forma 1
-    pdf.text(p38, 100, 470);
-    pdf.text(p39, 230, 470);
-    pdf.text(p42, 273, 470);
-    pdf.text(p40, 445, 470);
-    pdf.text(p41, 415, 470);
-    pdf.text(p43, 490, 470);
+    pdf.text(p38, 48, 473);
+    pdf.text(p39, 212, 473);
+    pdf.text(p42, 256, 473);
+    pdf.text(p40, 415, 473);
+    pdf.text(p41, 448, 473);
+    pdf.text(p43, 490, 473);
 
     // Forma 2
-    pdf.text(p44, 100, 483);
-    pdf.text(p45, 230, 483);
-    pdf.text(p48, 273, 483);
-    pdf.text(p46, 445, 483);
-    pdf.text(p47, 415, 483);
-    pdf.text(p49, 490, 483);
+    pdf.text(p44, 48, 488);
+    pdf.text(p45, 212, 488);
+    pdf.text(p48, 256, 488);
+    pdf.text(p46, 415, 488);
+    pdf.text(p47, 448, 488);
+    pdf.text(p49, 490, 488);
 
     // Forma 3 
-    pdf.text(p50, 100, 498);
-    pdf.text(pp1, 230, 498);
-    pdf.text(pp4, 273, 498);
-    pdf.text(pp2, 445, 498);
-    pdf.text(pp3, 415, 498);
-    pdf.text(pp5, 490, 498);
+    pdf.text(p50, 48, 503);
+    pdf.text(pp1, 212, 503);
+    pdf.text(pp4, 256, 503);
+    pdf.text(pp2, 415, 503);
+    pdf.text(pp3, 448, 503);
+    pdf.text(pp5, 490, 503);
 
     // Forma 4
-    pdf.text(pp6, 100, 510);
-    pdf.text(pp7, 230, 510);
-    pdf.text(pp10, 273, 510);
-    pdf.text(pp8, 445, 510);
-    pdf.text(pp9, 415, 510);
-    pdf.text(pp11, 490, 510);
+    pdf.text(pp6, 48, 517);
+    pdf.text(pp7, 212, 517);
+    pdf.text(pp10, 256, 517);
+    pdf.text(pp8, 415, 517);
+    pdf.text(pp9, 448, 517);
+    pdf.text(pp11, 490, 517);
 
     // Forma 5
-    pdf.text(pp12, 100, 525);
-    pdf.text(pp13, 230, 525);
-    pdf.text(pp16, 273, 525);
-    pdf.text(pp14, 445, 525);
-    pdf.text(pp15, 415, 525);
-    pdf.text(pp17, 490, 525);
+    pdf.text(pp12, 48, 531);
+    pdf.text(pp13, 212, 531);
+    pdf.text(pp16, 256, 531);
+    pdf.text(pp14, 415, 531);
+    pdf.text(pp15, 448, 531);
+    pdf.text(pp17, 490, 531);
 
     // Forma 6
-    pdf.text(pp18, 100, 540);
-    pdf.text(pp19, 230, 540);
-    pdf.text(pp22, 273, 540);
-    pdf.text(pp20, 445, 540);
-    pdf.text(pp21, 415, 540);
-    pdf.text(pp23, 490, 540);
+    pdf.text(pp18, 48, 545);
+    pdf.text(pp19, 212, 545);
+    pdf.text(pp22, 256, 545);
+    pdf.text(pp20, 415, 545);
+    pdf.text(pp21, 448, 545);
+    pdf.text(pp23, 490, 545);
 
     // Nombre del Repositorio
-    pdf.text(pp24, 131, 568);
-    pdf.text(pp26, 214, 568);
-    pdf.text(pp25, 300, 568);
-    pdf.text(pp27, 230, 585);
+    pdf.text(pp24, 111, 575);
+    pdf.text(pp26, 199, 575);
+    pdf.text(pp25, 294, 575);
+    pdf.text(pp27, 212, 594);
 
     pdf.setFillColor(0,0,0);
     pdf.save("INGECOP-5005");
