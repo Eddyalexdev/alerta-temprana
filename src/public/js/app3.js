@@ -117,6 +117,6 @@ async function generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,em,us,sp,p1,
     pdf.text(p18, 509, 660);
 
     pdf.setFillColor(0,0,0);
-    pdf.save("INGECOP-5003");
+    pdf.save("INGECOP-SALF-5003");
     //window.print("INGECOP-5001.pdf");
 }

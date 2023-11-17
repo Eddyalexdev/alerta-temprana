@@ -144,7 +144,7 @@ async function generatePDF(cop, certi, gm, gh, tg, menor, juv, adul, teredad, te
     pdf.setFontSize(8);
     
     pdf.setFillColor(0,0,0);
-    pdf.save("INGECOP-5006");
+    pdf.save("Certificación de Asociados Constituidos en la Cooperativa");
     //window.print("INGECOP-5001.pdf");
 
 }

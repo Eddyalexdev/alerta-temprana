@@ -206,6 +206,6 @@ async function generatePDF(nomvoc2, telvoc2, corvoc2, edvoc2, escvoc2, invoc2, f
     pdf.text(finvoc2, 256, 140);
 
     pdf.setFillColor(0,0,0);
-    pdf.save("INGECOP-5002");
+    pdf.save("INGECOP-SALF-5002");
     //window.print("INGECOP-5001.pdf");
 }
