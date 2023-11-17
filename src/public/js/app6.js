@@ -91,7 +91,7 @@ async function generatePDF(cop, certi, gm, gh, tg, menor, juv, adul, teredad, te
     const pdf = new jsPDF('landscape');
 
     pdf.addImage(image, 'PNG', 18, 15, 255, 180);
-    pdf.addImage(signatureImage, 'PNG', 350, 418, 300, 60);
+    pdf.addImage(signatureImage, 'PNG', 179, 117, 100, 15);
 
     pdf.setFontSize(12);
     

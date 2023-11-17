@@ -122,17 +122,17 @@ async function generatePDF(nomvoc2, telvoc2, corvoc2, edvoc2, escvoc2, invoc2, f
     const pdf = new jsPDF('landscape');
 
     pdf.addImage(image, 'PNG', 15, 8, 265, 188);
-    pdf.addImage(signatureImage, 'PNG', 350, 705, 300, 60);
+    pdf.addImage(signatureImage, 'PNG', 215, 180, 90, 13);
 
     pdf.setFontSize(12);
 
     pdf.setFontSize(8);
     pdf.text(lugar, 32, 44);
     pdf.text(fecha, 185, 44);
-    pdf.text(cop, 52, 50);
+    pdf.text(cop, 60, 50);
     pdf.text(domicilio, 32, 56);
     pdf.text(nit, 255, 56);
-    pdf.text(departamento, 52, 62);
+    pdf.text(departamento, 60, 62);
     pdf.text(municipio, 185, 62);
     pdf.text(copcor, 97, 68)
 
