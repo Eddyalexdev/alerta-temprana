@@ -125,19 +125,19 @@ async function generatePDF(lugar,fecha,cop,dire,nit,rl,tel,cor,lb1,nr1,m1,p1,p2,
     const signatureImage = signaturePad.toDataURL();
     const pdf = new jsPDF('landscape');
     pdf.addImage(image, 'PNG', 18, 15, 255, 180);
-    pdf.addImage(signatureImage, 'PNG', 350, 585, 300, 60);
+    pdf.addImage(signatureImage, 'PNG', 179, 157, 100, 15);
     pdf.setFontSize(12);
     pdf.setFontSize(8);
 
-    pdf.text(lugar, 48, 55);
-    pdf.text(fecha, 100, 55);
-    pdf.text(nit, 230, 55);
+    pdf.text(lugar, 48, 56);
+    pdf.text(fecha, 83, 56);
+    pdf.text(nit, 230, 56);
 
-    pdf.text(cop, 100, 60);
-    pdf.text(dire, 48, 70);
-    pdf.text(rl, 54, 80);
-    pdf.text(tel, 70, 90);
-    pdf.text(cor, 200, 90);
+    pdf.text(cop, 97, 62);
+    pdf.text(dire, 48, 68);
+    pdf.text(rl, 54, 75);
+    pdf.text(tel, 70, 83);
+    pdf.text(cor, 214, 83);
 
     // Libro 1
     pdf.text(lb1, 23, 107);
@@ -231,5 +231,5 @@ async function generatePDF(lugar,fecha,cop,dire,nit,rl,tel,cor,lb1,nr1,m1,p1,p2,
     pdf.text(pp20, 257, 157);
 
     pdf.setFillColor(0,0,0);
-    pdf.save("INGECOP-5001");
+    pdf.save("INGECOP-SALF-5001");
 }

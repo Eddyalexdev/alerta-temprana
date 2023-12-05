@@ -71,11 +71,11 @@ async function generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,em,us,sp,p1,
     const signatureImage = signaturePad.toDataURL();
     const pdf = new jsPDF('p', 'pt', 'letter');
     pdf.addImage(image, 'PNG', 45, 53, 525, 652);
-    pdf.addImage(signatureImage, 'PNG', 350, 735, 300, 60);
+    pdf.addImage(signatureImage, 'PNG', 300, 790, 300, 60);
     pdf.setFontSize(12);
     pdf.setFontSize(8);
 
-    pdf.text(lugar, 115, 170);
+    pdf.text(lugar, 110, 170);
     pdf.text(fecha, 185, 170);
     pdf.text(nit, 455, 170);
 
@@ -84,14 +84,14 @@ async function generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,em,us,sp,p1,
     pdf.text(rl, 160, 238);
 
     //
-    pdf.text(tel, 160, 254);
-    pdf.text(cor, 373, 254);
+    pdf.text(tel, 160, 255);
+    pdf.text(cor, 373, 255);
 
     // middle items
-    pdf.text(fi, 320, 271);
-    pdf.text(cd, 355, 271);
-    pdf.text(em, 405, 271);
-    pdf.text(us, 455, 271);
+    pdf.text(fi, 320, 272);
+    pdf.text(cd, 355, 272);
+    pdf.text(em, 405, 272);
+    pdf.text(us, 455, 272);
 
     pdf.text(sp, 510, 303);
 
@@ -114,9 +114,9 @@ async function generatePDF(lugar,fecha,cop,nit,dom,rl,tel,cor,fi,cd,em,us,sp,p1,
     pdf.text(p15, 509, 596);
     pdf.text(p16, 509, 619);
     pdf.text(p17, 509, 636);
-    pdf.text(p18, 509, 659);
+    pdf.text(p18, 509, 660);
 
     pdf.setFillColor(0,0,0);
-    pdf.save("INGECOP-5003");
+    pdf.save("INGECOP-SALF-5003");
     //window.print("INGECOP-5001.pdf");
 }

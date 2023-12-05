@@ -188,10 +188,10 @@ block content
                         .row.d-md-5
                             .col-md-2
                                 label.form-label(for='nompres') MANUAL
-                                input#p35.form-control(type='text', style='border: 1px dashed red; width: 80%; height: 30px;')
+                                input#p35.form-control.option(type='text', style='border: 1px dashed red; width: 80%; height: 30px;')
                             .col-md-3
                                 label.form-label(for='telpres') HOJA MOVIL
-                                input#p36.form-control(type='text', style='border: 1px dashed red; width: 40%; height: 30px;')
+                                input#p36.form-control.option(type='text', style='border: 1px dashed red; width: 40%; height: 30px;')
                             .col-md-7
                                 label.form-label(for='telpres') COMENTARIO
                                 input#p37.form-control(type='text')
@@ -334,13 +334,13 @@ block content
                         .row.d-md-5
                             .col-md-2
                                 label.form-label(for='nompres') Manual
-                                input#pp24.form-control(type='text', style='border: 1px dashed red; width: 80%; height: 30px;')
+                                input#pp24.form-control.option2(type='text', style='border: 1px dashed red; width: 80%; height: 30px;')
                             .col-md-3
                                 label.form-label(for='telpres') Electrónico
-                                input#pp25.form-control(type='text', style='border: 1px dashed red; width: 40%; height: 30px;')
+                                input#pp25.form-control.option2(type='text', style='border: 1px dashed red; width: 40%; height: 30px;')
                             .col-md-2
                                 label.form-label(for='telpres') Computarizado
-                                input#pp26.form-control(type='text', style='border: 1px dashed red; width: 70%; height: 30px;')
+                                input#pp26.form-control.option2(type='text', style='border: 1px dashed red; width: 70%; height: 30px;')
                         hr
                         .mb-3
                             label.form-label(for='copcor') Nombre del Representate Legal:    
@@ -350,3 +350,30 @@ block content
                         .signature.mb-2(style='width: 100%; height: 200px;')
                             canvas#signature-canvas(style='border: 1px dashed rgb(255, 230, 0); width: 100%; height: 200px; background-color: white;')
                         button.btn.btn-primary.mb-4(type='submit') Generar PDF
+
+        script.
+          const options = document.querySelectorAll('.option')
+          const options2 = document.querySelectorAll('.option2')
+
+          options.forEach((option, index) => {
+            option.addEventListener('input', (e) => {
+              updateInputs(index, "")
+            })
+          })
+
+          options2.forEach((option, index) => {
+            option.addEventListener('input', (e) => {
+              updateInputs(index, "2")
+            })
+          })
+
+          function updateInputs(activeIndex, number) {
+              var inputValue = document.querySelectorAll(`.option${number}`)[activeIndex].value;
+
+              document.querySelectorAll(`.option${number}`).forEach(function(input, index) {
+                  if (index !== activeIndex) {
+                      input.value = '';
+                  }
+              });
+          }
+

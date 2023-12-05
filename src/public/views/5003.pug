@@ -42,34 +42,34 @@ block content
                                 label.form-label(for='dom') Direcci&oacute;n
                                 input#dom.form-control(type='text', maxlength="150")
                             .col-md-6
-                                label.form-label(for='nit') Numero de Identificacion Tributaria 
+                                label.form-label(for='nit') Número de Identificación Tributaria 
                                 input#nit.form-control(type='text', maxlength="30")
                         .row.mb-3
                             .col-md-6
                                 label.form-label(for='rl') Representante Legal
                                 input#rl.form-control(type='text', maxlength="150")
                             .col-md-6
-                                label.form-label(for='tel') Telefono / Linea Fija / Celular
+                                label.form-label(for='tel') Teléfono / Linea Fija / Celular
                                 input#tel.form-control(type='text', maxlength="30")
                         .mb-3
-                            label.form-label(for='cor') Correo Electronico / E-mail
+                            label.form-label(for='cor') Correo Electrónico / E-mail
                             input#cor.form-control(type='text', maxlength="30")
                         hr
-                        h3 FORMA DE ENTREGA DE MEMORIA DE LABORES
-                        h6 MARCAR CON UNA &quot;X&quot; - FORMA DE ENTREGA DE MEMORIA DE LABORES 
+                        h5 FORMA DE ENTREGA DE MEMORIA DE LABORES
+                        h6 MARCAR CON UNA &quot;X&quot;
                         .row.d-md-3
                             .col-md-3
                                 label.form-label(for='fi') FISICA
-                                input#fi.form-control(type='text', maxlength="1")
+                                input#fi.form-control.option(type='text', maxlength="1")
                             .col-md-3
                                 label.form-label(for='cd') CD
-                                input#cd.form-control(type='text', maxlength="1")
+                                input#cd.form-control.option(type='text', maxlength="1")
                             .col-md-3
                                 label.form-label(for='em') E-MAIL
-                                input#em.form-control(type='', maxlength="1")
+                                input#em.form-control.option(type='', maxlength="1")
                             .col-md-3
                                 label.form-label(for='us') USB
-                                input#us.form-control(type='', maxlength="1")
+                                input#us.form-control.option(type='', maxlength="1")
                         hr
                         hr
                         h6 MARCAR CON UNA &quot;X&quot; - ENTREGAR LA SIGUIENTE DOCUMENTACI&Oacute;N: 
@@ -82,7 +82,7 @@ block content
                                         input#sp.form-control(type='', maxlength="1")
                         hr
                         hr
-                        h3 2) INFORMACI&Oacute;N LEGAL Y ADMINISTRATIVA: 
+                        h5 2) INFORMACI&Oacute;N LEGAL Y ADMINISTRATIVA: 
                         h6 MARCAR CON UNA &quot;X&quot;
                         table(border='0')
                             tbody
@@ -133,15 +133,13 @@ block content
                                         input#p9.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
-                                        | 2.9 Informe de Otros Comit&eacute;s (Comit&eacute; de Cr&eacute;ditos, educaci&oacute;n, etc.) . y sellado por el Comit&eacute;. (si Aplica)
+                                        | 2.9 Informe de Otros Comit&eacute;s (Comit&eacute; de Cr&eacute;ditos, Educaci&oacute;n, etc.) y sellado por el Comit&eacute;. (si Aplica)
                                     td(width='10%')
                                         input#p10.form-control(type='', maxlength="1")
                         hr
                         hr
-                        center
-                            h3 3) INFORMACI&Oacute;N CONTABLE 
-                        center
-                            h6 MARCAR CON UNA &quot;X&quot;
+                        h5 3) INFORMACI&Oacute;N CONTABLE 
+                        h6 MARCAR CON UNA &quot;X&quot;
                         table(border='0')
                             tbody
                                 tr
@@ -156,7 +154,7 @@ block content
                                         input#p12.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
-                                        | 3.3 Estado de cambio en el Patrimonio
+                                        | 3.3 Estado de Cambio en el Patrimonio
                                     td(width='10%')
                                         input#p13.form-control(type='', maxlength="1")
                                 tr
@@ -166,22 +164,22 @@ block content
                                         input#p14.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
-                                        | 3.5 Notas a los Estados financieros
+                                        | 3.5 Notas a los Estados Financieros
                                     td(width='10%')
                                         input#p15.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
-                                        | 3.6 Dictamen de la Comisi&oacute;n de Vigilancia CON FIRMA Y SELLO
+                                        | 3.6 Dictamen de la Comisi&oacute;n de Vigilancia con firma y sello
                                     td(width='10%')
                                         input#p16.form-control(type='', maxlength="1")
                                 tr
                                     td(width='200px')
-                                        | 3.7 Presupuesto de Ingresos yEgresos para el per&iacute;odo a iniciar
+                                        | 3.7 Presupuesto de Ingresos y Egresos para el per&iacute;odo a iniciar
                                     td(width='10%')
                                         input#p17.form-control(type='' maxlength="1")
                                 tr
                                     td(width='200px')
-                                        | 3.8 PlandeTrabajoparaelper&iacute;odoainiciar (Debidamentefirmadoyselladoporel Consejode Administraci&oacute;n)
+                                        | 3.8 Plan de Trabajo para el per&iacute;odo a iniciar 
                                     td(width='10%')
                                         input#p18.form-control(type='' maxlength="1")
                         hr
@@ -189,3 +187,23 @@ block content
                         .signature.mb-2(style='width: 100%; height: 200px;')
                             canvas#signature-canvas(style='border: 1px dashed red; width: 100%; height: 200px; background-color: white;')
                         button.btn.btn-primary.mb-4(type='submit') Generar PDF
+
+        script.
+          const options = document.querySelectorAll('.option')
+
+          options.forEach((option, index) => {
+            option.addEventListener('input', (e) => {
+              updateInputs(index, "")
+            })
+          })
+
+          function updateInputs(activeIndex, number) {
+              var inputValue = document.querySelectorAll(`.option${number}`)[activeIndex].value;
+
+              document.querySelectorAll(`.option${number}`).forEach(function(input, index) {
+                  if (index !== activeIndex) {
+                      input.value = '';
+                  }
+              });
+          }
+
